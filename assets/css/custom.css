@@ -1,0 +1,40 @@
+/* Add here all your css styles (customizations) */
+
+/*Navbar Menu*/
+.header-v6 .navbar-nav > li > a {
+    font-size: 12px;
+}
+
+/*Interactive Slider v2
+------------------------------------*/
+.interactive-slider-v2 {
+  padding: 20px 0;
+}
+
+.interactive-slider-v2 h1 {
+    font-size: 30px;
+    padding-bottom: 0px;
+}
+
+.interactive-slider-v2 p {
+    font-size: 20px;
+}
+
+
+.interactive-slider-v2:after {
+  background: rgba(0,0,0,.4);
+}
+
+.flb-intro {
+    padding-top: 10px;
+    font-size: 16px;
+
+}
+
+.flb-intro img {
+    padding-top: 10px;
+}
+
+.profile {
+    top: -10px;
+}

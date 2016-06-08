@@ -1,23 +1,155 @@
 ---
-layout: default
+layout: home
 ---
 
-<div class="home">
+<div class="container flb-intro">
+  <div class="headline-left margin-bottom-40">
+  </div><!--/end Headline Left-->
 
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
+  <div class="row margin-bottom-60">
+    <div class="col-sm-6">
+      <p>
+        Fluent Bit is an open source <strong>data collector</strong>, which allows
+        you to collect data from different sources, unify it and send it to
+        multiple destinations. It's used to collect system metrics from
+        Embedded Linux environments, as a <strong>logging layer</strong> library for
+        applications that needs integration with third party services like
+        Elasticsearch or to collect application logs from Docker containers.
+      </p>
+      <p>
+        Fluent Bit is written in C, have a pluggable architecture supporting
+        around 15 extensions. It's fast and lightweight and provide the
+        required security for network operations through TLS.
+      </p>
+      <div class="text-right">
+        <button type="button" class="btn-u text-uppercase">Learn More</button>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <img class="img-responsive" src="/assets/img/flb/flb_001.png">
+    </div>
+  </div>
 </div>
+
+<!-- Icon Boxes 2 -->
+<div class="bg-grey">
+  <div class="container content-sm">
+  <div class="headline-left margin-bottom-40">
+    <h2 class="headline-brd">Highlights</h2>
+  </div><!--/end Headline Left-->
+
+    <!-- Small Rounded Content Boxes -->
+    <div class="row content-boxes-v2 margin-bottom-40">
+      <div class="col-sm-4 sm-margin-bottom-40">
+        <h2 class="heading-sm">
+          <i class="icon-custom rounded-x icon-sm icon-bg-u fa fa-paper-plane"></i>
+          <span>Lightweight</span>
+        </h2>
+        <p>
+          It have been designed to be lightweight and provide high performance.
+          All I/O operations are made in asynchronous mode (event-driven), all data internally
+          is serialized in binary mode.
+          </p>
+      </div>
+      <div class="col-sm-4 sm-margin-bottom-40">
+        <h2 class="heading-sm">
+          <i class="icon-custom rounded-x icon-sm icon-bg-blue fa fa-wrench"></i>
+          <span>Extensible</span>
+        </h2>
+        <p>
+          All input and output features are implemented through the plugins
+          interface. At build enable just include what you really need. Create your own
+          plugins easily.
+        </p>
+      </div>
+      <div class="col-sm-4">
+        <h2 class="heading-sm">
+          <i class="icon-custom rounded-x icon-sm icon-bg-red icon-line fa fa-area-chart"></i>
+          <span>Built-in Metrics</span>
+        </h2>
+        <p>Meassuring is important. Fluent Bit comes with native plugins to gather metrics
+          from your CPU and Memory usage on Linux systems.
+        </p>
+      </div>
+    </div>
+    <!-- End Rounded Content Boxes -->
+  </div>
+</div>
+<!-- End Icon Boxes 2 -->
+
+<div class="container">
+  <div class="headline-left margin-bottom-40">
+    <h2 class="headline-brd">Features</h2>
+  </div><!--/end Headline Left-->
+
+  <!-- Info Blocks -->
+  <div class="col-sm-6">
+    <div class="content-boxes-v3 margin-bottom-10 md-margin-bottom-20">
+      <i class="icon-custom icon-sm rounded-x icon-bg-red fa fa-bolt"></i>
+      <div class="content-boxes-in-v3">
+        <h3>Event Driven</h3>
+        <p>
+          Fluent Bit as a service is fully event-driven, it only use asynchronous operations
+          to collect and deliver data.
+        </p>
+      </div>
+    </div>
+    <div class="content-boxes-v3 margin-bottom-10 md-margin-bottom-20">
+      <i class="icon-custom icon-sm rounded-x icon-bg-green fa fa-arrows"></i>
+      <div class="content-boxes-in-v3">
+        <h3>Routing</h3>
+        <p>
+          The data that comes through an Input plugin, is <strong>tagged</strong>. The Routing
+          mechanism allows to specify where these records should be delivered. It also allows
+          to deliver one record to multiple destinations.
+        </p>
+      </div>
+    </div>
+    <div class="content-boxes-v3 margin-bottom-10 md-margin-bottom-20">
+      <i class="icon-custom icon-sm rounded-x icon-bg-blue fa fa-file-code-o"></i>
+      <div class="content-boxes-in-v3">
+        <h3>Configuration</h3>
+        <p>
+          The service use a simple and human-readable configuration file, it allow to specify
+          how it will behave, which features to enable and how Routing is performed. Optionally
+          Fluent Bit can run from the command line without it.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="content-boxes-v3 margin-bottom-10 md-margin-bottom-20">
+      <i class="icon-custom icon-sm rounded-x icon-bg-yellow fa fa-random"></i>
+      <div class="content-boxes-in-v3">
+        <h3>I/O Handler</h3>
+        <p>
+          The Input/Output layer provides an abstraction that allow to perform read/write
+          operations in an asynchronous way.
+        </p>
+      </div>
+    </div>
+    <div class="content-boxes-v3 margin-bottom-10 md-margin-bottom-20">
+      <i class="icon-custom icon-sm rounded-x icon-bg-orange fa fa-cloud"></i>
+      <div class="content-boxes-in-v3">
+        <h3>Upstream Manager</h3>
+        <p>When dealing with upstream backends like remote network services, handling TCP
+          connections can be challenging. The Upstream manager simplify the connection
+          process  and take care of timeout/network exceptions and Keepalive states.
+        </p>
+      </div>
+    </div>
+    <div class="content-boxes-v3 margin-bottom-10 md-margin-bottom-20">
+      <i class="icon-custom icon-sm rounded-x icon-bg-sea fa fa-lock"></i>
+      <div class="content-boxes-in-v3">
+        <h3>TLSv1.2 / Security</h3>
+        <p>
+          When delivering data to destinations, output plugins inherit full TLS
+          capabilities in an abstracted way. Add your certificates as required.
+        </p>
+      </div>
+    </div>
+
+  </div>
+  <!-- End Info Blocks -->
+</div><!--/end row-->
+<br />

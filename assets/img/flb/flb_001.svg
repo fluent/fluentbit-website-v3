@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 744.09448819 1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="home_whatitis.svg"
+   inkscape:export-filename="/home/edsiper/flb_001.png"
+   inkscape:export-xdpi="111.25365"
+   inkscape:export-ydpi="111.25365">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="266.77264"
+     inkscape:cy="703.76063"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1021"
+     inkscape:window-x="0"
+     inkscape:window-y="33"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:0.45375725;stroke:#bf7014;stroke-width:1.60711193;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4136"
+       width="139.10461"
+       height="44.777237"
+       x="102.56062"
+       y="415.28888"
+       ry="7.4722271" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:21.18917274px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#b97334;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="119.983"
+       y="444.52863"
+       id="text4138"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4140"
+         x="119.983"
+         y="444.52863">Fluent Bit</tspan></text>
+    <rect
+       ry="4.8682346"
+       y="256.85413"
+       x="49.1012"
+       height="29.172842"
+       width="116.52197"
+       id="rect4146"
+       style="opacity:1;fill:#ffffff;fill-opacity:0.45375725;stroke:#6488ac;stroke-width:1.18724394;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text4148"
+       y="275.31442"
+       x="92.014664"
+       style="font-style:normal;font-weight:normal;font-size:12.39194489px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#4679a3;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="275.31442"
+         x="92.014664"
+         id="tspan4150"
+         sodipodi:role="line">CPU</tspan></text>
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:0.45375725;stroke:#6488ac;stroke-width:1.18724394;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4152"
+       width="116.52197"
+       height="29.172842"
+       x="49.1012"
+       y="293.47476"
+       ry="4.8682346" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:12.39194489px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#4679a3;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="81.455803"
+       y="312.08783"
+       id="text4154"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4156"
+         x="81.455803"
+         y="312.08783">Memory</tspan></text>
+    <rect
+       ry="4.8682346"
+       y="256.85431"
+       x="173.81691"
+       height="29.172842"
+       width="116.52197"
+       id="rect4158"
+       style="opacity:1;fill:#ffffff;fill-opacity:0.45375725;stroke:#6488ac;stroke-width:1.18724394;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text4160"
+       y="275.65402"
+       x="180.01392"
+       style="font-style:normal;font-weight:normal;font-size:12.39194489px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#4679a3;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="275.65402"
+         x="180.01392"
+         id="tspan4162"
+         sodipodi:role="line">Kernel Messages</tspan></text>
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:0.45375725;stroke:#6488ac;stroke-width:1.18724394;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4164"
+       width="116.52197"
+       height="29.172842"
+       x="173.81691"
+       y="294.96948"
+       ry="4.8682346" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:12.39194489px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#4679a3;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="214.01878"
+       y="313.58255"
+       id="text4166"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4168"
+         x="214.01878"
+         y="313.58255">MQTT</tspan></text>
+    <rect
+       ry="4.8682346"
+       y="330.09543"
+       x="49.101204"
+       height="29.172842"
+       width="116.52197"
+       id="rect4170"
+       style="opacity:1;fill:#ffffff;fill-opacity:0.45375725;stroke:#6488ac;stroke-width:1.18724394;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text4172"
+       y="348.7085"
+       x="84.071564"
+       style="font-style:normal;font-weight:normal;font-size:12.39194489px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#4679a3;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="348.7085"
+         x="84.071564"
+         id="tspan4174"
+         sodipodi:role="line">Docker</tspan></text>
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:0.45375725;stroke:#6488ac;stroke-width:1.18724394;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4176"
+       width="116.52197"
+       height="29.172842"
+       x="173.04597"
+       y="330.25894"
+       ry="4.8682346" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:12.39194489px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#4679a3;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="186.17963"
+       y="349.45584"
+       id="text4178"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4180"
+         x="186.17963"
+         y="349.45584">Serial Interface</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:83.4235611px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#b1b1b1;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="445.98782"
+       y="-117.35165"
+       id="text4188"
+       sodipodi:linespacing="125%"
+       transform="matrix(-0.00738069,0.81910319,-1.2207855,-0.00687057,0,0)"><tspan
+         sodipodi:role="line"
+         id="tspan4190"
+         x="445.98782"
+         y="-117.35165">}</tspan></text>
+  </g>
+</svg>
