@@ -35,6 +35,23 @@
     padding-top: 10px;
 }
 
-.profile {
-    top: -10px;
+.service-bg-latest {
+	width: 250px;
+	padding: 20px;
+	position: absolute;
+	top: -10px;
+	right: -80px;
+	/*background-color: rgba(12,25,128,0.1);*/
+        background-color: rgba(236, 211, 0, 1);
+	transform: rotate(40deg);
+}
+
+.service-bg {
+	width: 250px;
+	padding: 20px;
+	position: absolute;
+	top: -10px;
+	right: -80px;
+	background-color: rgba(255,255,255,0.1);
+	transform: rotate(40deg);
 }
