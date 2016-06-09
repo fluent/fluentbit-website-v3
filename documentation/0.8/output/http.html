@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Treasure Data | Fluent Bit v0.8 Documentation</title>
+        <title>HTTP | Fluent Bit v0.8 Documentation</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.1.0">
@@ -25,10 +25,10 @@
         
     
     
-    <link rel="next" href="../development/index.html" />
+    <link rel="next" href="../output/nats.html" />
     
     
-    <link rel="prev" href="../output/stdout.html" />
+    <link rel="prev" href="../output/forward.html" />
     
 
         
@@ -36,7 +36,7 @@
     <body>
         
         
-    <div class="book" data-level="5.6" data-basepath=".." data-revision="Thu Jun 09 2016 13:28:38 GMT-0600 (CST)">
+    <div class="book" data-level="5.3" data-basepath=".." data-revision="Thu Jun 09 2016 13:28:38 GMT-0600 (CST)">
     
 
 <div class="book-summary">
@@ -511,7 +511,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.3" data-path="output/http.html">
+        <li class="chapter active" data-level="5.3" data-path="output/http.html">
             
                 
                     <a href="../output/http.html">
@@ -556,7 +556,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="5.6" data-path="output/td.html">
+        <li class="chapter " data-level="5.6" data-path="output/td.html">
             
                 
                     <a href="../output/td.html">
@@ -732,50 +732,51 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="treasure-data">Treasure Data</h1>
-<p>The <strong>td</strong> output plugin, allows to flush your records into the <a href="http://treasuredata.com" target="_blank">Treasure Data</a> cloud service.</p>
+                        <h1 id="http">HTTP</h1>
+<p>The <strong>http</strong> output plugin, allows to flush your records into an HTTP end point. For now the functionality is pretty basic and it issue a POST request with the data records in <a href="http://msgpack.org" target="_blank">MessagePack</a> format.</p>
+<blockquote>
+<p>In future versions the target URI and data format will be configurable.</p>
+</blockquote>
 <h2 id="configuration-parameters">Configuration Parameters</h2>
-<p>The plugin supports the following configuration parameters:</p>
 <table>
 <thead>
 <tr>
 <th>Key</th>
 <th>Description</th>
+<th>default</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>API</td>
-<td>The <a href="http://treasuredata.com" target="_blank">Treasure Data</a> API key. To obtain it please log into the <a href="https://console.treasuredata.com" target="_blank">Console</a> and in the API keys box, copy the API key hash.</td>
+<td>Host</td>
+<td>IP address or hostname of the target HTTP Server</td>
+<td>127.0.0.1</td>
 </tr>
 <tr>
-<td>Database</td>
-<td>Specify the name of your target database.</td>
-</tr>
-<tr>
-<td>Table</td>
-<td>Specify the name of your target table where the records will be stored.</td>
+<td>Port</td>
+<td>TCP port of the target HTTP Server</td>
+<td>80</td>
 </tr>
 </tbody>
 </table>
 <h2 id="getting-started">Getting Started</h2>
-<p>In order to start inserting records into <a href="https://www.treasuredata.com" target="_blank">Treasure Data</a>, you can run the plugin from the command line or through the configuration file:</p>
-<h3 id="command-line">Command Line:</h3>
-<pre><code class="lang-bash">$ fluent-bit -i cpu -o td -p API=<span class="hljs-string">&quot;abc&quot;</span> -p Database=<span class="hljs-string">&quot;fluentbit&quot;</span> -p Table=<span class="hljs-string">&quot;cpu_samples&quot;</span>
-</code></pre>
-<p>Ideally you don&apos;t want to expose your API key from the command line, using a configuration file is higly desired.</p>
-<h3 id="configuration-file">Configuration File</h3>
+<p>In order to insert records into a HTTP server, you can run the plugin from the command line or through the configuration file:</p>
+<h3 id="command-line">Command Line</h3>
+<p>The <strong>http</strong> plugin, can read the parameters from the command line in two ways, through the <strong>-p</strong> argument (property) or setting them directly through the service URI. The URI format is the following:</p>
+<pre><code>http://host:port
+</code></pre><p>Using the format specified, you could start Fluent Bit through:</p>
+<pre><code>$ fluent-bit -i cpu -t cpu -o http://192.168.2.3:80/ -o stdout -m &apos;*&apos;
+</code></pre><h3 id="configuration-file">Configuration File</h3>
 <p>In your main configuration file append the following <em>Input</em> &amp; <em>Output</em> sections:</p>
 <pre><code class="lang-Python">[INPUT]
-    Name cpu
-    Tag  my_cpu
+    Name  cpu
+    Tag   cpu
 
 [OUTPUT]
-    Name     td
-    Match    *
-    API      <span class="hljs-number">5713</span>/e75be23caee19f8041dfa635ddfbd0dcd8c8d981
-    Database fluentbit
-    Table    cpu_samples
+    Name  http
+    Match *
+    Host  <span class="hljs-number">192.168</span><span class="hljs-number">.2</span><span class="hljs-number">.3</span>
+    Port  <span class="hljs-number">80</span>
 </code></pre>
 
                     
@@ -787,10 +788,10 @@
         </div>
 
         
-        <a href="../output/stdout.html" class="navigation navigation-prev " aria-label="Previous page: Standard Output"><i class="fa fa-angle-left"></i></a>
+        <a href="../output/forward.html" class="navigation navigation-prev " aria-label="Previous page: Forward"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../development/index.html" class="navigation navigation-next " aria-label="Next page: Fluent Bit for Developers"><i class="fa fa-angle-right"></i></a>
+        <a href="../output/nats.html" class="navigation navigation-next " aria-label="Next page: NATS"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
