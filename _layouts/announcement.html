@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body class="header-fixed header-fixed-space">
+    <div class="wrapper">
+      {% include header.html %}
+
+      <!-- Interactive Slider v2 -->
+      <div class="interactive-slider-v2 img-v1">
+        <div class="container">
+          <h1>Fluent Bit</h1>
+        </div>
+      </div>
+      <!-- End Interactive Slider v2 -->
+
+      <!--=== Content ===-->
+      <div class="container flb-intro">
+        <div class="headline-left margin-bottom-40">
+        </div><!--/end Headline Left-->
+
+        <div class="row margin-bottom-60">
+          <div class="col-sm-8 col-sm-offset-2">
+
+            {{ content }}
+
+            <h2>Join us!</h2>
+            <p>
+              We want to hear about you, our community is growing and you can be part of it!, you can contact us at:
+            </p>
+            <ul>
+              <li><i class="fa fa-fw fa-slack"></i> Slack: <a href="http://slack.fluentd.org">http://slack.fluentd.org</a></li>
+              <li>
+                <i class="fa fa-fw fa-inbox"></i> Mailing list: <a href="https://groups.google.com/forum/#!forum/fluent-bit">https://groups.google.com/forum/#!forum/fluent-bit</a>
+              </li>
+              <li><i class="fa fa-fw fa-github"></i> Github: <a href="http://github.com/fluent/fluent-bit">http://github.com/fluent/fluent-bit</a></li>
+              <li><i class="fa fa-fw fa-wechat"></i> IRC: irc.freenode.net #fluentbit</li>
+              <li><i class="fa fa-fw fa-twitter"></i> Twitter: <a href="http://twitter.com/fluentbit">@fluentbit</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!--=== End Content ===-->
+
+      {% include footer.html %}
+    </div>
+    {% include scripts.html %}
+  </body>
+</html>
