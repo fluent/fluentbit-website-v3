@@ -1,0 +1,839 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Forward | Fluent Bit v0.8 Documentation</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.1.0">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../output/nats.html" />
+    
+    
+    <link rel="prev" href="../output/elasticsearch.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="5.2" data-basepath=".." data-revision="Wed Jun 08 2016 21:44:27 GMT-0600 (CST)">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+        
+
+        
+
+        
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="about/index.html">
+            
+                
+                    <a href="../about/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        About
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="about/why.html">
+            
+                
+                    <a href="../about/why.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        Why ?
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="about/fluentd_and_fluentbit.html">
+            
+                
+                    <a href="../about/fluentd_and_fluentbit.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        Fluentd &amp; Fluent Bit
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="about/license.html">
+            
+                
+                    <a href="../about/license.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        License
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="installation/index.html">
+            
+                
+                    <a href="../installation/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Installation
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="installation/requirements.html">
+            
+                
+                    <a href="../installation/requirements.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        Requirements
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="installation/download_sources.html">
+            
+                
+                    <a href="../installation/download_sources.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        Download Sources
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="installation/build_install.html">
+            
+                
+                    <a href="../installation/build_install.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        Build and Install
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="installation/debian_ubuntu.html">
+            
+                
+                    <a href="../installation/debian_ubuntu.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        Debian/Ubuntu
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="installation/redhat_centos.html">
+            
+                
+                    <a href="../installation/redhat_centos.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        Redhat/Centos
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="installation/raspberry_pi.html">
+            
+                
+                    <a href="../installation/raspberry_pi.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                        Raspberry Pi
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="installation/unit_tests.html">
+            
+                
+                    <a href="../installation/unit_tests.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                        Unit Tests
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="getting_started/index.html">
+            
+                
+                    <a href="../getting_started/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Getting Started
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="getting_started/configuration_schema.html">
+            
+                
+                    <a href="../getting_started/configuration_schema.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        Configuration Schema
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="getting_started/configuration_file.html">
+            
+                
+                    <a href="../getting_started/configuration_file.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        Configuration File
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="input/index.html">
+            
+                
+                    <a href="../input/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Input Plugins
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="input/cpu.html">
+            
+                
+                    <a href="../input/cpu.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        CPU Usage
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="input/forward.html">
+            
+                
+                    <a href="../input/forward.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        Forward
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="input/head.html">
+            
+                
+                    <a href="../input/head.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        Head
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="input/kmsg.html">
+            
+                
+                    <a href="../input/kmsg.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                        Kernel Log Buffer
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="input/mem.html">
+            
+                
+                    <a href="../input/mem.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.5.</b>
+                        
+                        Memory Usage
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="input/mqtt.html">
+            
+                
+                    <a href="../input/mqtt.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.6.</b>
+                        
+                        MQTT
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="input/serial.html">
+            
+                
+                    <a href="../input/serial.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.7.</b>
+                        
+                        Serial Interface
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8" data-path="input/stdin.html">
+            
+                
+                    <a href="../input/stdin.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.8.</b>
+                        
+                        Standard Input
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.9" data-path="input/xbee.html">
+            
+                
+                    <a href="../input/xbee.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.9.</b>
+                        
+                        XBee Radio
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="output/index.html">
+            
+                
+                    <a href="../output/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Output Plugins
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="output/elasticsearch.html">
+            
+                
+                    <a href="../output/elasticsearch.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        Elasticsearch
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="5.2" data-path="output/forward.html">
+            
+                
+                    <a href="../output/forward.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        Forward
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="output/nats.html">
+            
+                
+                    <a href="../output/nats.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                        NATS
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="output/stdout.html">
+            
+                
+                    <a href="../output/stdout.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                        Standard Output
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="output/td.html">
+            
+                
+                    <a href="../output/td.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.5.</b>
+                        
+                        Treasure Data
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="development/index.html">
+            
+                
+                    <a href="../development/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        Fluent Bit for Developers
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="development/library_api.html">
+            
+                
+                    <a href="../development/library_api.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        Library API
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="development/ingest_records_manually.html">
+            
+                
+                    <a href="../development/ingest_records_manually.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        Ingest Records Manually
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                Published with GitBook
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Table of Contents"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Font Settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Share"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    Share on Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    Share on Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    Share on Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    Share on Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    Share on Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Google"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+    
+
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >Fluent Bit v0.8 Documentation</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="forward">Forward</h1>
+<p><em>Forward</em> is the protocol used by <a href="http://www.fluentd.org" target="_blank">Fluentd</a> to route messages between peers. The <strong>forward</strong> output plugin allows to integrate <a href="http://fluentbit.io" target="_blank">Fluent Bit</a> with <a href="http://fluentd.org" target="_blank">Fluentd</a> easily. There are not configuration steps required besides to specify where <a href="http://fluentd.org" target="_blank">Fluentd</a> is located, it can be on the local host or a in a remote machine.</p>
+<h2 id="configuration-parameters">Configuration Parameters</h2>
+<p>The plugin supports the following configuration parameters:</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Host</td>
+<td>Target host where Fluent-Bit or Fluentd are listening for Forward messages.</td>
+</tr>
+<tr>
+<td>Port</td>
+<td>TCP Port of the target service.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="forward-setup">Forward Setup</h2>
+<p>Before to proceed, make sure that <a href="http://fluentd.org" target="_blank">Fluentd</a> is installed in your system, if it&apos;s not the case please refer to the following <a href="http://docs.fluentd.org/v0.12/categories/installation" target="_blank">Fluentd Installation</a> document and go ahead with that.</p>
+<p>Once <a href="http://fluentd.org" target="_blank">Fluentd</a> is installed, create the following configuration file example that will allow us to stream data into it:</p>
+<pre><code>&lt;source&gt;
+  type forward
+  bind 0.0.0.0
+  port 12225
+&lt;/source&gt;
+
+&lt;match fluent_bit&gt;
+  type stdout
+&lt;/match&gt;
+</code></pre><p>That configuration file specify that will listen for <em>TCP</em> connections on the port <em>12225</em> through the <strong>forward</strong> input type. Then for every message with a <em>fluent_bit</em> __TAG, will print it out to the standard output.</p>
+<p>In one terminal launch <a href="http://fluentd.org" target="_blank">Fluentd</a> specifying the new configuration file created (in_fluent-bit.conf):</p>
+<pre><code class="lang-bash">$ fluentd -c <span class="hljs-keyword">in</span>_fluent-bit.conf
+<span class="hljs-number">2015</span>-<span class="hljs-number">07</span>-<span class="hljs-number">29</span> <span class="hljs-number">14</span>:<span class="hljs-number">50</span>:<span class="hljs-number">47</span> -<span class="hljs-number">0600</span> [info]: reading config file path=<span class="hljs-string">&quot;in_fluent-bit.conf&quot;</span>
+<span class="hljs-number">2015</span>-<span class="hljs-number">07</span>-<span class="hljs-number">29</span> <span class="hljs-number">14</span>:<span class="hljs-number">50</span>:<span class="hljs-number">47</span> -<span class="hljs-number">0600</span> [info]: starting fluentd-<span class="hljs-number">0.12</span>.<span class="hljs-number">14</span>
+<span class="hljs-number">2015</span>-<span class="hljs-number">07</span>-<span class="hljs-number">29</span> <span class="hljs-number">14</span>:<span class="hljs-number">50</span>:<span class="hljs-number">47</span> -<span class="hljs-number">0600</span> [info]: gem <span class="hljs-string">&apos;fluent-plugin-mongo&apos;</span> version <span class="hljs-string">&apos;0.7.9&apos;</span>
+<span class="hljs-number">2015</span>-<span class="hljs-number">07</span>-<span class="hljs-number">29</span> <span class="hljs-number">14</span>:<span class="hljs-number">50</span>:<span class="hljs-number">47</span> -<span class="hljs-number">0600</span> [info]: gem <span class="hljs-string">&apos;fluent-plugin-multi-format-parser&apos;</span> version <span class="hljs-string">&apos;0.0.2&apos;</span>
+<span class="hljs-number">2015</span>-<span class="hljs-number">07</span>-<span class="hljs-number">29</span> <span class="hljs-number">14</span>:<span class="hljs-number">50</span>:<span class="hljs-number">47</span> -<span class="hljs-number">0600</span> [info]: gem <span class="hljs-string">&apos;fluent-plugin-rewrite-tag-filter&apos;</span> version <span class="hljs-string">&apos;1.5.1&apos;</span>
+<span class="hljs-number">2015</span>-<span class="hljs-number">07</span>-<span class="hljs-number">29</span> <span class="hljs-number">14</span>:<span class="hljs-number">50</span>:<span class="hljs-number">47</span> -<span class="hljs-number">0600</span> [info]: gem <span class="hljs-string">&apos;fluentd&apos;</span> version <span class="hljs-string">&apos;0.12.8&apos;</span>
+<span class="hljs-number">2015</span>-<span class="hljs-number">07</span>-<span class="hljs-number">29</span> <span class="hljs-number">14</span>:<span class="hljs-number">50</span>:<span class="hljs-number">47</span> -<span class="hljs-number">0600</span> [info]: gem <span class="hljs-string">&apos;fluentd&apos;</span> version <span class="hljs-string">&apos;0.12.5&apos;</span>
+<span class="hljs-number">2015</span>-<span class="hljs-number">07</span>-<span class="hljs-number">29</span> <span class="hljs-number">14</span>:<span class="hljs-number">50</span>:<span class="hljs-number">47</span> -<span class="hljs-number">0600</span> [info]: gem <span class="hljs-string">&apos;fluentd&apos;</span> version <span class="hljs-string">&apos;0.10.61&apos;</span>
+<span class="hljs-number">2015</span>-<span class="hljs-number">07</span>-<span class="hljs-number">29</span> <span class="hljs-number">14</span>:<span class="hljs-number">50</span>:<span class="hljs-number">47</span> -<span class="hljs-number">0600</span> [info]: adding match pattern=<span class="hljs-string">&quot;fluent_bit&quot;</span> <span class="hljs-built_in">type</span>=<span class="hljs-string">&quot;stdout&quot;</span>
+<span class="hljs-number">2015</span>-<span class="hljs-number">07</span>-<span class="hljs-number">29</span> <span class="hljs-number">14</span>:<span class="hljs-number">50</span>:<span class="hljs-number">47</span> -<span class="hljs-number">0600</span> [info]: adding <span class="hljs-built_in">source</span> <span class="hljs-built_in">type</span>=<span class="hljs-string">&quot;forward&quot;</span>
+<span class="hljs-number">2015</span>-<span class="hljs-number">07</span>-<span class="hljs-number">29</span> <span class="hljs-number">14</span>:<span class="hljs-number">50</span>:<span class="hljs-number">47</span> -<span class="hljs-number">0600</span> [info]: using configuration file: &lt;ROOT&gt;
+&lt;<span class="hljs-built_in">source</span>&gt;
+  <span class="hljs-built_in">type</span> forward
+  <span class="hljs-built_in">bind</span> <span class="hljs-number">0.0</span>.<span class="hljs-number">0.0</span>
+  port <span class="hljs-number">12225</span>
+&lt;/<span class="hljs-built_in">source</span>&gt;
+&lt;match fluent_bit&gt;
+  <span class="hljs-built_in">type</span> stdout
+  &lt;/match&gt;
+&lt;/ROOT&gt;
+<span class="hljs-number">2015</span>-<span class="hljs-number">07</span>-<span class="hljs-number">29</span> <span class="hljs-number">14</span>:<span class="hljs-number">50</span>:<span class="hljs-number">47</span> -<span class="hljs-number">0600</span> [info]: listening fluent socket on <span class="hljs-number">0.0</span>.<span class="hljs-number">0.0</span>:<span class="hljs-number">12225</span>
+</code></pre>
+<h2 id="fluent-bit-setup">Fluent Bit Setup</h2>
+<p>Now that <a href="http://fluentd.org" target="_blank">Fluentd</a> is ready to receive messages, we need to specify where the <strong>forward</strong> output plugin will flush the information using the following format:</p>
+<pre><code>bin/fluent-bit -i INPUT -o forward://HOST:PORT/TAG
+</code></pre><p>If the <strong>TAG</strong> parameter is not set, the plugin will set the tag as <em>fluent_bit</em>. Keep in mind that <strong>TAG</strong> is important for routing rules inside <a href="http://fluentd.org" target="_blank">Fluentd</a>.</p>
+<p>Using the <a href="../input/cpu.html">CPU</a> input plugin as an example we will flush CPU metrics to <a href="http://fluentd.org" target="_blank">Fluentd</a>:</p>
+<pre><code class="lang-bash">$ bin/fluent-bit -i cpu -o forward://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">12225</span>
+</code></pre>
+<p>In <a href="http://fluentbit.io" target="_blank">Fluent Bit</a> we should see the following output:</p>
+<pre><code>Fluent Bit v0.3.0
+Copyright (C) Treasure Data
+
+[2015/07/29 14:58:02] [ info] Configuration
+ flush time     : 5 seconds
+ input plugins  : cpu
+ collectors     :
+[2015/07/29 14:58:02] [ info] starting engine
+[2015/07/29 14:58:02] [debug] [in_cpu] CPU 4.25% (buffer=0)
+[2015/07/29 14:58:03] [debug] [in_cpu] CPU 13.00% (buffer=1)
+[2015/07/29 14:58:04] [debug] [in_cpu] CPU 8.50% (buffer=2)
+[2015/07/29 14:58:05] [debug] [in_cpu] CPU 2.50% (buffer=3)
+[2015/07/29 14:58:06] [ info] Flush buf 98 bytes
+</code></pre><p>Now on the <a href="http://fluentd.org" target="_blank">Fluentd</a> side the following:</p>
+<pre><code class="lang-bash"><span class="hljs-number">2015</span>-<span class="hljs-number">07</span>-<span class="hljs-number">29</span> <span class="hljs-number">14</span>:<span class="hljs-number">50</span>:<span class="hljs-number">47</span> -<span class="hljs-number">0600</span> [info]: listening fluent socket on <span class="hljs-number">0.0</span>.<span class="hljs-number">0.0</span>:<span class="hljs-number">12225</span>
+<span class="hljs-number">2015</span>-<span class="hljs-number">07</span>-<span class="hljs-number">29</span> <span class="hljs-number">14</span>:<span class="hljs-number">58</span>:<span class="hljs-number">02</span> -<span class="hljs-number">0600</span> fluent_bit: {<span class="hljs-string">&quot;cpu&quot;</span>:<span class="hljs-number">4.25</span>}
+<span class="hljs-number">2015</span>-<span class="hljs-number">07</span>-<span class="hljs-number">29</span> <span class="hljs-number">14</span>:<span class="hljs-number">58</span>:<span class="hljs-number">03</span> -<span class="hljs-number">0600</span> fluent_bit: {<span class="hljs-string">&quot;cpu&quot;</span>:<span class="hljs-number">13.0</span>}
+<span class="hljs-number">2015</span>-<span class="hljs-number">07</span>-<span class="hljs-number">29</span> <span class="hljs-number">14</span>:<span class="hljs-number">58</span>:<span class="hljs-number">04</span> -<span class="hljs-number">0600</span> fluent_bit: {<span class="hljs-string">&quot;cpu&quot;</span>:<span class="hljs-number">8.5</span>}
+<span class="hljs-number">2015</span>-<span class="hljs-number">07</span>-<span class="hljs-number">29</span> <span class="hljs-number">14</span>:<span class="hljs-number">58</span>:<span class="hljs-number">05</span> -<span class="hljs-number">0600</span> fluent_bit: {<span class="hljs-string">&quot;cpu&quot;</span>:<span class="hljs-number">2.5</span>}
+</code></pre>
+<p>So we gathered <a href="../input/cpu.html">CPU</a> metrics and flush them out to <a href="http://fluentd.org" target="_blank">Fluentd</a> properly.</p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../output/elasticsearch.html" class="navigation navigation-prev " aria-label="Previous page: Elasticsearch"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../output/nats.html" class="navigation navigation-next " aria-label="Next page: NATS"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
