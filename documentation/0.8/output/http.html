@@ -36,7 +36,7 @@
     <body>
         
         
-    <div class="book" data-level="5.3" data-basepath=".." data-revision="Thu Jun 09 2016 13:28:38 GMT-0600 (CST)">
+    <div class="book" data-level="5.3" data-basepath=".." data-revision="Tue Jun 14 2016 12:23:39 GMT-0600 (CST)">
     
 
 <div class="book-summary">
@@ -757,15 +757,30 @@
 <td>TCP port of the target HTTP Server</td>
 <td>80</td>
 </tr>
+<tr>
+<td>Proxy</td>
+<td>Specify an HTTP Proxy. The expected format of this value is <em><a href="http://host:port" target="_blank">http://host:port</a></em>. Note that <em>https</em> is <strong>not</strong> supported yet.</td>
+<td></td>
+</tr>
+<tr>
+<td>URI</td>
+<td>Specify an optional HTTP URI for the target web server, e.g: /something</td>
+<td>/</td>
+</tr>
+<tr>
+<td>Format</td>
+<td>Specify the data format to be used in the HTTP request body, by default it uses <em>msgpack</em>, optionally it can be set to <em>json</em>.</td>
+<td>msgpack</td>
+</tr>
 </tbody>
 </table>
 <h2 id="getting-started">Getting Started</h2>
 <p>In order to insert records into a HTTP server, you can run the plugin from the command line or through the configuration file:</p>
 <h3 id="command-line">Command Line</h3>
 <p>The <strong>http</strong> plugin, can read the parameters from the command line in two ways, through the <strong>-p</strong> argument (property) or setting them directly through the service URI. The URI format is the following:</p>
-<pre><code>http://host:port
+<pre><code>http://host:port/something
 </code></pre><p>Using the format specified, you could start Fluent Bit through:</p>
-<pre><code>$ fluent-bit -i cpu -t cpu -o http://192.168.2.3:80/ -o stdout -m &apos;*&apos;
+<pre><code>$ fluent-bit -i cpu -t cpu -o http://192.168.2.3:80/something -o stdout -m &apos;*&apos;
 </code></pre><h3 id="configuration-file">Configuration File</h3>
 <p>In your main configuration file append the following <em>Input</em> &amp; <em>Output</em> sections:</p>
 <pre><code class="lang-Python">[INPUT]
@@ -777,6 +792,7 @@
     Match *
     Host  <span class="hljs-number">192.168</span><span class="hljs-number">.2</span><span class="hljs-number">.3</span>
     Port  <span class="hljs-number">80</span>
+    URI   /something
 </code></pre>
 
                     
