@@ -13,5 +13,5 @@ github_username:  fluent
 # Build settings
 markdown: kramdown
 flb_major       : 0.8
-flb_version     : 0.8.0
-flb_release_date: Jun 03, 2016
+flb_version     : 0.8.1
+flb_release_date: Jun 16, 2016
