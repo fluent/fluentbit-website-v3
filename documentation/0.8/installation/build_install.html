@@ -36,7 +36,7 @@
     <body>
         
         
-    <div class="book" data-level="2.3" data-basepath=".." data-revision="Wed Jun 22 2016 09:46:36 GMT-0600 (CST)">
+    <div class="book" data-level="2.3" data-basepath=".." data-revision="Sat Jul 02 2016 08:25:14 GMT-0600 (CST)">
     
 
 <div class="book-summary">
@@ -835,6 +835,11 @@ Linking C executable ../bin/fluent-bit
 <td>Enable trace mode&quot;</td>
 <td>No</td>
 </tr>
+<tr>
+<td>FLB_MTRACE</td>
+<td>Enable mtrace support</td>
+<td>No</td>
+</tr>
 </tbody>
 </table>
 <h3 id="input-plugins">Input Plugins</h3>
@@ -890,6 +895,11 @@ available:</p>
 <td>Enable Xbee input plugin</td>
 <td>No</td>
 </tr>
+<tr>
+<td><a href="../input/forward.html">FLB_IN_FORWARD</a></td>
+<td>Enable Forward input plugin</td>
+<td>On</td>
+</tr>
 </tbody>
 </table>
 <h3 id="output-plugins">Output Plugins</h3>
@@ -909,7 +919,7 @@ available:</p>
 <td>On</td>
 </tr>
 <tr>
-<td><a href="../output/fluentd.md">FLB_OUT_FLUENTD</a></td>
+<td><a href="../output/forward.html">FLB_OUT_FORWARD</a></td>
 <td>Enable <a href="http://www.fluentd.org" target="_blank">Fluentd</a> output plugin</td>
 <td>On</td>
 </tr>
@@ -921,6 +931,11 @@ available:</p>
 <tr>
 <td><a href="../output/stdout.html">FLB_OUT_STDOUT</a></td>
 <td>Enable STDOUT output plugin</td>
+<td>On</td>
+</tr>
+<tr>
+<td><a href="../output/http.html">FLB_OUT_HTTP</a></td>
+<td>Enable HTTP output plugin</td>
 <td>On</td>
 </tr>
 <tr>
