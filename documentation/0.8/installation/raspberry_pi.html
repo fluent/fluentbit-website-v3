@@ -36,7 +36,7 @@
     <body>
         
         
-    <div class="book" data-level="2.6" data-basepath=".." data-revision="Sat Jul 02 2016 08:25:14 GMT-0600 (CST)">
+    <div class="book" data-level="2.8" data-basepath=".." data-revision="Wed Jul 06 2016 23:30:07 GMT-0600 (CST)">
     
 
 <div class="book-summary">
@@ -193,43 +193,73 @@
             
         </li>
     
-        <li class="chapter " data-level="2.4" data-path="installation/debian_ubuntu.html">
+        <li class="chapter " data-level="2.4" data-path="installation/td-agent-bit.html">
             
                 
-                    <a href="../installation/debian_ubuntu.html">
+                    <a href="../installation/td-agent-bit.html">
                         <i class="fa fa-check"></i>
                         
                             <b>2.4.</b>
                         
-                        Debian/Ubuntu
+                        TD Agent Bit
                     </a>
                 
             
             
         </li>
     
-        <li class="chapter " data-level="2.5" data-path="installation/redhat_centos.html">
+        <li class="chapter " data-level="2.5" data-path="installation/debian.html">
+            
+                
+                    <a href="../installation/debian.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        Debian Packages
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="installation/ubuntu.html">
+            
+                
+                    <a href="../installation/ubuntu.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                        Ubuntu Packages
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="installation/redhat_centos.html">
             
                 
                     <a href="../installation/redhat_centos.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>2.5.</b>
+                            <b>2.7.</b>
                         
-                        Redhat/Centos
+                        CentOS Packages
                     </a>
                 
             
             
         </li>
     
-        <li class="chapter active" data-level="2.6" data-path="installation/raspberry_pi.html">
+        <li class="chapter active" data-level="2.8" data-path="installation/raspberry_pi.html">
             
                 
                     <a href="../installation/raspberry_pi.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>2.6.</b>
+                            <b>2.8.</b>
                         
                         Raspberry Pi
                     </a>
@@ -238,13 +268,13 @@
             
         </li>
     
-        <li class="chapter " data-level="2.7" data-path="installation/unit_tests.html">
+        <li class="chapter " data-level="2.9" data-path="installation/unit_tests.html">
             
                 
                     <a href="../installation/unit_tests.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>2.7.</b>
+                            <b>2.9.</b>
                         
                         Unit Tests
                     </a>
@@ -733,22 +763,39 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="install-on-raspberry-pi-raspbian">Install on Raspberry Pi (Raspbian)</h1>
-<p>We distribute binary versions of <a href="http://fluentbit.io" target="_blank">Fluent Bit</a> for the Raspberry, specifically for <a href="http://raspbian.org" target="_blank">Raspbian</a>. Note that binary versions are built with all options enabled, for a more custom version consider recompile from sources.</p>
+<p>Fluent Bit is distributed as <strong>td-agent-bit</strong> package and is available for the Raspberry, specifically for <a href="http://raspbian.org" target="_blank">Raspbian 8</a>. This stable Fluent Bit distribution package is maintained by <a href="https://www.treasuredata.com" target="_blank">Treasure Data, Inc</a>.</p>
 <h2 id="server-gpg-key">Server GPG key</h2>
 <p>The first step is to add our server GPG key to your keyring, on that way you can get our signed packages:</p>
-<pre><code class="lang-shell">$ wget -qO - http://apt.fluentbit.io/fluentbit.key | sudo apt-key add -
+<pre><code class="lang-shell">$ wget -qO - http://packages.fluentbit.io/fluentbit.key | sudo apt-key add -
 </code></pre>
 <h2 id="update-your-sources-lists">Update your sources lists</h2>
 <p>On Debian and derivated systems such as Raspbian, you need to add our APT server entry to your sources lists, please add the following content at bottom of your <strong>/etc/apt/sources.list</strong> file:</p>
-<pre><code>deb http://apt.fluentbit.io/raspbian jessie main
+<pre><code>deb http://packages.fluentbit.io/raspbian jessie main
 </code></pre><h3 id="update-your-repositories-database">Update your repositories database</h3>
 <p>Now let your system update the <em>apt</em> database:</p>
 <pre><code class="lang-bash">$ sudo apt-get update
 </code></pre>
-<h2 id="install-fluent-bit">Install Fluent Bit</h2>
-<p>Using the <em>apt-get</em> command you are able now to install the latest version of <a href="http://fluentbit.io" target="_blank">Fluent Bit</a>:</p>
-<pre><code class="lang-shell">$ sudo apt-get install fluentbit
+<h2 id="install-td-agent-bit">Install TD-Agent Bit</h2>
+<p>Using the following <em>apt-get</em> command you are able now to install the latest <em>td-agent-bit</em>:</p>
+<pre><code class="lang-shell">$ sudo apt-get install td-agent-bit
 </code></pre>
+<p>Now the following step is to instruct <em>systemd</em> to enable the service:</p>
+<pre><code class="lang-bash">$ sudo service td-agent-bit start
+</code></pre>
+<p>If you do a status check, you should see a similar output like this:</p>
+<pre><code class="lang-bash">sudo service td-agent-bit status
+&#x25CF; td-agent-bit.service - TD Agent Bit
+   Loaded: loaded (/lib/systemd/system/td-agent-bit.service; disabled; vendor preset: enabled)
+   Active: active (running) since mi&#xE9; <span class="hljs-number">2016</span>-<span class="hljs-number">07</span>-<span class="hljs-number">06</span> <span class="hljs-number">16</span>:<span class="hljs-number">58</span>:<span class="hljs-number">25</span> CST; <span class="hljs-number">2</span>h <span class="hljs-number">45</span>min ago
+ Main PID: <span class="hljs-number">6739</span> (td-agent-bit)
+    Tasks: <span class="hljs-number">1</span>
+   Memory: <span class="hljs-number">656.0</span>K
+      CPU: <span class="hljs-number">1.393</span>s
+   CGroup: /system.slice/td-agent-bit.service
+           &#x2514;&#x2500;<span class="hljs-number">6739</span> /opt/td-agent-bit/bin/td-agent-bit -c /etc/td-agent-bit/td-agent-bit.conf
+...
+</code></pre>
+<p>The default configuration of <strong>td-agent-bit</strong> is collecting metrics of CPU usage and sending the records to the standard output, you can see the outgoing data in your <em>/var/log/syslog</em> file.</p>
 
                     
                     </section>
@@ -759,7 +806,7 @@
         </div>
 
         
-        <a href="../installation/redhat_centos.html" class="navigation navigation-prev " aria-label="Previous page: Redhat/Centos"><i class="fa fa-angle-left"></i></a>
+        <a href="../installation/redhat_centos.html" class="navigation navigation-prev " aria-label="Previous page: CentOS Packages"><i class="fa fa-angle-left"></i></a>
         
         
         <a href="../installation/unit_tests.html" class="navigation navigation-next " aria-label="Next page: Unit Tests"><i class="fa fa-angle-right"></i></a>

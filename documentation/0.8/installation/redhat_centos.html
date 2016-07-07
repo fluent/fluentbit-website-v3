@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Redhat/Centos | Fluent Bit v0.8 Documentation</title>
+        <title>CentOS Packages | Fluent Bit v0.8 Documentation</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.1.0">
@@ -28,7 +28,7 @@
     <link rel="next" href="../installation/raspberry_pi.html" />
     
     
-    <link rel="prev" href="../installation/debian_ubuntu.html" />
+    <link rel="prev" href="../installation/ubuntu.html" />
     
 
         
@@ -36,7 +36,7 @@
     <body>
         
         
-    <div class="book" data-level="2.5" data-basepath=".." data-revision="Sat Jul 02 2016 08:25:14 GMT-0600 (CST)">
+    <div class="book" data-level="2.7" data-basepath=".." data-revision="Wed Jul 06 2016 23:30:07 GMT-0600 (CST)">
     
 
 <div class="book-summary">
@@ -193,43 +193,73 @@
             
         </li>
     
-        <li class="chapter " data-level="2.4" data-path="installation/debian_ubuntu.html">
+        <li class="chapter " data-level="2.4" data-path="installation/td-agent-bit.html">
             
                 
-                    <a href="../installation/debian_ubuntu.html">
+                    <a href="../installation/td-agent-bit.html">
                         <i class="fa fa-check"></i>
                         
                             <b>2.4.</b>
                         
-                        Debian/Ubuntu
+                        TD Agent Bit
                     </a>
                 
             
             
         </li>
     
-        <li class="chapter active" data-level="2.5" data-path="installation/redhat_centos.html">
+        <li class="chapter " data-level="2.5" data-path="installation/debian.html">
+            
+                
+                    <a href="../installation/debian.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        Debian Packages
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="installation/ubuntu.html">
+            
+                
+                    <a href="../installation/ubuntu.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                        Ubuntu Packages
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.7" data-path="installation/redhat_centos.html">
             
                 
                     <a href="../installation/redhat_centos.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>2.5.</b>
+                            <b>2.7.</b>
                         
-                        Redhat/Centos
+                        CentOS Packages
                     </a>
                 
             
             
         </li>
     
-        <li class="chapter " data-level="2.6" data-path="installation/raspberry_pi.html">
+        <li class="chapter " data-level="2.8" data-path="installation/raspberry_pi.html">
             
                 
                     <a href="../installation/raspberry_pi.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>2.6.</b>
+                            <b>2.8.</b>
                         
                         Raspberry Pi
                     </a>
@@ -238,13 +268,13 @@
             
         </li>
     
-        <li class="chapter " data-level="2.7" data-path="installation/unit_tests.html">
+        <li class="chapter " data-level="2.9" data-path="installation/unit_tests.html">
             
                 
                     <a href="../installation/unit_tests.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>2.7.</b>
+                            <b>2.9.</b>
                         
                         Unit Tests
                     </a>
@@ -733,17 +763,35 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="install-on-redhat-centos">Install on Redhat / CentOS</h1>
-<p>We distribute binary versions of <a href="http://fluentbit.io" target="_blank">Fluent Bit</a> for Redhat and CentOS systems. Note that binary versions are built with all options enabled, for a more custom version consider recompile from sources.</p>
-<h2 id="download">Download</h2>
-<p>The lastest RPM package is always available in the downloads section, please get it from:</p>
-<p><a href="http://fluentbit.io/download" target="_blank">http://fluentbit.io/download</a></p>
-<h2 id="install-fluent-bit">Install Fluent Bit</h2>
-<p>Log in your system as root (or use sudo if available) and run the following command:</p>
-<pre><code class="lang-shell">$ rpm -i fluentbit-0.7.0-1.x86_64.rpm
+<p>Fluent Bit is distributed as <strong>td-agent-bit</strong> package and is available for the latest stable CentOS system. This stable Fluent Bit distribution package is maintained by <a href="https://www.treasuredata.com" target="_blank">Treasure Data, Inc</a>.</p>
+<h1 id="configure-yum">Configure Yum</h1>
+<p>We provide <strong>td-agent-bit</strong> through a Yum repository. In order to add the repository reference to your system, please add a new file called <em>td-agent-bit.repo</em> in <em>/etc/yum.repos.d/</em> with the following content:</p>
+<pre><code>[td-agent-bit]
+name = TD Agent Bit
+baseurl = http://packages.fluentbit.io/centos/7
+gpgcheck=1
+gpgkey=http://packages.fluentbit.io/fluentbit.key
+enabled=1
+</code></pre><p>note: we encourage you always enable the <em>gpgcheck</em> for security reasons. All our packages are signed.</p>
+<h2 id="install">Install</h2>
+<p>Once your repository is configured, run the following command to install it:</p>
+<pre><code class="lang-bash">$ yum install td-agent-bit
 </code></pre>
-<blockquote>
-<p>Note: we only provide RPM packages for x86_64 architectures.</p>
-</blockquote>
+<p>Now the following step is to instruct <em>systemd</em> to enable the service:</p>
+<pre><code class="lang-bash">$ service td-agent-bit start
+</code></pre>
+<p>If you do a status check, you should see a similar output like this:</p>
+<pre><code class="lang-bash">$ service td-agent-bit status
+Redirecting to /bin/systemctl status  td-agent-bit.service
+&#x25CF; td-agent-bit.service - TD Agent Bit
+   Loaded: loaded (/usr/lib/systemd/system/td-agent-bit.service; disabled; vendor preset: disabled)
+   Active: active (running) since Thu <span class="hljs-number">2016</span>-<span class="hljs-number">07</span>-<span class="hljs-number">07</span> <span class="hljs-number">02</span>:<span class="hljs-number">08</span>:<span class="hljs-number">01</span> BST; <span class="hljs-number">9</span>s ago
+ Main PID: <span class="hljs-number">3820</span> (td-agent-bit)
+   CGroup: /system.slice/td-agent-bit.service
+           &#x2514;&#x2500;<span class="hljs-number">3820</span> /opt/td-agent-bit/bin/td-agent-bit -c etc/td-agent-bit/td-agent-bit.conf
+...
+</code></pre>
+<p>The default configuration of <strong>td-agent-bit</strong> is collecting metrics of CPU usage and sending the records to the standard output, you can see the outgoing data in your <em>/var/log/messages</em> file.</p>
 
                     
                     </section>
@@ -754,7 +802,7 @@
         </div>
 
         
-        <a href="../installation/debian_ubuntu.html" class="navigation navigation-prev " aria-label="Previous page: Debian/Ubuntu"><i class="fa fa-angle-left"></i></a>
+        <a href="../installation/ubuntu.html" class="navigation navigation-prev " aria-label="Previous page: Ubuntu Packages"><i class="fa fa-angle-left"></i></a>
         
         
         <a href="../installation/raspberry_pi.html" class="navigation navigation-next " aria-label="Next page: Raspberry Pi"><i class="fa fa-angle-right"></i></a>
