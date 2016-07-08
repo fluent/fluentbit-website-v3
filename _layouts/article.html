@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body class="header-fixed header-fixed-space">
+    <div class="wrapper">
+      {% include header.html %}
+
+      <!-- Interactive Slider v2 -->
+      <div class="interactive-slider-v2 img-v1">
+        <div class="container">
+          <h1>{{ page.article_title }}</h1>
+
+        </div>
+      </div>
+      <!-- End Interactive Slider v2 -->
+
+      <!--=== Content ===-->
+      <div class="container flb-intro">
+        <div class="headline-left margin-bottom-40">
+        </div><!--/end Headline Left-->
+
+        <div class="row margin-bottom-60">
+          <div class="col-sm-8 col-sm-offset-2">
+
+            {{ content }}
+
+          </div>
+        </div>
+      </div>
+      <!--=== End Content ===-->
+
+      {% include footer.html %}
+    </div>
+    {% include scripts.html %}
+  </body>
+</html>
