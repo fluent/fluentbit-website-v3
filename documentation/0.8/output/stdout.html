@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Standard Output | Fluent Bit v0.8 Documentation</title>
+        <title>Standard Output | </title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.1.0">
@@ -36,7 +36,7 @@
     <body>
         
         
-    <div class="book" data-level="5.5" data-basepath=".." data-revision="Wed Jul 06 2016 23:30:07 GMT-0600 (CST)">
+    <div class="book" data-level="5.5" data-basepath=".." data-revision="Thu Aug 04 2016 16:54:12 GMT-0600 (CST)">
     
 
 <div class="book-summary">
@@ -752,7 +752,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../" >Fluent Bit v0.8 Documentation</a>
+        <a href="../" ></a>
     </h1>
 </div>
 
@@ -764,28 +764,18 @@
                     
                         <h1 id="standard-output">Standard Output</h1>
 <p>The <strong>stdout</strong> output plugin allows to print to the standard output the data received through the <em>input</em> plugin. Their usage is very simple as follows:</p>
-<pre><code class="lang-bash">$ bin/fluent-bit -i cpu -o stdout -V
+<pre><code class="lang-bash">$ bin/fluent-bit -i cpu -o stdout -v
 </code></pre>
 <p>We have specified to gather <a href="../input/cpu.html">CPU</a> usage metrics and print them out to the standard output in a human readable way:</p>
-<pre><code class="lang-bash">Fluent Bit v0.<span class="hljs-number">3.0</span>
+<pre><code class="lang-bash">Fluent-Bit v0.<span class="hljs-number">8.3</span>
 Copyright (C) Treasure Data
 
-[<span class="hljs-number">2015</span>/<span class="hljs-number">07</span>/<span class="hljs-number">29</span> <span class="hljs-number">15</span>:<span class="hljs-number">06</span>:<span class="hljs-number">06</span>] [ info] Configuration
- flush time     : <span class="hljs-number">5</span> seconds
- input plugins  : cpu
- collectors     :
-[<span class="hljs-number">2015</span>/<span class="hljs-number">07</span>/<span class="hljs-number">29</span> <span class="hljs-number">15</span>:<span class="hljs-number">06</span>:<span class="hljs-number">06</span>] [ info] starting engine
-[<span class="hljs-number">2015</span>/<span class="hljs-number">07</span>/<span class="hljs-number">29</span> <span class="hljs-number">15</span>:<span class="hljs-number">06</span>:<span class="hljs-number">06</span>] [debug] [<span class="hljs-keyword">in</span>_cpu] CPU <span class="hljs-number">1.25</span>% (buffer=<span class="hljs-number">0</span>)
-[<span class="hljs-number">2015</span>/<span class="hljs-number">07</span>/<span class="hljs-number">29</span> <span class="hljs-number">15</span>:<span class="hljs-number">06</span>:<span class="hljs-number">07</span>] [debug] [<span class="hljs-keyword">in</span>_cpu] CPU <span class="hljs-number">5.75</span>% (buffer=<span class="hljs-number">1</span>)
-[<span class="hljs-number">2015</span>/<span class="hljs-number">07</span>/<span class="hljs-number">29</span> <span class="hljs-number">15</span>:<span class="hljs-number">06</span>:<span class="hljs-number">08</span>] [debug] [<span class="hljs-keyword">in</span>_cpu] CPU <span class="hljs-number">9.25</span>% (buffer=<span class="hljs-number">2</span>)
-[<span class="hljs-number">2015</span>/<span class="hljs-number">07</span>/<span class="hljs-number">29</span> <span class="hljs-number">15</span>:<span class="hljs-number">06</span>:<span class="hljs-number">09</span>] [debug] [<span class="hljs-keyword">in</span>_cpu] CPU <span class="hljs-number">2.50</span>% (buffer=<span class="hljs-number">3</span>)
-[<span class="hljs-number">2015</span>/<span class="hljs-number">07</span>/<span class="hljs-number">29</span> <span class="hljs-number">15</span>:<span class="hljs-number">06</span>:<span class="hljs-number">10</span>] [debug] [<span class="hljs-keyword">in</span>_cpu] CPU <span class="hljs-number">3.25</span>% (buffer=<span class="hljs-number">4</span>)
-[<span class="hljs-number">0</span>] [<span class="hljs-number">1438203966</span>, {<span class="hljs-string">&quot;cpu&quot;</span>=&gt;<span class="hljs-number">1.250000</span>}]
-[<span class="hljs-number">1</span>] [<span class="hljs-number">1438203967</span>, {<span class="hljs-string">&quot;cpu&quot;</span>=&gt;<span class="hljs-number">5.750000</span>}]
-[<span class="hljs-number">2</span>] [<span class="hljs-number">1438203968</span>, {<span class="hljs-string">&quot;cpu&quot;</span>=&gt;<span class="hljs-number">9.250000</span>}]
-[<span class="hljs-number">3</span>] [<span class="hljs-number">1438203969</span>, {<span class="hljs-string">&quot;cpu&quot;</span>=&gt;<span class="hljs-number">2.500000</span>}]
-[<span class="hljs-number">4</span>] [<span class="hljs-number">1438203970</span>, {<span class="hljs-string">&quot;cpu&quot;</span>=&gt;<span class="hljs-number">3.250000</span>}]
-[<span class="hljs-number">2015</span>/<span class="hljs-number">07</span>/<span class="hljs-number">29</span> <span class="hljs-number">15</span>:<span class="hljs-number">06</span>:<span class="hljs-number">10</span>] [ info] Flush buf <span class="hljs-number">105</span> bytes
+[<span class="hljs-number">2016</span>/<span class="hljs-number">07</span>/<span class="hljs-number">24</span> <span class="hljs-number">21</span>:<span class="hljs-number">20</span>:<span class="hljs-number">22</span>] [ info] starting engine
+[<span class="hljs-number">2016</span>/<span class="hljs-number">07</span>/<span class="hljs-number">24</span> <span class="hljs-number">21</span>:<span class="hljs-number">20</span>:<span class="hljs-number">22</span>] [debug] [router] default match rule cpu.<span class="hljs-number">0</span>:stdout.<span class="hljs-number">0</span>
+[<span class="hljs-number">0</span>] (null): [<span class="hljs-number">1469362823</span>, {<span class="hljs-string">&quot;cpu_p&quot;</span>=&gt;<span class="hljs-number">0.000000</span>, <span class="hljs-string">&quot;user_p&quot;</span>=&gt;<span class="hljs-number">0.000000</span>, <span class="hljs-string">&quot;system_p&quot;</span>=&gt;<span class="hljs-number">0.000000</span>, <span class="hljs-string">&quot;cpu0.p_cpu&quot;</span>=&gt;<span class="hljs-number">0.000000</span>, <span class="hljs-string">&quot;cpu0.p_user&quot;</span>=&gt;<span class="hljs-number">0.000000</span>, <span class="hljs-string">&quot;cpu0.p_system&quot;</span>=&gt;<span class="hljs-number">0.000000</span>}]
+[<span class="hljs-number">1</span>] (null): [<span class="hljs-number">1469362824</span>, {<span class="hljs-string">&quot;cpu_p&quot;</span>=&gt;<span class="hljs-number">2.000000</span>, <span class="hljs-string">&quot;user_p&quot;</span>=&gt;<span class="hljs-number">2.000000</span>, <span class="hljs-string">&quot;system_p&quot;</span>=&gt;<span class="hljs-number">0.000000</span>, <span class="hljs-string">&quot;cpu0.p_cpu&quot;</span>=&gt;<span class="hljs-number">2.000000</span>, <span class="hljs-string">&quot;cpu0.p_user&quot;</span>=&gt;<span class="hljs-number">2.000000</span>, <span class="hljs-string">&quot;cpu0.p_system&quot;</span>=&gt;<span class="hljs-number">0.000000</span>}]
+[<span class="hljs-number">2</span>] (null): [<span class="hljs-number">1469362825</span>, {<span class="hljs-string">&quot;cpu_p&quot;</span>=&gt;<span class="hljs-number">1.000000</span>, <span class="hljs-string">&quot;user_p&quot;</span>=&gt;<span class="hljs-number">1.000000</span>, <span class="hljs-string">&quot;system_p&quot;</span>=&gt;<span class="hljs-number">0.000000</span>, <span class="hljs-string">&quot;cpu0.p_cpu&quot;</span>=&gt;<span class="hljs-number">1.000000</span>, <span class="hljs-string">&quot;cpu0.p_user&quot;</span>=&gt;<span class="hljs-number">1.000000</span>, <span class="hljs-string">&quot;cpu0.p_system&quot;</span>=&gt;<span class="hljs-number">0.000000</span>}]
+[<span class="hljs-number">3</span>] (null): [<span class="hljs-number">1469362826</span>, {<span class="hljs-string">&quot;cpu_p&quot;</span>=&gt;<span class="hljs-number">1.000000</span>, <span class="hljs-string">&quot;user_p&quot;</span>=&gt;<span class="hljs-number">1.000000</span>, <span class="hljs-string">&quot;system_p&quot;</span>=&gt;<span class="hljs-number">0.000000</span>, <span class="hljs-string">&quot;cpu0.p_cpu&quot;</span>=&gt;<span class="hljs-number">1.000000</span>, <span class="hljs-string">&quot;cpu0.p_user&quot;</span>=&gt;<span class="hljs-number">1.000000</span>, <span class="hljs-string">&quot;cpu0.p_system&quot;</span>=&gt;<span class="hljs-number">0.000000</span>}]
 </code></pre>
 <p>No more, no less, it just works.</p>
 

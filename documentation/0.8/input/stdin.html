@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Standard Input | Fluent Bit v0.8 Documentation</title>
+        <title>Standard Input | </title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.1.0">
@@ -36,7 +36,7 @@
     <body>
         
         
-    <div class="book" data-level="4.8" data-basepath=".." data-revision="Wed Jul 06 2016 23:30:07 GMT-0600 (CST)">
+    <div class="book" data-level="4.8" data-basepath=".." data-revision="Thu Aug 04 2016 16:54:12 GMT-0600 (CST)">
     
 
 <div class="book-summary">
@@ -752,7 +752,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../" >Fluent Bit v0.8 Documentation</a>
+        <a href="../" ></a>
     </h1>
 </div>
 
@@ -770,7 +770,7 @@
 <pre><code class="lang-bash"><span class="hljs-number">1</span>. { map =&gt; val, map =&gt; val, map =&gt; val }
 <span class="hljs-number">2</span>. [ time, { map =&gt; val, map =&gt; val, map =&gt; val } ]
 </code></pre>
-<p>A better example to demonstrate how it works will be through a <em>Bash</em> script that generate messages and write them to <a href="http://fluentbit.io" target="_blank">Fluent Bit</a>. Write the following content in a file named <em>test.sh</em>:</p>
+<p>A better example to demonstrate how it works will be through a <em>Bash</em> script that generates messages and writes them to <a href="http://fluentbit.io" target="_blank">Fluent Bit</a>. Write the following content in a file named <em>test.sh</em>:</p>
 <pre><code class="lang-bash"><span class="hljs-shebang">#!/bin/sh
 </span>
 <span class="hljs-keyword">while</span> :; <span class="hljs-keyword">do</span>
@@ -782,25 +782,17 @@
 <pre><code class="lang-bash">$ chmod <span class="hljs-number">755</span> test.sh
 </code></pre>
 <p>Now lets start the script and <a href="http://fluentbit.io" target="_blank">Fluent Bit</a> in the following way:</p>
-<pre><code class="lang-bash">$ ./test.sh | bin/fluent-bit -i stdin -o stdout -V
-Fluent Bit v0.<span class="hljs-number">3.0</span>
+<pre><code class="lang-bash">$ ./test.sh | bin/fluent-bit -i stdin -o stdout -v
+Fluent-Bit v0.<span class="hljs-number">8.3</span>
 Copyright (C) Treasure Data
 
-[<span class="hljs-number">2015</span>/<span class="hljs-number">09</span>/<span class="hljs-number">03</span> <span class="hljs-number">17</span>:<span class="hljs-number">34</span>:<span class="hljs-number">27</span>] [ info] Configuration
- flush time     : <span class="hljs-number">5</span> seconds
- input plugins  : stdin
- collectors     :
-[<span class="hljs-number">2015</span>/<span class="hljs-number">09</span>/<span class="hljs-number">03</span> <span class="hljs-number">17</span>:<span class="hljs-number">34</span>:<span class="hljs-number">27</span>] [ info] starting engine
-[<span class="hljs-number">2015</span>/<span class="hljs-number">09</span>/<span class="hljs-number">03</span> <span class="hljs-number">17</span>:<span class="hljs-number">34</span>:<span class="hljs-number">27</span>] [debug] <span class="hljs-keyword">in</span>_stdin <span class="hljs-built_in">read</span>() = <span class="hljs-number">21</span>
-[<span class="hljs-number">2015</span>/<span class="hljs-number">09</span>/<span class="hljs-number">03</span> <span class="hljs-number">17</span>:<span class="hljs-number">34</span>:<span class="hljs-number">28</span>] [debug] <span class="hljs-keyword">in</span>_stdin <span class="hljs-built_in">read</span>() = <span class="hljs-number">21</span>
-[<span class="hljs-number">2015</span>/<span class="hljs-number">09</span>/<span class="hljs-number">03</span> <span class="hljs-number">17</span>:<span class="hljs-number">34</span>:<span class="hljs-number">29</span>] [debug] <span class="hljs-keyword">in</span>_stdin <span class="hljs-built_in">read</span>() = <span class="hljs-number">21</span>
-[<span class="hljs-number">2015</span>/<span class="hljs-number">09</span>/<span class="hljs-number">03</span> <span class="hljs-number">17</span>:<span class="hljs-number">34</span>:<span class="hljs-number">30</span>] [debug] <span class="hljs-keyword">in</span>_stdin <span class="hljs-built_in">read</span>() = <span class="hljs-number">21</span>
-[<span class="hljs-number">2015</span>/<span class="hljs-number">09</span>/<span class="hljs-number">03</span> <span class="hljs-number">17</span>:<span class="hljs-number">34</span>:<span class="hljs-number">31</span>] [debug] <span class="hljs-keyword">in</span>_stdin <span class="hljs-built_in">read</span>() = <span class="hljs-number">21</span>
-[<span class="hljs-number">0</span>] [<span class="hljs-number">1441269267</span>, {<span class="hljs-string">&quot;key&quot;</span>=&gt;<span class="hljs-string">&quot;some value&quot;</span>}]
-[<span class="hljs-number">1</span>] [<span class="hljs-number">1441269268</span>, {<span class="hljs-string">&quot;key&quot;</span>=&gt;<span class="hljs-string">&quot;some value&quot;</span>}]
-[<span class="hljs-number">2</span>] [<span class="hljs-number">1441269269</span>, {<span class="hljs-string">&quot;key&quot;</span>=&gt;<span class="hljs-string">&quot;some value&quot;</span>}]
-[<span class="hljs-number">3</span>] [<span class="hljs-number">1441269270</span>, {<span class="hljs-string">&quot;key&quot;</span>=&gt;<span class="hljs-string">&quot;some value&quot;</span>}]
-[<span class="hljs-number">4</span>] [<span class="hljs-number">1441269271</span>, {<span class="hljs-string">&quot;key&quot;</span>=&gt;<span class="hljs-string">&quot;some value&quot;</span>}]
+[<span class="hljs-number">2016</span>/<span class="hljs-number">07</span>/<span class="hljs-number">24</span> <span class="hljs-number">20</span>:<span class="hljs-number">57</span>:<span class="hljs-number">28</span>] [ info] starting engine
+[<span class="hljs-number">2016</span>/<span class="hljs-number">07</span>/<span class="hljs-number">24</span> <span class="hljs-number">20</span>:<span class="hljs-number">57</span>:<span class="hljs-number">28</span>] [debug] [router] default match rule stdin.<span class="hljs-number">0</span>:stdout.<span class="hljs-number">0</span>
+[<span class="hljs-number">0</span>] (null): [<span class="hljs-number">1469361448</span>, {<span class="hljs-string">&quot;key&quot;</span>=&gt;<span class="hljs-string">&quot;some value&quot;</span>}]
+[<span class="hljs-number">1</span>] (null): [<span class="hljs-number">1469361449</span>, {<span class="hljs-string">&quot;key&quot;</span>=&gt;<span class="hljs-string">&quot;some value&quot;</span>}]
+[<span class="hljs-number">2</span>] (null): [<span class="hljs-number">1469361450</span>, {<span class="hljs-string">&quot;key&quot;</span>=&gt;<span class="hljs-string">&quot;some value&quot;</span>}]
+[<span class="hljs-number">3</span>] (null): [<span class="hljs-number">1469361451</span>, {<span class="hljs-string">&quot;key&quot;</span>=&gt;<span class="hljs-string">&quot;some value&quot;</span>}]
+[<span class="hljs-number">4</span>] (null): [<span class="hljs-number">1469361452</span>, {<span class="hljs-string">&quot;key&quot;</span>=&gt;<span class="hljs-string">&quot;some value&quot;</span>}]
 </code></pre>
 
                     

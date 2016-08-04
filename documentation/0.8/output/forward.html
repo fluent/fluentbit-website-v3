@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Forward | Fluent Bit v0.8 Documentation</title>
+        <title>Forward | </title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.1.0">
@@ -36,7 +36,7 @@
     <body>
         
         
-    <div class="book" data-level="5.2" data-basepath=".." data-revision="Wed Jul 06 2016 23:30:07 GMT-0600 (CST)">
+    <div class="book" data-level="5.2" data-basepath=".." data-revision="Thu Aug 04 2016 16:54:12 GMT-0600 (CST)">
     
 
 <div class="book-summary">
@@ -752,7 +752,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../" >Fluent Bit v0.8 Documentation</a>
+        <a href="../" ></a>
     </h1>
 </div>
 
@@ -796,7 +796,7 @@
 &lt;match fluent_bit&gt;
   type stdout
 &lt;/match&gt;
-</code></pre><p>That configuration file specify that will listen for <em>TCP</em> connections on the port <em>12225</em> through the <strong>forward</strong> input type. Then for every message with a <em>fluent_bit</em> __TAG, will print it out to the standard output.</p>
+</code></pre><p>That configuration file specifies that will listen for <em>TCP</em> connections on the port <em>12225</em> through the <strong>forward</strong> input type. Then for every message with a <em>fluent_bit</em> __TAG, will print it out to the standard output.</p>
 <p>In one terminal launch <a href="http://fluentd.org" target="_blank">Fluentd</a> specifying the new configuration file created (in_fluent-bit.conf):</p>
 <pre><code class="lang-bash">$ fluentd -c <span class="hljs-keyword">in</span>_fluent-bit.conf
 <span class="hljs-number">2015</span>-<span class="hljs-number">07</span>-<span class="hljs-number">29</span> <span class="hljs-number">14</span>:<span class="hljs-number">50</span>:<span class="hljs-number">47</span> -<span class="hljs-number">0600</span> [info]: reading config file path=<span class="hljs-string">&quot;in_fluent-bit.conf&quot;</span>
