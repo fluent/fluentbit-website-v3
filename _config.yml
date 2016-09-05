@@ -14,5 +14,5 @@ github_username:  fluent
 #markdown: kramdown
 markdown: redcarpet
 flb_major       : 0.8
-flb_version     : 0.8.4
-flb_release_date: Aug 12, 2016
+flb_version     : 0.8.5
+flb_release_date: Sep 05, 2016
