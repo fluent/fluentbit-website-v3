@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Treasure Data | </title>
+        <title>TLS / SSL | </title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.1.0">
@@ -25,10 +25,10 @@
         
     
     
-    <link rel="next" href="../development/index.html" />
+    <link rel="next" href="../input/index.html" />
     
     
-    <link rel="prev" href="../output/stdout.html" />
+    <link rel="prev" href="../getting_started/configuration_file.html" />
     
 
         
@@ -36,7 +36,7 @@
     <body>
         
         
-    <div class="book" data-level="5.6" data-basepath=".." data-revision="Wed Sep 07 2016 11:15:13 GMT-0600 (CST)">
+    <div class="book" data-level="3.3" data-basepath=".." data-revision="Wed Sep 07 2016 11:15:13 GMT-0600 (CST)">
     
 
 <div class="book-summary">
@@ -334,7 +334,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.3" data-path="getting_started/tls_ssl.html">
+        <li class="chapter active" data-level="3.3" data-path="getting_started/tls_ssl.html">
             
                 
                     <a href="../getting_started/tls_ssl.html">
@@ -601,7 +601,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="5.6" data-path="output/td.html">
+        <li class="chapter " data-level="5.6" data-path="output/td.html">
             
                 
                     <a href="../output/td.html">
@@ -777,52 +777,75 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="treasure-data">Treasure Data</h1>
-<p>The <strong>td</strong> output plugin, allows to flush your records into the <a href="http://treasuredata.com" target="_blank">Treasure Data</a> cloud service.</p>
-<h2 id="configuration-parameters">Configuration Parameters</h2>
-<p>The plugin supports the following configuration parameters:</p>
+                        <h1 id="tls-ssl">TLS / SSL</h1>
+<p>Fluent Bit provides integrated support for <em>Transport Layer Security</em> (TLS) and it predecessor <em>Secure Sockets Layer</em> (SSL) respectively. In this section we will refer as TLS only for both implementations.</p>
+<p>Each output plugin that requires to perform Network I/O can optionally enable TLS and configure the behavior. The following table describe the properties available:</p>
 <table>
 <thead>
 <tr>
-<th>Key</th>
+<th>Property</th>
 <th>Description</th>
+<th>Default</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>API</td>
-<td>The <a href="http://treasuredata.com" target="_blank">Treasure Data</a> API key. To obtain it please log into the <a href="https://console.treasuredata.com" target="_blank">Console</a> and in the API keys box, copy the API key hash.</td>
+<td>tls</td>
+<td>enable or disable TLS support</td>
+<td>Off</td>
 </tr>
 <tr>
-<td>Database</td>
-<td>Specify the name of your target database.</td>
+<td>tls.verify</td>
+<td>force certificate validation</td>
+<td>On</td>
 </tr>
 <tr>
-<td>Table</td>
-<td>Specify the name of your target table where the records will be stored.</td>
+<td>tls.ca_file</td>
+<td>absolute path to CA certificate file</td>
+<td></td>
+</tr>
+<tr>
+<td>tls.crt_file</td>
+<td>absolute path to Certificate file</td>
+<td></td>
+</tr>
+<tr>
+<td>tls.key_file</td>
+<td>absolute path to private Key file</td>
+<td></td>
+</tr>
+<tr>
+<td>tls.key_passwd</td>
+<td>optional password for tls.key_file file</td>
 </tr>
 </tbody>
 </table>
-<h2 id="getting-started">Getting Started</h2>
-<p>In order to start inserting records into <a href="https://www.treasuredata.com" target="_blank">Treasure Data</a>, you can run the plugin from the command line or through the configuration file:</p>
-<h3 id="command-line">Command Line:</h3>
-<pre><code class="lang-bash">$ fluent-bit -i cpu -o td -p API=<span class="hljs-string">&quot;abc&quot;</span> -p Database=<span class="hljs-string">&quot;fluentbit&quot;</span> -p Table=<span class="hljs-string">&quot;cpu_samples&quot;</span>
-</code></pre>
-<p>Ideally you don&apos;t want to expose your API key from the command line, using a configuration file is higly desired.</p>
-<h3 id="configuration-file">Configuration File</h3>
-<p>In your main configuration file append the following <em>Input</em> &amp; <em>Output</em> sections:</p>
-<pre><code class="lang-Python">[INPUT]
-    Name cpu
-    Tag  my_cpu
+<p>The listed properties can be enabled in the configuration file, specifically on each output plugin section or directly through the command line. The following <strong>output</strong> plugins can take advante of the TLS feature:</p>
+<ul>
+<li><a href="../output/http.html">HTTP</a></li>
+<li><a href="../output/elasticsearch.html">Elasticsearch</a></li>
+</ul>
+<h2 id="example-enable-tls-on-http-output">Example: enable TLS on HTTP output</h2>
+<p>By default HTTP output plugin uses plain TCP, enabling TLS from the command line can be done with:</p>
+<pre><code>$ fluent-bit -i cpu -t cpu -o http://192.168.2.3:80/something \
+    -p tls=on         \
+    -p tls.verify=off \
+    -m &apos;*&apos;
+</code></pre><p>In the command line above, the two properties <em>tls</em> and <em>tls.verify</em> where enabled for demonstration purposes (we strongly suggest always keep verification ON).</p>
+<p>The same behavior can be accomplished using a configuration file:</p>
+<pre><code>[INPUT]
+    Name  cpu
+    Tag   cpu
 
 [OUTPUT]
-    Name     td
-    Match    *
-    API      <span class="hljs-number">5713</span>/e75be23caee19f8041dfa635ddfbd0dcd8c8d981
-    Database fluentbit
-    Table    cpu_samples
+    Name       http
+    Match      *
+    Host       192.168.2.3
+    Port       80
+    URI        /something
+    tls        On
+    tls.verify Off
 </code></pre>
-
                     
                     </section>
                 
@@ -832,10 +855,10 @@
         </div>
 
         
-        <a href="../output/stdout.html" class="navigation navigation-prev " aria-label="Previous page: Standard Output"><i class="fa fa-angle-left"></i></a>
+        <a href="../getting_started/configuration_file.html" class="navigation navigation-prev " aria-label="Previous page: Configuration File"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../development/index.html" class="navigation navigation-next " aria-label="Next page: Fluent Bit for Developers"><i class="fa fa-angle-right"></i></a>
+        <a href="../input/index.html" class="navigation navigation-next " aria-label="Next page: Input Plugins"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
