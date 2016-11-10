@@ -1,0 +1,822 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>Health · GitBook</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.0">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="kmsg.html" />
+    
+    
+    <link rel="prev" href="head.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../about/">
+            
+                <a href="../about/">
+            
+                    
+                    About
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../about/why.html">
+            
+                <a href="../about/why.html">
+            
+                    
+                    Why ?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../about/fluentd_and_fluentbit.html">
+            
+                <a href="../about/fluentd_and_fluentbit.html">
+            
+                    
+                    Fluentd & Fluent Bit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../about/license.html">
+            
+                <a href="../about/license.html">
+            
+                    
+                    License
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../installation/">
+            
+                <a href="../installation/">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../installation/requirements.html">
+            
+                <a href="../installation/requirements.html">
+            
+                    
+                    Requirements
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../installation/download_sources.html">
+            
+                <a href="../installation/download_sources.html">
+            
+                    
+                    Download Sources
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../installation/build_install.html">
+            
+                <a href="../installation/build_install.html">
+            
+                    
+                    Build and Install
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../installation/td-agent-bit.html">
+            
+                <a href="../installation/td-agent-bit.html">
+            
+                    
+                    TD Agent Bit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../installation/debian.html">
+            
+                <a href="../installation/debian.html">
+            
+                    
+                    Debian Packages
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../installation/ubuntu.html">
+            
+                <a href="../installation/ubuntu.html">
+            
+                    
+                    Ubuntu Packages
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../installation/redhat_centos.html">
+            
+                <a href="../installation/redhat_centos.html">
+            
+                    
+                    CentOS Packages
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../installation/raspberry_pi.html">
+            
+                <a href="../installation/raspberry_pi.html">
+            
+                    
+                    Raspberry Pi
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../installation/unit_tests.html">
+            
+                <a href="../installation/unit_tests.html">
+            
+                    
+                    Unit Tests
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../getting_started/">
+            
+                <a href="../getting_started/">
+            
+                    
+                    Getting Started
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../getting_started/configuration_schema.html">
+            
+                <a href="../getting_started/configuration_schema.html">
+            
+                    
+                    Configuration Schema
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../getting_started/configuration_file.html">
+            
+                <a href="../getting_started/configuration_file.html">
+            
+                    
+                    Configuration File
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../getting_started/tls_ssl.html">
+            
+                <a href="../getting_started/tls_ssl.html">
+            
+                    
+                    TLS / SSL
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Input Plugins
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="cpu.html">
+            
+                <a href="cpu.html">
+            
+                    
+                    CPU Usage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="forward.html">
+            
+                <a href="forward.html">
+            
+                    
+                    Forward
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="head.html">
+            
+                <a href="head.html">
+            
+                    
+                    Head
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.4" data-path="health.html">
+            
+                <a href="health.html">
+            
+                    
+                    Health
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="kmsg.html">
+            
+                <a href="kmsg.html">
+            
+                    
+                    Kernel Log Buffer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="mem.html">
+            
+                <a href="mem.html">
+            
+                    
+                    Memory Usage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="mqtt.html">
+            
+                <a href="mqtt.html">
+            
+                    
+                    MQTT
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="random.html">
+            
+                <a href="random.html">
+            
+                    
+                    Random
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="serial.html">
+            
+                <a href="serial.html">
+            
+                    
+                    Serial Interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="stdin.html">
+            
+                <a href="stdin.html">
+            
+                    
+                    Standard Input
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="xbee.html">
+            
+                <a href="xbee.html">
+            
+                    
+                    XBee Radio
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../output/">
+            
+                <a href="../output/">
+            
+                    
+                    Output Plugins
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../output/elasticsearch.html">
+            
+                <a href="../output/elasticsearch.html">
+            
+                    
+                    Elasticsearch
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../output/forward.html">
+            
+                <a href="../output/forward.html">
+            
+                    
+                    Forward
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../output/http.html">
+            
+                <a href="../output/http.html">
+            
+                    
+                    HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../output/nats.html">
+            
+                <a href="../output/nats.html">
+            
+                    
+                    NATS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../output/stdout.html">
+            
+                <a href="../output/stdout.html">
+            
+                    
+                    Standard Output
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../output/td.html">
+            
+                <a href="../output/td.html">
+            
+                    
+                    Treasure Data
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../development/">
+            
+                <a href="../development/">
+            
+                    
+                    Fluent Bit for Developers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../development/library_api.html">
+            
+                <a href="../development/library_api.html">
+            
+                    
+                    Library API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../development/ingest_records_manually.html">
+            
+                <a href="../development/ingest_records_manually.html">
+            
+                    
+                    Ingest Records Manually
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Health</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="health">Health</h1><p><em>Health</em> input plugin allows you to check how <em>healthy</em> a TCP server is. It does the check by issuing a TCP connection every a certain interval of time.</p><h2 id="configuration-parameters">Configuration Parameters</h2><p>The plugin supports the following configuration parameters:</p><table>
+<thead>
+<tr><th>Key</th>
+<th>Description</th>
+</tr></thead><tbody>
+<tr><td>Host</td>
+<td>Name of the target host or IP address to check.</td>
+</tr><tr><td>Port</td>
+<td>TCP port where to perform the connection check.</td>
+</tr><tr><td>Interval_Sec</td>
+<td>Interval in seconds between the service checks. Default value is <em>1</em>.</td>
+</tr><tr><td>Internal_Nsec</td>
+<td>Specify a nanoseconds interval for service checks, it works in conjuntion with the Interval_Sec configuration key. Default value is <em>0</em>.</td>
+</tr><tr><td>Alert</td>
+<td>If enabled, it will only generate messages if the target TCP service is down. By default this option is disabled.</td>
+</tr></tbody></table>
+
+<h2 id="getting-started">Getting Started</h2><p>In order to start performing the checks, you can run the plugin from the command line or through the configuration file:</p><h3 id="command-line">Command Line</h3><p>From the command line you can let Fluent Bit generate the checks with the following options:</p><pre><code class="lang-bash">$ fluent-bit -i health://127.0.0.1:80 -o stdout</code></pre>
+<h3 id="configuration-file">Configuration File</h3><p>In your main configuration file append the following <em>Input</em> &amp; <em>Output</em> sections:</p><pre><code class="lang-python">[INPUT]
+    Name          health
+    Host          <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>
+    Port          <span class="hljs-number">80</span>
+    Interval_Sec  <span class="hljs-number">1</span>
+    Interval_NSec <span class="hljs-number">0</span>
+
+[OUTPUT]
+    Name   stdout
+    Match  *</code></pre>
+<h2 id="testing">Testing</h2><p>Once Fluent Bit is running, you will see some random values in the output interface similar to this:</p><pre><code class="lang-bash">$ fluent-bit -i health://127.0.0.1:80 -o stdout
+Fluent-Bit v0.9.0
+Copyright (C) Treasure Data
+
+[2016/10/07 21:37:51] [ info] [engine] started
+[0] health.0: [1475897871, {<span class="hljs-string">&quot;alive&quot;</span>=&gt;<span class="hljs-literal">true</span>}]
+[1] health.0: [1475897872, {<span class="hljs-string">&quot;alive&quot;</span>=&gt;<span class="hljs-literal">true</span>}]
+[2] health.0: [1475897873, {<span class="hljs-string">&quot;alive&quot;</span>=&gt;<span class="hljs-literal">true</span>}]
+[3] health.0: [1475897874, {<span class="hljs-string">&quot;alive&quot;</span>=&gt;<span class="hljs-literal">true</span>}]</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="head.html" class="navigation navigation-prev " aria-label="Previous page: Head">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="kmsg.html" class="navigation navigation-next " aria-label="Next page: Kernel Log Buffer">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Health","level":"1.5.4","depth":2,"next":{"title":"Kernel Log Buffer","level":"1.5.5","depth":2,"path":"input/kmsg.md","ref":"input/kmsg.md","articles":[]},"previous":{"title":"Head","level":"1.5.3","depth":2,"path":"input/head.md","ref":"input/head.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"input/health.md","mtime":"2016-10-08T03:38:54.089Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-11-10T05:37:30.307Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
