@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.0">
+        <meta name="generator" content="GitBook 3.2.2">
         
         
         
@@ -703,18 +703,30 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="xbee-radio">XBee Radio</h1><p>The <strong>xbee</strong> plugin allows to listen for data through an <a href="http://www.digi.com/lp/xbee/" target="_blank">XBee Radio</a> device. These devices uses ZigBee for their communication and the <strong>xbee</strong> plugin allows to retrieve those messages when using an <a href="http://www.digi.com/lp/xbee/" target="_blank">XBee</a>. In order to use this plugin is required to write a siple configuration file before to run <a href="http://fluentbit.io" target="_blank">Fluent Bit</a>.</p><h2 id="configuration-file">Configuration File</h2><p><a href="http://fluentbit.io" target="_blank">Fluent Bit</a> sources distribute an example configuration file for the serial interface and it&apos;s located under <em>conf/serial_input.conf</em>. The plugin recognizes the following setup under a <strong>XBEE</strong> section:</p><table>
+                                <h1 id="xbee-radio">XBee Radio</h1>
+<p>The <strong>xbee</strong> plugin allows to listen for data through an <a href="http://www.digi.com/lp/xbee/" target="_blank">XBee Radio</a> device. These devices uses ZigBee for their communication and the <strong>xbee</strong> plugin allows to retrieve those messages when using an <a href="http://www.digi.com/lp/xbee/" target="_blank">XBee</a>. In order to use this plugin is required to write a siple configuration file before to run <a href="http://fluentbit.io" target="_blank">Fluent Bit</a>.</p>
+<h2 id="configuration-file">Configuration File</h2>
+<p><a href="http://fluentbit.io" target="_blank">Fluent Bit</a> sources distribute an example configuration file for the serial interface and it&apos;s located under <em>conf/serial_input.conf</em>. The plugin recognizes the following setup under a <strong>XBEE</strong> section:</p>
+<table>
 <thead>
-<tr><th>Key</th>
+<tr>
+<th>Key</th>
 <th>Description</th>
-</tr></thead><tbody>
-<tr><td>File</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>File</td>
 <td>Absolute path to the device entry, e.g: /dev/ttyUSB0</td>
-</tr><tr><td>Baudrate</td>
+</tr>
+<tr>
+<td>Baudrate</td>
 <td>Specify the baudrate for the communication, e.g: 9600, 38400, 115200, etc</td>
-</tr></tbody></table>
-
-<p>Here is an example:</p><pre><code class="lang-python">[SERIAL]
+</tr>
+</tbody>
+</table>
+<p>Here is an example:</p>
+<pre><code class="lang-python">[SERIAL]
     <span class="hljs-comment"># File</span>
     <span class="hljs-comment"># ====</span>
     <span class="hljs-comment"># Filename of serial port. e.g. /dev/ttyS0, /dev/ttyAMA0</span>
@@ -725,10 +737,16 @@
     <span class="hljs-comment"># ========</span>
     <span class="hljs-comment"># Specify the baudrate</span>
 
-    Bitrate <span class="hljs-number">9600</span></code></pre>
-<h2 id="running">Running</h2><p>Once the configuration file is in place, make sure your XBee device is recognized by your operating system before starting <a href="http://fluentbit.io" target="_blank">Fluent Bit</a>, then you can start it with the following way:</p><pre><code class="lang-bash">$ bin/fluent-bit -c xbee.conf -i xbee -o stdout -V</code></pre>
-<p>As input data the <em>xbee</em> plugin recognize the following JSON data formats:</p><pre><code class="lang-bash">1. { map =&gt; val, map =&gt; val, map =&gt; val }
-2. [ time, { map =&gt; val, map =&gt; val, map =&gt; val } ]</code></pre>
+    Bitrate <span class="hljs-number">9600</span>
+</code></pre>
+<h2 id="running">Running</h2>
+<p>Once the configuration file is in place, make sure your XBee device is recognized by your operating system before starting <a href="http://fluentbit.io" target="_blank">Fluent Bit</a>, then you can start it with the following way:</p>
+<pre><code class="lang-bash">$ bin/fluent-bit -c xbee.conf -i xbee -o stdout -V
+</code></pre>
+<p>As input data the <em>xbee</em> plugin recognize the following JSON data formats:</p>
+<pre><code class="lang-bash">1. { map =&gt; val, map =&gt; val, map =&gt; val }
+2. [ time, { map =&gt; val, map =&gt; val, map =&gt; val } ]
+</code></pre>
 
                                 
                                 </section>
@@ -772,7 +790,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"XBee Radio","level":"1.5.11","depth":2,"next":{"title":"Output Plugins","level":"1.6","depth":1,"path":"output/README.md","ref":"output/README.md","articles":[{"title":"Elasticsearch","level":"1.6.1","depth":2,"path":"output/elasticsearch.md","ref":"output/elasticsearch.md","articles":[]},{"title":"Forward","level":"1.6.2","depth":2,"path":"output/forward.md","ref":"output/forward.md","articles":[]},{"title":"HTTP","level":"1.6.3","depth":2,"path":"output/http.md","ref":"output/http.md","articles":[]},{"title":"NATS","level":"1.6.4","depth":2,"path":"output/nats.md","ref":"output/nats.md","articles":[]},{"title":"Standard Output","level":"1.6.5","depth":2,"path":"output/stdout.md","ref":"output/stdout.md","articles":[]},{"title":"Treasure Data","level":"1.6.6","depth":2,"path":"output/td.md","ref":"output/td.md","articles":[]}]},"previous":{"title":"Standard Input","level":"1.5.10","depth":2,"path":"input/stdin.md","ref":"input/stdin.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"input/xbee.md","mtime":"2016-08-04T22:53:52.022Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-11-10T05:37:30.307Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"XBee Radio","level":"1.5.11","depth":2,"next":{"title":"Output Plugins","level":"1.6","depth":1,"path":"output/README.md","ref":"output/README.md","articles":[{"title":"Elasticsearch","level":"1.6.1","depth":2,"path":"output/elasticsearch.md","ref":"output/elasticsearch.md","articles":[]},{"title":"Forward","level":"1.6.2","depth":2,"path":"output/forward.md","ref":"output/forward.md","articles":[]},{"title":"HTTP","level":"1.6.3","depth":2,"path":"output/http.md","ref":"output/http.md","articles":[]},{"title":"NATS","level":"1.6.4","depth":2,"path":"output/nats.md","ref":"output/nats.md","articles":[]},{"title":"Standard Output","level":"1.6.5","depth":2,"path":"output/stdout.md","ref":"output/stdout.md","articles":[]},{"title":"Treasure Data","level":"1.6.6","depth":2,"path":"output/td.md","ref":"output/td.md","articles":[]}]},"previous":{"title":"Standard Input","level":"1.5.10","depth":2,"path":"input/stdin.md","ref":"input/stdin.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"input/xbee.md","mtime":"2016-08-04T22:53:52.022Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-10T07:09:53.076Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

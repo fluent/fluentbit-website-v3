@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.0">
+        <meta name="generator" content="GitBook 3.2.2">
         
         
         
@@ -703,32 +703,60 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="http">HTTP</h1><p>The <strong>http</strong> output plugin, allows to flush your records into an HTTP end point. For now the functionality is pretty basic and it issue a POST request with the data records in <a href="http://msgpack.org" target="_blank">MessagePack</a> format.</p><blockquote><p>In future versions the target URI and data format will be configurable.</p></blockquote><h2 id="configuration-parameters">Configuration Parameters</h2><table>
+                                <h1 id="http">HTTP</h1>
+<p>The <strong>http</strong> output plugin, allows to flush your records into an HTTP end point. For now the functionality is pretty basic and it issue a POST request with the data records in <a href="http://msgpack.org" target="_blank">MessagePack</a> format.</p>
+<blockquote>
+<p>In future versions the target URI and data format will be configurable.</p>
+</blockquote>
+<h2 id="configuration-parameters">Configuration Parameters</h2>
+<table>
 <thead>
-<tr><th>Key</th>
+<tr>
+<th>Key</th>
 <th>Description</th>
 <th>default</th>
-</tr></thead><tbody>
-<tr><td>Host</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Host</td>
 <td>IP address or hostname of the target HTTP Server</td>
 <td>127.0.0.1</td>
-</tr><tr><td>Port</td>
+</tr>
+<tr>
+<td>Port</td>
 <td>TCP port of the target HTTP Server</td>
 <td>80</td>
-</tr><tr><td>Proxy</td>
+</tr>
+<tr>
+<td>Proxy</td>
 <td>Specify an HTTP Proxy. The expected format of this value is <em><a href="http://host:port" target="_blank">http://host:port</a></em>. Note that <em>https</em> is <strong>not</strong> supported yet.</td>
 <td></td>
-</tr><tr><td>URI</td>
+</tr>
+<tr>
+<td>URI</td>
 <td>Specify an optional HTTP URI for the target web server, e.g: /something</td>
 <td>/</td>
-</tr><tr><td>Format</td>
+</tr>
+<tr>
+<td>Format</td>
 <td>Specify the data format to be used in the HTTP request body, by default it uses <em>msgpack</em>, optionally it can be set to <em>json</em>.</td>
 <td>msgpack</td>
-</tr></tbody></table>
-
-<h3 id="tls--ssl">TLS / SSL</h3><p>HTTP output plugin supports TTL/SSL, for more details about the properties available and general configuration, please refer to the <a href="../getting_started/tls_ssl.html">TLS/SSL</a> section.</p><h2 id="getting-started">Getting Started</h2><p>In order to insert records into a HTTP server, you can run the plugin from the command line or through the configuration file:</p><h3 id="command-line">Command Line</h3><p>The <strong>http</strong> plugin, can read the parameters from the command line in two ways, through the <strong>-p</strong> argument (property) or setting them directly through the service URI. The URI format is the following:</p><pre><code>http://host:port/something</code></pre>
-<p>Using the format specified, you could start Fluent Bit through:</p><pre><code>$ fluent-bit -i cpu -t cpu -o http://192.168.2.3:80/something -o stdout -m &apos;*&apos;</code></pre>
-<h3 id="configuration-file">Configuration File</h3><p>In your main configuration file append the following <em>Input</em> &amp; <em>Output</em> sections:</p><pre><code class="lang-Python">[INPUT]
+</tr>
+</tbody>
+</table>
+<h3 id="tls--ssl">TLS / SSL</h3>
+<p>HTTP output plugin supports TTL/SSL, for more details about the properties available and general configuration, please refer to the <a href="../getting_started/tls_ssl.html">TLS/SSL</a> section.</p>
+<h2 id="getting-started">Getting Started</h2>
+<p>In order to insert records into a HTTP server, you can run the plugin from the command line or through the configuration file:</p>
+<h3 id="command-line">Command Line</h3>
+<p>The <strong>http</strong> plugin, can read the parameters from the command line in two ways, through the <strong>-p</strong> argument (property) or setting them directly through the service URI. The URI format is the following:</p>
+<pre><code>http://host:port/something
+</code></pre><p>Using the format specified, you could start Fluent Bit through:</p>
+<pre><code>$ fluent-bit -i cpu -t cpu -o http://192.168.2.3:80/something -o stdout -m &apos;*&apos;
+</code></pre><h3 id="configuration-file">Configuration File</h3>
+<p>In your main configuration file append the following <em>Input</em> &amp; <em>Output</em> sections:</p>
+<pre><code class="lang-Python">[INPUT]
     Name  cpu
     Tag   cpu
 
@@ -737,7 +765,8 @@
     Match *
     Host  <span class="hljs-number">192.168</span><span class="hljs-number">.2</span><span class="hljs-number">.3</span>
     Port  <span class="hljs-number">80</span>
-    URI   /something</code></pre>
+    URI   /something
+</code></pre>
 
                                 
                                 </section>
@@ -781,7 +810,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"HTTP","level":"1.6.3","depth":2,"next":{"title":"NATS","level":"1.6.4","depth":2,"path":"output/nats.md","ref":"output/nats.md","articles":[]},"previous":{"title":"Forward","level":"1.6.2","depth":2,"path":"output/forward.md","ref":"output/forward.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"output/http.md","mtime":"2016-09-07T17:10:56.568Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-11-10T05:37:30.307Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"HTTP","level":"1.6.3","depth":2,"next":{"title":"NATS","level":"1.6.4","depth":2,"path":"output/nats.md","ref":"output/nats.md","articles":[]},"previous":{"title":"Forward","level":"1.6.2","depth":2,"path":"output/forward.md","ref":"output/forward.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"output/http.md","mtime":"2016-09-07T17:10:56.568Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-10T07:09:53.076Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

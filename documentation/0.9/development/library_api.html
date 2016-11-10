@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.0">
+        <meta name="generator" content="GitBook 3.2.2">
         
         
         
@@ -703,70 +703,170 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="library-api">Library API</h1><p><a href="http://fluentbit.io" target="_blank">Fluent Bit</a> library it&apos;s written in C language and can be used from any C or C++ application. Before to digging into the specification is recommended to understand the workflow involved in the runtime.</p><h2 id="workflow">Workflow</h2><p><a href="http://fluentbit.io" target="_blank">Fluent Bit</a> runs as a service, meaning that the API exposed for developers provide interfaces to create and manage a context, specify inputs/outputs, set configuration parameters and set routing paths for the event/records. A typical usage of the library involves:</p><ul><li>Create library instance/context.
-</li>
-<li>Enable <em>input</em> plugin(s) and set properties.
-</li>
-<li>Enable <em>output</em> plugin(s) and set properties.
-</li>
-<li>Start the library runtime.
-</li>
-<li>Optionally ingest records manually.
-</li>
-<li>Stop the library runtime.
-</li>
-<li>Destroy library instance/context.
-</li></ul>
-<h2 id="data-types">Data Types</h2><p>Starting from Fluent Bit v0.9, there is only one data type exposed by the library, by convention prefixed with <strong>flb_</strong>.</p><table>
+                                <h1 id="library-api">Library API</h1>
+<p><a href="http://fluentbit.io" target="_blank">Fluent Bit</a> library it&apos;s written in C language and can be used from any C or C++ application. Before to digging into the specification is recommended to understand the workflow involved in the runtime.</p>
+<h2 id="workflow">Workflow</h2>
+<p><a href="http://fluentbit.io" target="_blank">Fluent Bit</a> runs as a service, meaning that the API exposed for developers provide interfaces to create and manage a context, specify inputs/outputs, set configuration parameters and set routing paths for the event/records. A typical usage of the library involves:</p>
+<ul>
+<li>Create library instance/context.</li>
+<li>Enable <em>input</em> plugin(s) and set properties.</li>
+<li>Enable <em>output</em> plugin(s) and set properties.</li>
+<li>Start the library runtime.</li>
+<li>Optionally ingest records manually.</li>
+<li>Stop the library runtime.</li>
+<li>Destroy library instance/context.</li>
+</ul>
+<h2 id="data-types">Data Types</h2>
+<p>Starting from Fluent Bit v0.9, there is only one data type exposed by the library, by convention prefixed with <strong>flb_</strong>.</p>
+<table>
 <thead>
-<tr><th>Type</th>
+<tr>
+<th>Type</th>
 <th>Description</th>
-</tr></thead><tbody>
-<tr><td>flb_ctx_t</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>flb_ctx_t</td>
 <td>Main library context. It aims to reference the context returned by <em>flb_create();</em></td>
-</tr></tbody></table>
-
-<h2 id="api-reference">API Reference</h2><h3 id="library-context-creation">Library Context Creation</h3><p>As described earlier, the first step to use the library is to create a context of it, for the purpose the function <strong>flb_create()</strong> is used.</p><p><strong>Prototype</strong></p><pre><code class="lang-C"><span class="hljs-keyword">flb_ctx_t</span> *flb_create();</code></pre>
-<p><strong>Return Value</strong></p><p>On success, <strong>flb_create()</strong> returns the library context; on error, it returns NULL.</p><p><strong>Usage</strong></p><pre><code class="lang-C"><span class="hljs-keyword">flb_ctx_t</span> *ctx;
+</tr>
+</tbody>
+</table>
+<h2 id="api-reference">API Reference</h2>
+<h3 id="library-context-creation">Library Context Creation</h3>
+<p>As described earlier, the first step to use the library is to create a context of it, for the purpose the function <strong>flb_create()</strong> is used.</p>
+<p><strong>Prototype</strong></p>
+<pre><code class="lang-C"><span class="hljs-keyword">flb_ctx_t</span> *flb_create();
+</code></pre>
+<p><strong>Return Value</strong></p>
+<p>On success, <strong>flb_create()</strong> returns the library context; on error, it returns NULL.</p>
+<p><strong>Usage</strong></p>
+<pre><code class="lang-C"><span class="hljs-keyword">flb_ctx_t</span> *ctx;
 
 ctx = flb_create();
 <span class="hljs-keyword">if</span> (!ctx) {
     <span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;
-}</code></pre>
-<h3 id="enable-input-plugin-instance">Enable Input Plugin Instance</h3><p>When built, <a href="http://fluentbit.io" target="_blank">Fluent Bit</a> library contains a certain number of built-in <em>input</em> plugins. In order to enable an <em>input</em> plugin, the function <strong>flb_input</strong>() is used to create an instance of it.</p><blockquote><p>For plugins, an <em>instance</em> means a context of the plugin enabled. You can create multiples instances of the same plugin.</p></blockquote><p><strong>Prototype</strong></p><pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">flb_input</span><span class="hljs-params">(flb_ctx_t *ctx, <span class="hljs-keyword">char</span> *name, <span class="hljs-keyword">void</span> *data)</span></span>;</code></pre>
-<p>The argument <strong>ctx</strong> represents the library context created by <strong>flb_create()</strong>, then <strong>name</strong> is the name of the input plugin that is required to enable.</p><p>The third argument <strong>data</strong> can be used to pass a custom reference to the plugin instance, this is mostly used by custom or third party plugins, for generic plugins passing <em>NULL</em> is OK.</p><p><strong>Return Value</strong></p><p>On success, <strong>flb_input()</strong> returns an integer value &gt;= zero (similar to a file descriptor); on error, it returns NULL.</p><p><strong>Usage</strong></p><pre><code class="lang-C"><span class="hljs-keyword">int</span> in_ffd;
+}
+</code></pre>
+<h3 id="enable-input-plugin-instance">Enable Input Plugin Instance</h3>
+<p>When built, <a href="http://fluentbit.io" target="_blank">Fluent Bit</a> library contains a certain number of built-in <em>input</em> plugins. In order to enable an <em>input</em> plugin, the function <strong>flb_input</strong>() is used to create an instance of it.</p>
+<blockquote>
+<p>For plugins, an <em>instance</em> means a context of the plugin enabled. You can create multiples instances of the same plugin.</p>
+</blockquote>
+<p><strong>Prototype</strong></p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">flb_input</span><span class="hljs-params">(flb_ctx_t *ctx, <span class="hljs-keyword">char</span> *name, <span class="hljs-keyword">void</span> *data)</span></span>;
+</code></pre>
+<p>The argument <strong>ctx</strong> represents the library context created by <strong>flb_create()</strong>, then <strong>name</strong> is the name of the input plugin that is required to enable.</p>
+<p>The third argument <strong>data</strong> can be used to pass a custom reference to the plugin instance, this is mostly used by custom or third party plugins, for generic plugins passing <em>NULL</em> is OK.</p>
+<p><strong>Return Value</strong></p>
+<p>On success, <strong>flb_input()</strong> returns an integer value &gt;= zero (similar to a file descriptor); on error, it returns a negative number.</p>
+<p><strong>Usage</strong></p>
+<pre><code class="lang-C"><span class="hljs-keyword">int</span> in_ffd;
 
-in_ffd = flb_input(ctx, <span class="hljs-string">&quot;cpu&quot;</span>, <span class="hljs-literal">NULL</span>);</code></pre>
-<h3 id="set-input-plugin-properties">Set Input Plugin Properties</h3><p>A plugin instance created through <strong>flb_input()</strong>, may provide some configuration properties. Using the <strong>flb_input_set()</strong> function is possible to set these properties.</p><p><strong>Prototype</strong></p><pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">flb_input_set</span><span class="hljs-params">(flb_ctx_t *ctx, <span class="hljs-keyword">int</span> in_ffd, ...)</span></span>;</code></pre>
-<p><strong>Return Value</strong></p><p>On success it returns 0; on error it returns a negative number.</p><p><strong>Usage</strong></p><p>The <strong>flb_input_set()</strong> allow to set one or more properties in a key/value string mode, e.g:</p><pre><code class="lang-C"><span class="hljs-keyword">int</span> ret;
+in_ffd = flb_input(ctx, <span class="hljs-string">&quot;cpu&quot;</span>, <span class="hljs-literal">NULL</span>);
+</code></pre>
+<h3 id="set-input-plugin-properties">Set Input Plugin Properties</h3>
+<p>A plugin instance created through <strong>flb_input()</strong>, may provide some configuration properties. Using the <strong>flb_input_set()</strong> function is possible to set these properties.</p>
+<p><strong>Prototype</strong></p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">flb_input_set</span><span class="hljs-params">(flb_ctx_t *ctx, <span class="hljs-keyword">int</span> in_ffd, ...)</span></span>;
+</code></pre>
+<p><strong>Return Value</strong></p>
+<p>On success it returns 0; on error it returns a negative number.</p>
+<p><strong>Usage</strong></p>
+<p>The <strong>flb_input_set()</strong> allow to set one or more properties in a key/value string mode, e.g:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">int</span> ret;
 
 ret = flb_input_set(ctx, in_ffd,
                     <span class="hljs-string">&quot;tag&quot;</span>, <span class="hljs-string">&quot;my_records&quot;</span>,
                     <span class="hljs-string">&quot;ssl&quot;</span>, <span class="hljs-string">&quot;false&quot;</span>,
-                    <span class="hljs-literal">NULL</span>);</code></pre>
-<p>The argument <strong>ctx</strong> represents the library context created by <strong>flb_create()</strong>. The above example specified the values for the properties <strong>tag</strong> and <strong>ssl</strong>, note that the value is always a string (char *) and once there is no more parameters a NULL argument must be added at the end of the list.</p><p>The properties allowed per input plugin are specified on each specific plugin documentation.</p><h3 id="enable-output-plugin-instance">Enable Output Plugin Instance</h3><p>When built, <a href="http://fluentbit.io" target="_blank">Fluent Bit</a> library contains a certain number of built-in <em>output</em> plugins. In order to enable an <em>output</em> plugin, the function <strong>flb_output</strong>() is used to create an instance of it.</p><blockquote><p>For plugins, an <em>instance</em> means a context of the plugin enabled. You can create multiples instances of the same plugin.</p></blockquote><p><strong>Prototype</strong></p><pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">flb_output</span><span class="hljs-params">(flb_ctx_t *ctx, <span class="hljs-keyword">char</span> *name, <span class="hljs-keyword">void</span> *data)</span></span>;</code></pre>
-<p>The argument <strong>ctx</strong> represents the library context created by <strong>flb_create()</strong>, then <strong>name</strong> is the name of the output plugin that is required to enable.</p><p>The third argument <strong>data</strong> can be used to pass a custom reference to the plugin instance, this is mostly used by custom or third party plugins, for generic plugins passing <em>NULL</em> is OK.</p><p><strong>Return Value</strong></p><p>On success, <strong>flb_output()</strong> returns the output plugin instance; on error, it returns NULL.</p><p><strong>Usage</strong></p><pre><code class="lang-C"><span class="hljs-keyword">int</span> out_ffd;
+                    <span class="hljs-literal">NULL</span>);
+</code></pre>
+<p>The argument <strong>ctx</strong> represents the library context created by <strong>flb_create()</strong>. The above example specified the values for the properties <strong>tag</strong> and <strong>ssl</strong>, note that the value is always a string (char *) and once there is no more parameters a NULL argument must be added at the end of the list.</p>
+<p>The properties allowed per input plugin are specified on each specific plugin documentation.</p>
+<h3 id="enable-output-plugin-instance">Enable Output Plugin Instance</h3>
+<p>When built, <a href="http://fluentbit.io" target="_blank">Fluent Bit</a> library contains a certain number of built-in <em>output</em> plugins. In order to enable an <em>output</em> plugin, the function <strong>flb_output</strong>() is used to create an instance of it.</p>
+<blockquote>
+<p>For plugins, an <em>instance</em> means a context of the plugin enabled. You can create multiples instances of the same plugin.</p>
+</blockquote>
+<p><strong>Prototype</strong></p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">flb_output</span><span class="hljs-params">(flb_ctx_t *ctx, <span class="hljs-keyword">char</span> *name, <span class="hljs-keyword">void</span> *data)</span></span>;
+</code></pre>
+<p>The argument <strong>ctx</strong> represents the library context created by <strong>flb_create()</strong>, then <strong>name</strong> is the name of the output plugin that is required to enable.</p>
+<p>The third argument <strong>data</strong> can be used to pass a custom reference to the plugin instance, this is mostly used by custom or third party plugins, for generic plugins passing <em>NULL</em> is OK.</p>
+<p><strong>Return Value</strong></p>
+<p>On success, <strong>flb_output()</strong> returns the output plugin instance; on error, it returns a negative number.</p>
+<p><strong>Usage</strong></p>
+<pre><code class="lang-C"><span class="hljs-keyword">int</span> out_ffd;
 
-out_ffd = flb_output(ctx, <span class="hljs-string">&quot;stdout&quot;</span>, <span class="hljs-literal">NULL</span>);</code></pre>
-<h3 id="set-output-plugin-properties">Set Output Plugin Properties</h3><p>A plugin instance created through <strong>flb_output()</strong>, may provide some configuration properties. Using the <strong>flb_output_set()</strong> function is possible to set these properties.</p><p><strong>Prototype</strong></p><pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">flb_output_set</span><span class="hljs-params">(flb_ctx_t *ctx, <span class="hljs-keyword">int</span> out_ffd, ...)</span></span>;</code></pre>
-<p><strong>Return Value</strong></p><p>On success it returns an integer value &gt;= zero (similar to a file descriptor); on error it returns a negative number.</p><p><strong>Usage</strong></p><p>The <strong>flb_output_set()</strong> allow to set one or more properties in a key/value string mode, e.g:</p><pre><code class="lang-C"><span class="hljs-keyword">int</span> ret;
+out_ffd = flb_output(ctx, <span class="hljs-string">&quot;stdout&quot;</span>, <span class="hljs-literal">NULL</span>);
+</code></pre>
+<h3 id="set-output-plugin-properties">Set Output Plugin Properties</h3>
+<p>A plugin instance created through <strong>flb_output()</strong>, may provide some configuration properties. Using the <strong>flb_output_set()</strong> function is possible to set these properties.</p>
+<p><strong>Prototype</strong></p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">flb_output_set</span><span class="hljs-params">(flb_ctx_t *ctx, <span class="hljs-keyword">int</span> out_ffd, ...)</span></span>;
+</code></pre>
+<p><strong>Return Value</strong></p>
+<p>On success it returns an integer value &gt;= zero (similar to a file descriptor); on error it returns a negative number.</p>
+<p><strong>Usage</strong></p>
+<p>The <strong>flb_output_set()</strong> allow to set one or more properties in a key/value string mode, e.g:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">int</span> ret;
 
 ret = flb_output_set(ctx, out_ffd,
                      <span class="hljs-string">&quot;tag&quot;</span>, <span class="hljs-string">&quot;my_records&quot;</span>,
                      <span class="hljs-string">&quot;ssl&quot;</span>, <span class="hljs-string">&quot;false&quot;</span>,
-                     <span class="hljs-literal">NULL</span>);</code></pre>
-<p>The argument <strong>ctx</strong> represents the library context created by <strong>flb_create()</strong>. The above example specified the values for the properties <strong>tag</strong> and <strong>ssl</strong>, note that the value is always a string (char *) and once there is no more parameters a NULL argument must be added at the end of the list.</p><p>The properties allowed per output plugin are specified on each specific plugin documentation.</p><h2 id="start-fluent-bit-engine">Start Fluent Bit Engine</h2><p>Once the library context have been created and the input/output plugin instances are set, the next step is to start the engine. When started, the engine runs inside a new thread (POSIX thread) without blocking the caller application. To start the engine the function <strong>flb_start()</strong> is used.</p><p><strong>Prototype</strong></p><pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">flb_start</span><span class="hljs-params">(flb_ctx_t *ctx)</span></span>;</code></pre>
-<p><strong>Return Value</strong></p><p>On success it returns 0; on error it returns a negative number.</p><p><strong>Usage</strong></p><p>This simple call only needs as argument <strong>ctx</strong> which is the reference to the context created at the beginning with <strong>flb_create()</strong>:</p><pre><code class="lang-C"><span class="hljs-keyword">int</span> ret;
+                     <span class="hljs-literal">NULL</span>);
+</code></pre>
+<p>The argument <strong>ctx</strong> represents the library context created by <strong>flb_create()</strong>. The above example specified the values for the properties <strong>tag</strong> and <strong>ssl</strong>, note that the value is always a string (char *) and once there is no more parameters a NULL argument must be added at the end of the list.</p>
+<p>The properties allowed per output plugin are specified on each specific plugin documentation.</p>
+<h2 id="start-fluent-bit-engine">Start Fluent Bit Engine</h2>
+<p>Once the library context have been created and the input/output plugin instances are set, the next step is to start the engine. When started, the engine runs inside a new thread (POSIX thread) without blocking the caller application. To start the engine the function <strong>flb_start()</strong> is used.</p>
+<p><strong>Prototype</strong></p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">flb_start</span><span class="hljs-params">(flb_ctx_t *ctx)</span></span>;
+</code></pre>
+<p><strong>Return Value</strong></p>
+<p>On success it returns 0; on error it returns a negative number.</p>
+<p><strong>Usage</strong></p>
+<p>This simple call only needs as argument <strong>ctx</strong> which is the reference to the context created at the beginning with <strong>flb_create()</strong>:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">int</span> ret;
 
-ret = flb_start(ctx);</code></pre>
-<h2 id="stop-fluent-bit-engine">Stop Fluent Bit Engine</h2><p>To stop a running Fluent Bit engine, we provide the call <strong>flb_stop()</strong> for that purpose.</p><p><strong>Prototype</strong></p><pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">flb_stop</span><span class="hljs-params">(flb_ctx_t *ctx)</span></span>;</code></pre>
-<p>The argument <strong>ctx</strong> is a reference to the context created at the beginnning with <strong>flb_create()</strong> and previously started with <strong>flb_start()</strong>.</p><p>When the call is invoked, the engine will wait a maximum of five seconds to flush buffers and release the resources in use. A stopped context can be re-started any time but without any data on it.</p><p><strong>Return Value</strong></p><p>On success it returns 0; on error it returns a negative number.</p><p><strong>Usage</strong></p><pre><code class="lang-C"><span class="hljs-keyword">int</span> ret;
+ret = flb_start(ctx);
+</code></pre>
+<h2 id="stop-fluent-bit-engine">Stop Fluent Bit Engine</h2>
+<p>To stop a running Fluent Bit engine, we provide the call <strong>flb_stop()</strong> for that purpose.</p>
+<p><strong>Prototype</strong></p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">flb_stop</span><span class="hljs-params">(flb_ctx_t *ctx)</span></span>;
+</code></pre>
+<p>The argument <strong>ctx</strong> is a reference to the context created at the beginnning with <strong>flb_create()</strong> and previously started with <strong>flb_start()</strong>.</p>
+<p>When the call is invoked, the engine will wait a maximum of five seconds to flush buffers and release the resources in use. A stopped context can be re-started any time but without any data on it.</p>
+<p><strong>Return Value</strong></p>
+<p>On success it returns 0; on error it returns a negative number.</p>
+<p><strong>Usage</strong></p>
+<pre><code class="lang-C"><span class="hljs-keyword">int</span> ret;
 
-ret = flb_stop(ctx);</code></pre>
-<h2 id="destroy-library-context">Destroy Library Context</h2><p>A library context must be destroyed after is not longer necessary, note that a previous <strong>flb_stop()</strong> call is mandatory. When destroyed all resources associated are released.</p><p><strong>Prototype</strong></p><pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">flb_destroy</span><span class="hljs-params">(flb_ctx_t *ctx)</span></span>;</code></pre>
-<p>The argument <strong>ctx</strong> is a reference to the context created at the beginnning with <strong>flb_create()</strong>.</p><p><strong>Return Value</strong></p><p>No return value.</p><p><strong>Usage</strong></p><pre><code class="lang-C">flb_destroy(ctx);</code></pre>
-<h2 id="ingest-data-manually">Ingest Data Manually</h2><p>There are some cases where the caller application may want to ingest data into Fluent Bit, for this purpose exists the function <strong>flb_lib_push()</strong>.</p><p><strong>Prototype</strong></p><pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">flb_lib_push</span><span class="hljs-params">(flb_ctx_t *ctx, <span class="hljs-keyword">int</span> in_ffd, <span class="hljs-keyword">void</span> *data, size_t len)</span></span>;</code></pre>
-<p>The first argument is the context created previously through <strong>flb_create()</strong>. <strong>in_ffd</strong> is the numeric reference of the input plugin (for this case it should be an input of plugin <strong>lib</strong> type), <strong>data</strong> is a reference to the message to be ingested and <strong>len</strong> the number of bytes to take from it.</p><p><strong>Return Value</strong></p><p>On success, it returns the number of bytes written; on error it returns -1.</p><p><strong>Usage</strong></p><p>For more details and an example about how to use this function properly please refer to the next section <a href="ingest_records_manually.html">Ingest Records Manually</a>.</p>
+ret = flb_stop(ctx);
+</code></pre>
+<h2 id="destroy-library-context">Destroy Library Context</h2>
+<p>A library context must be destroyed after is not longer necessary, note that a previous <strong>flb_stop()</strong> call is mandatory. When destroyed all resources associated are released.</p>
+<p><strong>Prototype</strong></p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">flb_destroy</span><span class="hljs-params">(flb_ctx_t *ctx)</span></span>;
+</code></pre>
+<p>The argument <strong>ctx</strong> is a reference to the context created at the beginnning with <strong>flb_create()</strong>.</p>
+<p><strong>Return Value</strong></p>
+<p>No return value.</p>
+<p><strong>Usage</strong></p>
+<pre><code class="lang-C">flb_destroy(ctx);
+</code></pre>
+<h2 id="ingest-data-manually">Ingest Data Manually</h2>
+<p>There are some cases where the caller application may want to ingest data into Fluent Bit, for this purpose exists the function <strong>flb_lib_push()</strong>.</p>
+<p><strong>Prototype</strong></p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">flb_lib_push</span><span class="hljs-params">(flb_ctx_t *ctx, <span class="hljs-keyword">int</span> in_ffd, <span class="hljs-keyword">void</span> *data, size_t len)</span></span>;
+</code></pre>
+<p>The first argument is the context created previously through <strong>flb_create()</strong>. <strong>in_ffd</strong> is the numeric reference of the input plugin (for this case it should be an input of plugin <strong>lib</strong> type), <strong>data</strong> is a reference to the message to be ingested and <strong>len</strong> the number of bytes to take from it.</p>
+<p><strong>Return Value</strong></p>
+<p>On success, it returns the number of bytes written; on error it returns -1.</p>
+<p><strong>Usage</strong></p>
+<p>For more details and an example about how to use this function properly please refer to the next section <a href="ingest_records_manually.html">Ingest Records Manually</a>.</p>
+
                                 
                                 </section>
                             
@@ -809,7 +909,7 @@ ret = flb_stop(ctx);</code></pre>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Library API","level":"1.7.1","depth":2,"next":{"title":"Ingest Records Manually","level":"1.7.2","depth":2,"path":"development/ingest_records_manually.md","ref":"development/ingest_records_manually.md","articles":[]},"previous":{"title":"Fluent Bit for Developers","level":"1.7","depth":1,"path":"development/README.md","ref":"development/README.md","articles":[{"title":"Library API","level":"1.7.1","depth":2,"path":"development/library_api.md","ref":"development/library_api.md","articles":[]},{"title":"Ingest Records Manually","level":"1.7.2","depth":2,"path":"development/ingest_records_manually.md","ref":"development/ingest_records_manually.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"development/library_api.md","mtime":"2016-10-08T02:48:58.977Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-11-10T05:37:30.307Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Library API","level":"1.7.1","depth":2,"next":{"title":"Ingest Records Manually","level":"1.7.2","depth":2,"path":"development/ingest_records_manually.md","ref":"development/ingest_records_manually.md","articles":[]},"previous":{"title":"Fluent Bit for Developers","level":"1.7","depth":1,"path":"development/README.md","ref":"development/README.md","articles":[{"title":"Library API","level":"1.7.1","depth":2,"path":"development/library_api.md","ref":"development/library_api.md","articles":[]},{"title":"Ingest Records Manually","level":"1.7.2","depth":2,"path":"development/ingest_records_manually.md","ref":"development/ingest_records_manually.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"development/library_api.md","mtime":"2016-11-10T07:09:20.850Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-10T07:09:53.076Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.0">
+        <meta name="generator" content="GitBook 3.2.2">
         
         
         
@@ -703,36 +703,58 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="serial-interface">Serial Interface</h1><p>The <strong>serial</strong> input plugin, allows to retrieve messages/data from a <em>Serial</em> interface.</p><h2 id="configuration-parameters">Configuration Parameters</h2><table>
+                                <h1 id="serial-interface">Serial Interface</h1>
+<p>The <strong>serial</strong> input plugin, allows to retrieve messages/data from a <em>Serial</em> interface.</p>
+<h2 id="configuration-parameters">Configuration Parameters</h2>
+<table>
 <thead>
-<tr><th>Key</th>
+<tr>
+<th>Key</th>
 <th>Description</th>
-</tr></thead><tbody>
-<tr><td>File</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>File</td>
 <td>Absolute path to the device entry, e.g: /dev/ttyS0</td>
-</tr><tr><td>Bitrate</td>
+</tr>
+<tr>
+<td>Bitrate</td>
 <td>The bitrate for the communication, e.g: 9600, 38400, 115200, etc</td>
-</tr><tr><td>Min_Bytes</td>
+</tr>
+<tr>
+<td>Min_Bytes</td>
 <td>The serial interface will expect at least <em>Min_Bytes</em> to be available before to process the message (default: 1)</td>
-</tr><tr><td>Separator</td>
+</tr>
+<tr>
+<td>Separator</td>
 <td>Allows to specify a <em>separator</em> string that&apos;s used to determinate when a message ends.</td>
-</tr><tr><td>Format</td>
+</tr>
+<tr>
+<td>Format</td>
 <td>Specify the format of the incoming data stream. The only option available is &apos;json&apos;. Note that <em>Format</em> and <em>Separator</em> cannot be used at the same time.</td>
-</tr></tbody></table>
-
-<h2 id="getting-started">Getting Started</h2><p>In order to retrieve messages over the <em>Serial</em> interface, you can run the plugin from the command line or through the configuration file:</p><h3 id="command-line">Command Line</h3><p>The following example loads the input <em>serial</em> plugin where it set a Bitrate of 9600, listen from the <em>/dev/tnt0</em> interface and use the custom tag <em>data</em> to route the
-message.</p><pre><code>$ fluent-bit -i serial -t data -p File=/dev/tnt0 -p BitRate=9600 -o stdout -m &apos;*&apos;</code></pre>
-<p>The above interface (/dev/tnt0) is an emulation of the serial interface (more details at bottom), for demonstrative purposes we will write some message to the other end of the interface, in this case <em>/dev/tnt1</em>, e.g:</p><pre><code>$ echo &apos;this is some message&apos; &gt; /dev/tnt1
-</code></pre>
-<p>In Fluent Bit you should see an output like this:</p><pre><code class="lang-bash">$ fluent-bit -i serial -t data -p File=/dev/tnt0 -p BitRate=9600 -o stdout -m <span class="hljs-string">&apos;*&apos;</span>
+</tr>
+</tbody>
+</table>
+<h2 id="getting-started">Getting Started</h2>
+<p>In order to retrieve messages over the <em>Serial</em> interface, you can run the plugin from the command line or through the configuration file:</p>
+<h3 id="command-line">Command Line</h3>
+<p>The following example loads the input <em>serial</em> plugin where it set a Bitrate of 9600, listen from the <em>/dev/tnt0</em> interface and use the custom tag <em>data</em> to route the
+message.</p>
+<pre><code>$ fluent-bit -i serial -t data -p File=/dev/tnt0 -p BitRate=9600 -o stdout -m &apos;*&apos;
+</code></pre><p>The above interface (/dev/tnt0) is an emulation of the serial interface (more details at bottom), for demonstrative purposes we will write some message to the other end of the interface, in this case <em>/dev/tnt1</em>, e.g:</p>
+<pre><code>$ echo &apos;this is some message&apos; &gt; /dev/tnt1
+</code></pre><p>In Fluent Bit you should see an output like this:</p>
+<pre><code class="lang-bash">$ fluent-bit -i serial -t data -p File=/dev/tnt0 -p BitRate=9600 -o stdout -m <span class="hljs-string">&apos;*&apos;</span>
 Fluent-Bit v0.8.0
 Copyright (C) Treasure Data
 
 [2016/05/20 15:44:39] [ info] starting engine
 [0] data: [1463780680, {<span class="hljs-string">&quot;msg&quot;</span>=&gt;<span class="hljs-string">&quot;this is some message&quot;</span>}]
 </code></pre>
-<p>Now using the <em>Separator</em> configuration, we could send multiple messages at once (run this command after starting Fluent Bit):</p><pre><code>$ echo &apos;aaXbbXccXddXee&apos; &gt; /dev/tnt1</code></pre>
-<pre><code>$ fluent-bit -i serial -t data -p File=/dev/tnt0 -p BitRate=9600 -p Separator=X -o stdout -m &apos;*&apos;
+<p>Now using the <em>Separator</em> configuration, we could send multiple messages at once (run this command after starting Fluent Bit):</p>
+<pre><code>$ echo &apos;aaXbbXccXddXee&apos; &gt; /dev/tnt1
+</code></pre><pre><code>$ fluent-bit -i serial -t data -p File=/dev/tnt0 -p BitRate=9600 -p Separator=X -o stdout -m &apos;*&apos;
 Fluent-Bit v0.8.0
 Copyright (C) Treasure Data
 
@@ -740,8 +762,10 @@ Copyright (C) Treasure Data
 [0] data: [1463781902, {&quot;msg&quot;=&gt;&quot;aa&quot;}]
 [1] data: [1463781902, {&quot;msg&quot;=&gt;&quot;bb&quot;}]
 [2] data: [1463781902, {&quot;msg&quot;=&gt;&quot;cc&quot;}]
-[3] data: [1463781902, {&quot;msg&quot;=&gt;&quot;dd&quot;}]</code></pre>
-<h3 id="configuration-file">Configuration File</h3><p>In your main configuration file append the following <em>Input</em> &amp; <em>Output</em> sections:</p><pre><code class="lang-python">[INPUT]
+[3] data: [1463781902, {&quot;msg&quot;=&gt;&quot;dd&quot;}]
+</code></pre><h3 id="configuration-file">Configuration File</h3>
+<p>In your main configuration file append the following <em>Input</em> &amp; <em>Output</em> sections:</p>
+<pre><code class="lang-python">[INPUT]
     Name      serial
     Tag       data
     File      /dev/tnt0
@@ -750,18 +774,34 @@ Copyright (C) Treasure Data
 
 [OUTPUT]
     Name   stdout
-    Match  *</code></pre>
-<h2 id="emulating-serial-interface-on-linux">Emulating Serial Interface on Linux</h2><p>The following content is some extra information that will allow you to emulate a serial interface on your Linux system, so you can test this <em>Serial</em> input plugin locally in case you don&apos;t have such interface in your computer. The following procedure has been tested on Ubuntu 15.04 running a Linux Kernel 4.0.</p><h2 id="build-and-install-the-tty0tty-module">Build and install the tty0tty module</h2><p>Download the sources</p><pre><code class="lang-bash">$ git <span class="hljs-built_in">clone</span> https://github.com/freemed/tty0tty</code></pre>
-<p>Unpack and compile</p><pre><code class="lang-bash">$ <span class="hljs-built_in">cd</span> tty0tty/module
-$ make</code></pre>
-<p>Copy the new kernel module into the kernel modules directory</p><pre><code class="lang-bash">$ sudo cp tty0tty.ko /lib/modules/$(uname -r)/kernel/drivers/misc/</code></pre>
-<p>Load the module</p><pre><code class="lang-bash">$ sudo depmod
-$ sudo modprobe tty0tty</code></pre>
-<p>You should see new serial ports in /dev/ (ls /dev/tnt*) Give appropriate permissions to the new serial ports:</p><pre><code class="lang-bash">$ sudo chmod 666 /dev/tnt*</code></pre>
-<p>When the module is loaded, it will interconnect the following virtual interfaces:</p><pre><code class="lang-bash">/dev/tnt0 &lt;=&gt; /dev/tnt1
+    Match  *
+</code></pre>
+<h2 id="emulating-serial-interface-on-linux">Emulating Serial Interface on Linux</h2>
+<p>The following content is some extra information that will allow you to emulate a serial interface on your Linux system, so you can test this <em>Serial</em> input plugin locally in case you don&apos;t have such interface in your computer. The following procedure has been tested on Ubuntu 15.04 running a Linux Kernel 4.0.</p>
+<h2 id="build-and-install-the-tty0tty-module">Build and install the tty0tty module</h2>
+<p>Download the sources</p>
+<pre><code class="lang-bash">$ git <span class="hljs-built_in">clone</span> https://github.com/freemed/tty0tty
+</code></pre>
+<p>Unpack and compile</p>
+<pre><code class="lang-bash">$ <span class="hljs-built_in">cd</span> tty0tty/module
+$ make
+</code></pre>
+<p>Copy the new kernel module into the kernel modules directory</p>
+<pre><code class="lang-bash">$ sudo cp tty0tty.ko /lib/modules/$(uname -r)/kernel/drivers/misc/
+</code></pre>
+<p>Load the module</p>
+<pre><code class="lang-bash">$ sudo depmod
+$ sudo modprobe tty0tty
+</code></pre>
+<p>You should see new serial ports in /dev/ (ls /dev/tnt*) Give appropriate permissions to the new serial ports:</p>
+<pre><code class="lang-bash">$ sudo chmod 666 /dev/tnt*
+</code></pre>
+<p>When the module is loaded, it will interconnect the following virtual interfaces:</p>
+<pre><code class="lang-bash">/dev/tnt0 &lt;=&gt; /dev/tnt1
 /dev/tnt2 &lt;=&gt; /dev/tnt3
 /dev/tnt4 &lt;=&gt; /dev/tnt5
-/dev/tnt6 &lt;=&gt; /dev/tnt7</code></pre>
+/dev/tnt6 &lt;=&gt; /dev/tnt7
+</code></pre>
 
                                 
                                 </section>
@@ -805,7 +845,7 @@ $ sudo modprobe tty0tty</code></pre>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Serial Interface","level":"1.5.9","depth":2,"next":{"title":"Standard Input","level":"1.5.10","depth":2,"path":"input/stdin.md","ref":"input/stdin.md","articles":[]},"previous":{"title":"Random","level":"1.5.8","depth":2,"path":"input/random.md","ref":"input/random.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"input/serial.md","mtime":"2016-08-04T22:53:52.022Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-11-10T05:37:30.307Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Serial Interface","level":"1.5.9","depth":2,"next":{"title":"Standard Input","level":"1.5.10","depth":2,"path":"input/stdin.md","ref":"input/stdin.md","articles":[]},"previous":{"title":"Random","level":"1.5.8","depth":2,"path":"input/random.md","ref":"input/random.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"input/serial.md","mtime":"2016-08-04T22:53:52.022Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-10T07:09:53.076Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

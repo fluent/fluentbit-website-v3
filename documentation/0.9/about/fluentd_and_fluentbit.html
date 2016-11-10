@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.0">
+        <meta name="generator" content="GitBook 3.2.2">
         
         
         
@@ -703,36 +703,63 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="fluentd-and-fluent-bit">Fluentd and Fluent Bit</h1><p>Data collection matters and nowadays the scenarios from where the information can <em>come from</em> are very variable. For hence to be more flexible on certain markets needs, we may need different options. On this page we will describe the relationship between the <a href="http://fluentd.org" target="_blank">Fluentd</a> and <a href="http://fluentbit.io" target="_blank">Fluent Bit</a> open source projects.</p><p><a href="http://fluentd.org" target="_blank">Fluentd</a> and <a href="http://fluentbit.io" target="_blank">Fluent Bit</a> projects are both created and sponsored by <a href="http://treasuredata.com" target="_blank">Treasure Data</a> and they aim to solve the data collection needs but on different scenarios and environments, the following table describe a comparisson on different areas of the projects:</p><table>
+                                <h1 id="fluentd-and-fluent-bit">Fluentd and Fluent Bit</h1>
+<p>Data collection matters and nowadays the scenarios from where the information can <em>come from</em> are very variable. For hence to be more flexible on certain markets needs, we may need different options. On this page we will describe the relationship between the <a href="http://fluentd.org" target="_blank">Fluentd</a> and <a href="http://fluentbit.io" target="_blank">Fluent Bit</a> open source projects.</p>
+<p><a href="http://fluentd.org" target="_blank">Fluentd</a> and <a href="http://fluentbit.io" target="_blank">Fluent Bit</a> projects are both created and sponsored by <a href="http://treasuredata.com" target="_blank">Treasure Data</a> and they aim to solve the <em>Data Collection</em> and <em>Data Forwarding</em> needs as a whole.</p>
+<p>From an architecture usability perspective:</p>
+<ul>
+<li>Fluentd is an Aggregator.</li>
+<li>Fluent Bit is a Data Forwarder.</li>
+</ul>
+<p>The following table describe a comparisson on different areas of the projects:</p>
+<table>
 <thead>
-<tr><th></th>
+<tr>
+<th></th>
 <th>Fluentd</th>
 <th>Fluent Bit</th>
-</tr></thead><tbody>
-<tr><td>Scope</td>
-<td>Servers</td>
-<td>Embedded &amp; IoT devices</td>
-</tr><tr><td>Language</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scope</td>
+<td>Containers / Servers</td>
+<td>Containers / Servers</td>
+</tr>
+<tr>
+<td>Language</td>
 <td>C &amp; Ruby</td>
 <td>C</td>
-</tr><tr><td>Memory</td>
-<td>~20MB</td>
-<td>~150KB</td>
-</tr><tr><td>Performance</td>
+</tr>
+<tr>
+<td>Memory</td>
+<td>~40MB</td>
+<td>~250KB</td>
+</tr>
+<tr>
+<td>Performance</td>
 <td>High Performance</td>
 <td>High Performance</td>
-</tr><tr><td>Dependencies</td>
+</tr>
+<tr>
+<td>Dependencies</td>
 <td>Built as a Ruby Gem, it requires a certain number of gems.</td>
 <td>Zero dependencies, unless some special plugin requires them.</td>
-</tr><tr><td>Plugins</td>
-<td>More than 300 plugins available</td>
-<td>Around 15 plugins available</td>
-</tr><tr><td>License</td>
+</tr>
+<tr>
+<td>Plugins</td>
+<td>More than 650 plugins available</td>
+<td>Around 20 plugins available</td>
+</tr>
+<tr>
+<td>License</td>
 <td><a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a></td>
 <td><a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a></td>
-</tr></tbody></table>
+</tr>
+</tbody>
+</table>
+<p>Considering Fluentd as a main Aggregator and Fluent Bit as a Data Forwarder, we can see both projects complement each other providing a full reliable solution.</p>
 
-<p>As described in the table, if the target environment is a server with common capacity, <a href="http://fluentd.org" target="_blank">Fluentd</a> is a great option due to it flexibility and availability of plugins (more than 300 extensions!) but if the <em>data collection</em> will happen in an Embedded environment or an IoT device where the system capacity is restricted, <a href="http://fluentbit.io" target="_blank">Fluent Bit</a> is the solution to use.</p><p>Both tools are not mutual exclusive, <a href="http://fluentbit.io" target="_blank">Fluent Bit</a> provides and <em>output</em> plugin to flush the information to a <a href="http://fluentd.org" target="_blank">Fluentd</a> instance, so they can work together in your architecture or as independent services.</p>
                                 
                                 </section>
                             
@@ -775,7 +802,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Fluentd & Fluent Bit","level":"1.2.2","depth":2,"next":{"title":"License","level":"1.2.3","depth":2,"path":"about/license.md","ref":"about/license.md","articles":[]},"previous":{"title":"Why ?","level":"1.2.1","depth":2,"path":"about/why.md","ref":"about/why.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"about/fluentd_and_fluentbit.md","mtime":"2016-05-23T01:35:26.905Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-11-10T05:37:30.307Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Fluentd & Fluent Bit","level":"1.2.2","depth":2,"next":{"title":"License","level":"1.2.3","depth":2,"path":"about/license.md","ref":"about/license.md","articles":[]},"previous":{"title":"Why ?","level":"1.2.1","depth":2,"path":"about/why.md","ref":"about/why.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"about/fluentd_and_fluentbit.md","mtime":"2016-11-10T06:56:13.234Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-10T07:09:53.076Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

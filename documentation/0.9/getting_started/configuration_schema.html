@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.0">
+        <meta name="generator" content="GitBook 3.2.2">
         
         
         
@@ -703,41 +703,49 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="configuration-schema">Configuration Schema</h1><p>Fluent Bit may use optionally a configuration file to define how the service will behave, and before to proceed we need to understand how the configuration schema works. The schema is defined by three concepts:</p><ul><li>Sections
-</li>
-<li>Entries: Key/Value
-</li>
-<li>Indented Configuration Mode
-</li></ul>
-<p>A simple example of a configuration file is as follows:</p><pre><code class="lang-Python">[SERVICE]
+                                <h1 id="configuration-schema">Configuration Schema</h1>
+<p>Fluent Bit may use optionally a configuration file to define how the service will behave, and before to proceed we need to understand how the configuration schema works. The schema is defined by three concepts:</p>
+<ul>
+<li>Sections</li>
+<li>Entries: Key/Value</li>
+<li>Indented Configuration Mode</li>
+</ul>
+<p>A simple example of a configuration file is as follows:</p>
+<pre><code class="lang-Python">[SERVICE]
     <span class="hljs-comment"># This is a commented line</span>
     Daemon    off
-    log_level debug</code></pre>
-<h2 id="sections">Sections</h2><p>A section is defined by a name or title inside brackets. Looking at the example above a Server section have been set using <strong>[SERVICE]</strong> definition. Section rules:</p><ul><li>All section content must be indented (4 spaces ideally).
-</li>
-<li>Multiples sections can exists on the same file.
-</li>
-<li>Under a section is expected to have comments and entries, a section cannot be empty.
-</li>
-<li>Any commented line under a section, must be indented too.
-</li></ul>
-<h2 id="entries-keyvalue">Entries: Key/Value</h2><p>A section may contain <strong>Entries</strong>, an entry is defined by a line of text that contains a <strong>Key</strong> and a <strong>Value</strong>, using the above example, the <strong>[SERVICE]</strong> section contains two entries, one is the key <strong>Daemon</strong> with value <strong>off</strong> and the other the key <strong>Log_Level</strong> with the value <strong>on</strong>. Entries rules:</p><ul><li>An entry is defined by a key and a value.
-</li>
-<li>A key must be indented.
-</li>
-<li>A key must contain a value which ends in the breakline.
-</li>
-<li>Multiple keys with the same name can exists.
-</li></ul>
-<p>Also commented lines are set prefixing the <strong>#</strong> character, those lines are not processed but they must be indented too.</p><h2 id="indented-configuration-mode">Indented Configuration Mode</h2><p>Fluent Bit configuration files are based in a strict <strong>Indented Mode</strong>,  that means that each configuration file must follow the same pattern of alignment from left to right when writing text. By default is suggested an indentation level of four spaces from left to right. Example:</p><pre><code class="lang-Python">[FIRST_SECTION]
+    log_level debug
+</code></pre>
+<h2 id="sections">Sections</h2>
+<p>A section is defined by a name or title inside brackets. Looking at the example above a Server section have been set using <strong>[SERVICE]</strong> definition. Section rules:</p>
+<ul>
+<li>All section content must be indented (4 spaces ideally).</li>
+<li>Multiples sections can exists on the same file.</li>
+<li>Under a section is expected to have comments and entries, a section cannot be empty.</li>
+<li>Any commented line under a section, must be indented too.</li>
+</ul>
+<h2 id="entries-keyvalue">Entries: Key/Value</h2>
+<p>A section may contain <strong>Entries</strong>, an entry is defined by a line of text that contains a <strong>Key</strong> and a <strong>Value</strong>, using the above example, the <strong>[SERVICE]</strong> section contains two entries, one is the key <strong>Daemon</strong> with value <strong>off</strong> and the other the key <strong>Log_Level</strong> with the value <strong>on</strong>. Entries rules:</p>
+<ul>
+<li>An entry is defined by a key and a value.</li>
+<li>A key must be indented.</li>
+<li>A key must contain a value which ends in the breakline.</li>
+<li>Multiple keys with the same name can exists.</li>
+</ul>
+<p>Also commented lines are set prefixing the <strong>#</strong> character, those lines are not processed but they must be indented too.</p>
+<h2 id="indented-configuration-mode">Indented Configuration Mode</h2>
+<p>Fluent Bit configuration files are based in a strict <strong>Indented Mode</strong>,  that means that each configuration file must follow the same pattern of alignment from left to right when writing text. By default is suggested an indentation level of four spaces from left to right. Example:</p>
+<pre><code class="lang-Python">[FIRST_SECTION]
     <span class="hljs-comment"># This is a commented line</span>
     Key1  some value
     Key2  another value
     <span class="hljs-comment"># more comments</span>
 
 [SECOND_SECTION]
-    KeyN  <span class="hljs-number">3.14</span></code></pre>
+    KeyN  <span class="hljs-number">3.14</span>
+</code></pre>
 <p>As you can see there are two sections with multiple entries and comments, note also that empty lines are allowed and they do not need to be indented.</p>
+
                                 
                                 </section>
                             
@@ -780,7 +788,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Configuration Schema","level":"1.4.1","depth":2,"next":{"title":"Configuration File","level":"1.4.2","depth":2,"path":"getting_started/configuration_file.md","ref":"getting_started/configuration_file.md","articles":[]},"previous":{"title":"Getting Started","level":"1.4","depth":1,"path":"getting_started/README.md","ref":"getting_started/README.md","articles":[{"title":"Configuration Schema","level":"1.4.1","depth":2,"path":"getting_started/configuration_schema.md","ref":"getting_started/configuration_schema.md","articles":[]},{"title":"Configuration File","level":"1.4.2","depth":2,"path":"getting_started/configuration_file.md","ref":"getting_started/configuration_file.md","articles":[]},{"title":"TLS / SSL","level":"1.4.3","depth":2,"path":"getting_started/tls_ssl.md","ref":"getting_started/tls_ssl.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"getting_started/configuration_schema.md","mtime":"2016-05-23T01:35:26.905Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-11-10T05:37:30.307Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Configuration Schema","level":"1.4.1","depth":2,"next":{"title":"Configuration File","level":"1.4.2","depth":2,"path":"getting_started/configuration_file.md","ref":"getting_started/configuration_file.md","articles":[]},"previous":{"title":"Getting Started","level":"1.4","depth":1,"path":"getting_started/README.md","ref":"getting_started/README.md","articles":[{"title":"Configuration Schema","level":"1.4.1","depth":2,"path":"getting_started/configuration_schema.md","ref":"getting_started/configuration_schema.md","articles":[]},{"title":"Configuration File","level":"1.4.2","depth":2,"path":"getting_started/configuration_file.md","ref":"getting_started/configuration_file.md","articles":[]},{"title":"TLS / SSL","level":"1.4.3","depth":2,"path":"getting_started/tls_ssl.md","ref":"getting_started/tls_ssl.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"getting_started/configuration_schema.md","mtime":"2016-05-23T01:35:26.905Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-10T07:09:53.076Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

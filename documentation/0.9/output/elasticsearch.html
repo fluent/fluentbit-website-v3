@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.0">
+        <meta name="generator" content="GitBook 3.2.2">
         
         
         
@@ -703,32 +703,59 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="elasticsearch">Elasticsearch</h1><p>The <strong>es</strong> output plugin, allows to flush your records into a <a href="http://www.elastic.co" target="_blank">Elastic Search</a> instance. The following instructions assumes that you have a fully operational Elasticsearch service running.</p><h2 id="configuration-parameters">Configuration Parameters</h2><table>
+                                <h1 id="elasticsearch">Elasticsearch</h1>
+<p>The <strong>es</strong> output plugin, allows to flush your records into a <a href="http://www.elastic.co" target="_blank">Elastic Search</a> instance. The following instructions assumes that you have a fully operational Elasticsearch service running.</p>
+<h2 id="configuration-parameters">Configuration Parameters</h2>
+<table>
 <thead>
-<tr><th>Key</th>
+<tr>
+<th>Key</th>
 <th>Description</th>
 <th>default</th>
-</tr></thead><tbody>
-<tr><td>Host</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Host</td>
 <td>IP address or hostname of the target Elasticsearch instance</td>
 <td>127.0.0.1</td>
-</tr><tr><td>Port</td>
+</tr>
+<tr>
+<td>Port</td>
 <td>TCP port of the target Elasticsearch instance</td>
 <td>9200</td>
-</tr><tr><td>Index</td>
+</tr>
+<tr>
+<td>Index</td>
 <td>Elastic index</td>
 <td>fluentbit</td>
-</tr><tr><td>Type</td>
+</tr>
+<tr>
+<td>Type</td>
 <td>Elastic type</td>
 <td>test</td>
-</tr></tbody></table>
-
-<blockquote><p>The parameters <em>index</em> and <em>type</em> can be confusing if you are new to Elastic, if you have used a common relational database before, they can be compared to the <em>database</em> and <em>table</em> concepts.</p></blockquote><h3 id="tls--ssl">TLS / SSL</h3><p>Elasticsearch output plugin supports TTL/SSL, for more details about the properties available and general configuration, please refer to the <a href="../getting_started/tls_ssl.html">TLS/SSL</a> section.</p><h2 id="getting-started">Getting Started</h2><p>In order to insert records into a Elasticsearch service, you can run the plugin from the command line or through the configuration file:</p><h3 id="command-line">Command Line</h3><p>The <strong>es</strong> plugin, can read the parameters from the command line in two ways, through the <strong>-p</strong> argument (property) or setting them directly through the service URI. The URI format is the following:</p><pre><code>es://host:port/index/type</code></pre>
-<p>Using the format specified, you could start Fluent Bit through:</p><pre><code>$ fluent-bit -i cpu -t cpu -o es://192.168.2.3:9200/my_index/my_type \
-    -o stdout -m &apos;*&apos;</code></pre>
-<p>which is similar to do:</p><pre><code>$ fluent-bit -i cpu -t cpu -o es -p Host=192.168.2.3 -p Port=9200 \
-    -p Index=my_index -p Type=my_type -o stdout -m &apos;*&apos;</code></pre>
-<h3 id="configuration-file">Configuration File</h3><p>In your main configuration file append the following <em>Input</em> &amp; <em>Output</em> sections:</p><pre><code class="lang-Python">[INPUT]
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>The parameters <em>index</em> and <em>type</em> can be confusing if you are new to Elastic, if you have used a common relational database before, they can be compared to the <em>database</em> and <em>table</em> concepts.</p>
+</blockquote>
+<h3 id="tls--ssl">TLS / SSL</h3>
+<p>Elasticsearch output plugin supports TTL/SSL, for more details about the properties available and general configuration, please refer to the <a href="../getting_started/tls_ssl.html">TLS/SSL</a> section.</p>
+<h2 id="getting-started">Getting Started</h2>
+<p>In order to insert records into a Elasticsearch service, you can run the plugin from the command line or through the configuration file:</p>
+<h3 id="command-line">Command Line</h3>
+<p>The <strong>es</strong> plugin, can read the parameters from the command line in two ways, through the <strong>-p</strong> argument (property) or setting them directly through the service URI. The URI format is the following:</p>
+<pre><code>es://host:port/index/type
+</code></pre><p>Using the format specified, you could start Fluent Bit through:</p>
+<pre><code>$ fluent-bit -i cpu -t cpu -o es://192.168.2.3:9200/my_index/my_type \
+    -o stdout -m &apos;*&apos;
+</code></pre><p>which is similar to do:</p>
+<pre><code>$ fluent-bit -i cpu -t cpu -o es -p Host=192.168.2.3 -p Port=9200 \
+    -p Index=my_index -p Type=my_type -o stdout -m &apos;*&apos;
+</code></pre><h3 id="configuration-file">Configuration File</h3>
+<p>In your main configuration file append the following <em>Input</em> &amp; <em>Output</em> sections:</p>
+<pre><code class="lang-Python">[INPUT]
     Name  cpu
     Tag   cpu
 
@@ -738,10 +765,14 @@
     Host  <span class="hljs-number">192.168</span><span class="hljs-number">.2</span><span class="hljs-number">.3</span>
     Port  <span class="hljs-number">9200</span>
     Index my_index
-    Type  my_type</code></pre>
-<h2 id="about-elasticsearch-field-names">About Elasticsearch field names</h2><p>Some input plugins may generate messages where the field names contains dots, since Elasticsearch 2.0 this is not longer allowed, so the current <strong>es</strong> plugin replaces them with an underscore, e.g:</p><pre><code>{&quot;cpu0.p_cpu&quot;=&gt;17.000000}</code></pre>
-<p>becomes</p><pre><code>{&quot;cpu0_p_cpu&quot;=&gt;17.000000}</code></pre>
-
+    Type  my_type
+</code></pre>
+<h2 id="about-elasticsearch-field-names">About Elasticsearch field names</h2>
+<p>Some input plugins may generate messages where the field names contains dots, since Elasticsearch 2.0 this is not longer allowed, so the current <strong>es</strong> plugin replaces them with an underscore, e.g:</p>
+<pre><code>{&quot;cpu0.p_cpu&quot;=&gt;17.000000}
+</code></pre><p>becomes</p>
+<pre><code>{&quot;cpu0_p_cpu&quot;=&gt;17.000000}
+</code></pre>
                                 
                                 </section>
                             
@@ -784,7 +815,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Elasticsearch","level":"1.6.1","depth":2,"next":{"title":"Forward","level":"1.6.2","depth":2,"path":"output/forward.md","ref":"output/forward.md","articles":[]},"previous":{"title":"Output Plugins","level":"1.6","depth":1,"path":"output/README.md","ref":"output/README.md","articles":[{"title":"Elasticsearch","level":"1.6.1","depth":2,"path":"output/elasticsearch.md","ref":"output/elasticsearch.md","articles":[]},{"title":"Forward","level":"1.6.2","depth":2,"path":"output/forward.md","ref":"output/forward.md","articles":[]},{"title":"HTTP","level":"1.6.3","depth":2,"path":"output/http.md","ref":"output/http.md","articles":[]},{"title":"NATS","level":"1.6.4","depth":2,"path":"output/nats.md","ref":"output/nats.md","articles":[]},{"title":"Standard Output","level":"1.6.5","depth":2,"path":"output/stdout.md","ref":"output/stdout.md","articles":[]},{"title":"Treasure Data","level":"1.6.6","depth":2,"path":"output/td.md","ref":"output/td.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"output/elasticsearch.md","mtime":"2016-09-07T17:12:07.936Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-11-10T05:37:30.307Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Elasticsearch","level":"1.6.1","depth":2,"next":{"title":"Forward","level":"1.6.2","depth":2,"path":"output/forward.md","ref":"output/forward.md","articles":[]},"previous":{"title":"Output Plugins","level":"1.6","depth":1,"path":"output/README.md","ref":"output/README.md","articles":[{"title":"Elasticsearch","level":"1.6.1","depth":2,"path":"output/elasticsearch.md","ref":"output/elasticsearch.md","articles":[]},{"title":"Forward","level":"1.6.2","depth":2,"path":"output/forward.md","ref":"output/forward.md","articles":[]},{"title":"HTTP","level":"1.6.3","depth":2,"path":"output/http.md","ref":"output/http.md","articles":[]},{"title":"NATS","level":"1.6.4","depth":2,"path":"output/nats.md","ref":"output/nats.md","articles":[]},{"title":"Standard Output","level":"1.6.5","depth":2,"path":"output/stdout.md","ref":"output/stdout.md","articles":[]},{"title":"Treasure Data","level":"1.6.6","depth":2,"path":"output/td.md","ref":"output/td.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"output/elasticsearch.md","mtime":"2016-09-07T17:12:07.936Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-10T07:09:53.076Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.0">
+        <meta name="generator" content="GitBook 3.2.2">
         
         
         
@@ -703,22 +703,41 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="head">Head</h1><p>The <strong>head</strong> input plugin, allows to read events from the head of file. It&apos;s behavior is similar to the <em>head</em> command.</p><h2 id="configuration-parameters">Configuration Parameters</h2><p>The plugin supports the following configuration parameters:</p><table>
+                                <h1 id="head">Head</h1>
+<p>The <strong>head</strong> input plugin, allows to read events from the head of file. It&apos;s behavior is similar to the <em>head</em> command.</p>
+<h2 id="configuration-parameters">Configuration Parameters</h2>
+<p>The plugin supports the following configuration parameters:</p>
+<table>
 <thead>
-<tr><th>Key</th>
+<tr>
+<th>Key</th>
 <th>Description</th>
-</tr></thead><tbody>
-<tr><td>File</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>File</td>
 <td>Absolute path to the target file, e.g: /proc/uptime</td>
-</tr><tr><td>Buf_Size</td>
+</tr>
+<tr>
+<td>Buf_Size</td>
 <td>Buffer size to read the file.</td>
-</tr><tr><td>Interval_Sec</td>
+</tr>
+<tr>
+<td>Interval_Sec</td>
 <td>Polling interval (seconds).</td>
-</tr><tr><td>Interval_NSec</td>
+</tr>
+<tr>
+<td>Interval_NSec</td>
 <td>Polling interval (nanosecond).</td>
-</tr></tbody></table>
-
-<h2 id="getting-started">Getting Started</h2><p>In order to read the head of a file, you can run the plugin from the command line or through the configuration file:</p><h3 id="command-line">Command Line</h3><p>The following example will read events from the /proc/uptime file, tag the records with the <em>uptime</em> name and flush them back to the <em>stdout</em> plugin:</p><pre><code class="lang-bash">$ fluent-bit -i head -t uptime -p File=/proc/uptime -o stdout -m <span class="hljs-string">&apos;*&apos;</span>
+</tr>
+</tbody>
+</table>
+<h2 id="getting-started">Getting Started</h2>
+<p>In order to read the head of a file, you can run the plugin from the command line or through the configuration file:</p>
+<h3 id="command-line">Command Line</h3>
+<p>The following example will read events from the /proc/uptime file, tag the records with the <em>uptime</em> name and flush them back to the <em>stdout</em> plugin:</p>
+<pre><code class="lang-bash">$ fluent-bit -i head -t uptime -p File=/proc/uptime -o stdout -m <span class="hljs-string">&apos;*&apos;</span>
 Fluent-Bit v0.8.0
 Copyright (C) Treasure Data
 
@@ -726,8 +745,11 @@ Copyright (C) Treasure Data
 [0] uptime: [1463543634, {<span class="hljs-string">&quot;head&quot;</span>=&gt;<span class="hljs-string">&quot;133517.70 194870.97&quot;</span>}]
 [1] uptime: [1463543635, {<span class="hljs-string">&quot;head&quot;</span>=&gt;<span class="hljs-string">&quot;133518.70 194872.85&quot;</span>}]
 [2] uptime: [1463543636, {<span class="hljs-string">&quot;head&quot;</span>=&gt;<span class="hljs-string">&quot;133519.70 194876.63&quot;</span>}]
-[3] uptime: [1463543637, {<span class="hljs-string">&quot;head&quot;</span>=&gt;<span class="hljs-string">&quot;133520.70 194879.72&quot;</span>}]</code></pre>
-<h3 id="configuration-file">Configuration File</h3><p>In your main configuration file append the following <em>Input</em> &amp; <em>Output</em> sections:</p><pre><code class="lang-python">[INPUT]
+[3] uptime: [1463543637, {<span class="hljs-string">&quot;head&quot;</span>=&gt;<span class="hljs-string">&quot;133520.70 194879.72&quot;</span>}]
+</code></pre>
+<h3 id="configuration-file">Configuration File</h3>
+<p>In your main configuration file append the following <em>Input</em> &amp; <em>Output</em> sections:</p>
+<pre><code class="lang-python">[INPUT]
     Name          head
     Tag           uptime
     File          /proc/uptime
@@ -737,8 +759,11 @@ Copyright (C) Treasure Data
 
 [OUTPUT]
     Name   stdout
-    Match  *</code></pre>
-<p>Note: Total interval (sec) = Interval_Sec + (Interval_Nsec / 1000000000).</p><p>e.g. 1.5s = 1s + 500000000ns</p>
+    Match  *
+</code></pre>
+<p>Note: Total interval (sec) = Interval_Sec + (Interval_Nsec / 1000000000).</p>
+<p>e.g. 1.5s = 1s + 500000000ns</p>
+
                                 
                                 </section>
                             
@@ -781,7 +806,7 @@ Copyright (C) Treasure Data
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Head","level":"1.5.3","depth":2,"next":{"title":"Health","level":"1.5.4","depth":2,"path":"input/health.md","ref":"input/health.md","articles":[]},"previous":{"title":"Forward","level":"1.5.2","depth":2,"path":"input/forward.md","ref":"input/forward.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"input/head.md","mtime":"2016-05-23T01:35:26.905Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-11-10T05:37:30.307Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Head","level":"1.5.3","depth":2,"next":{"title":"Health","level":"1.5.4","depth":2,"path":"input/health.md","ref":"input/health.md","articles":[]},"previous":{"title":"Forward","level":"1.5.2","depth":2,"path":"input/forward.md","ref":"input/forward.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"input/head.md","mtime":"2016-05-23T01:35:26.905Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-10T07:09:53.076Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

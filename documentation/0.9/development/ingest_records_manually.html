@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.0">
+        <meta name="generator" content="GitBook 3.2.2">
         
         
         
@@ -701,9 +701,18 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="ingest-records-manually">Ingest Records Manually</h1><p>There are some cases where Fluent Bit library is used to send records from the caller application to some destination, this process is called <em>manual data ingestion</em>.</p><p>For this purpose a specific input plugin called <strong>lib</strong> exists and can be using in conjunction with the <strong>flb_lib_push()</strong> API function.</p><h2 id="data-format">Data Format</h2><p>The <strong>lib</strong> input plugin expect the data comes in a fixed JSON format as follows:</p><pre><code>[UNIX_TIMESTAMP, MAP]</code></pre>
-<p>Every record must be a JSON array that contains at least two entries. The first one is the <em>UNIX_TIMESTAMP</em> which is a number representing time associated to the event generation (Epoch time) and the second entry is a JSON map with a list of key/values. A valid entry can be the following:</p><pre><code class="lang-json">[<span class="hljs-number">1449505010</span>, {<span class="hljs-string">&quot;key1&quot;</span>: <span class="hljs-string">&quot;some value&quot;</span>, <span class="hljs-string">&quot;key2&quot;</span>: <span class="hljs-literal">false</span>}]</code></pre>
-<h2 id="usage">Usage</h2><p>The following C code snippet shows how to insert a few JSON records into a running Fluent Bit engine:</p><pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;fluent-bit.h&gt;</span></span>
+                                <h1 id="ingest-records-manually">Ingest Records Manually</h1>
+<p>There are some cases where Fluent Bit library is used to send records from the caller application to some destination, this process is called <em>manual data ingestion</em>.</p>
+<p>For this purpose a specific input plugin called <strong>lib</strong> exists and can be using in conjunction with the <strong>flb_lib_push()</strong> API function.</p>
+<h2 id="data-format">Data Format</h2>
+<p>The <strong>lib</strong> input plugin expect the data comes in a fixed JSON format as follows:</p>
+<pre><code>[UNIX_TIMESTAMP, MAP]
+</code></pre><p>Every record must be a JSON array that contains at least two entries. The first one is the <em>UNIX_TIMESTAMP</em> which is a number representing time associated to the event generation (Epoch time) and the second entry is a JSON map with a list of key/values. A valid entry can be the following:</p>
+<pre><code class="lang-json">[<span class="hljs-number">1449505010</span>, {<span class="hljs-string">&quot;key1&quot;</span>: <span class="hljs-string">&quot;some value&quot;</span>, <span class="hljs-string">&quot;key2&quot;</span>: <span class="hljs-literal">false</span>}]
+</code></pre>
+<h2 id="usage">Usage</h2>
+<p>The following C code snippet shows how to insert a few JSON records into a running Fluent Bit engine:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;fluent-bit.h&gt;</span></span>
 
 <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> JSON_1   <span class="hljs-string">&quot;[1449505010, {\&quot;key1\&quot;: \&quot;some value\&quot;}]&quot;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> JSON_2   <span class="hljs-string">&quot;[1449505620, {\&quot;key1\&quot;: \&quot;some new value\&quot;}]&quot;</span></span>
@@ -753,7 +762,8 @@
     flb_destroy(ctx);
 
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-}</code></pre>
+}
+</code></pre>
 
                                 
                                 </section>
@@ -793,7 +803,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Ingest Records Manually","level":"1.7.2","depth":2,"previous":{"title":"Library API","level":"1.7.1","depth":2,"path":"development/library_api.md","ref":"development/library_api.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"development/ingest_records_manually.md","mtime":"2016-10-08T02:52:36.593Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-11-10T05:37:30.307Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Ingest Records Manually","level":"1.7.2","depth":2,"previous":{"title":"Library API","level":"1.7.1","depth":2,"path":"development/library_api.md","ref":"development/library_api.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"development/ingest_records_manually.md","mtime":"2016-10-08T02:52:36.593Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-10T07:09:53.076Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

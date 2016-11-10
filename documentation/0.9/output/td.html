@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.0">
+        <meta name="generator" content="GitBook 3.2.2">
         
         
         
@@ -703,21 +703,41 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="treasure-data">Treasure Data</h1><p>The <strong>td</strong> output plugin, allows to flush your records into the <a href="http://treasuredata.com" target="_blank">Treasure Data</a> cloud service.</p><h2 id="configuration-parameters">Configuration Parameters</h2><p>The plugin supports the following configuration parameters:</p><table>
+                                <h1 id="treasure-data">Treasure Data</h1>
+<p>The <strong>td</strong> output plugin, allows to flush your records into the <a href="http://treasuredata.com" target="_blank">Treasure Data</a> cloud service.</p>
+<h2 id="configuration-parameters">Configuration Parameters</h2>
+<p>The plugin supports the following configuration parameters:</p>
+<table>
 <thead>
-<tr><th>Key</th>
+<tr>
+<th>Key</th>
 <th>Description</th>
-</tr></thead><tbody>
-<tr><td>API</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API</td>
 <td>The <a href="http://treasuredata.com" target="_blank">Treasure Data</a> API key. To obtain it please log into the <a href="https://console.treasuredata.com" target="_blank">Console</a> and in the API keys box, copy the API key hash.</td>
-</tr><tr><td>Database</td>
+</tr>
+<tr>
+<td>Database</td>
 <td>Specify the name of your target database.</td>
-</tr><tr><td>Table</td>
+</tr>
+<tr>
+<td>Table</td>
 <td>Specify the name of your target table where the records will be stored.</td>
-</tr></tbody></table>
-
-<h2 id="getting-started">Getting Started</h2><p>In order to start inserting records into <a href="https://www.treasuredata.com" target="_blank">Treasure Data</a>, you can run the plugin from the command line or through the configuration file:</p><h3 id="command-line">Command Line:</h3><pre><code class="lang-bash">$ fluent-bit -i cpu -o td -p API=<span class="hljs-string">&quot;abc&quot;</span> -p Database=<span class="hljs-string">&quot;fluentbit&quot;</span> -p Table=<span class="hljs-string">&quot;cpu_samples&quot;</span></code></pre>
-<p>Ideally you don&apos;t want to expose your API key from the command line, using a configuration file is higly desired.</p><h3 id="configuration-file">Configuration File</h3><p>In your main configuration file append the following <em>Input</em> &amp; <em>Output</em> sections:</p><pre><code class="lang-Python">[INPUT]
+</tr>
+</tbody>
+</table>
+<h2 id="getting-started">Getting Started</h2>
+<p>In order to start inserting records into <a href="https://www.treasuredata.com" target="_blank">Treasure Data</a>, you can run the plugin from the command line or through the configuration file:</p>
+<h3 id="command-line">Command Line:</h3>
+<pre><code class="lang-bash">$ fluent-bit -i cpu -o td -p API=<span class="hljs-string">&quot;abc&quot;</span> -p Database=<span class="hljs-string">&quot;fluentbit&quot;</span> -p Table=<span class="hljs-string">&quot;cpu_samples&quot;</span>
+</code></pre>
+<p>Ideally you don&apos;t want to expose your API key from the command line, using a configuration file is higly desired.</p>
+<h3 id="configuration-file">Configuration File</h3>
+<p>In your main configuration file append the following <em>Input</em> &amp; <em>Output</em> sections:</p>
+<pre><code class="lang-Python">[INPUT]
     Name cpu
     Tag  my_cpu
 
@@ -726,7 +746,8 @@
     Match    *
     API      <span class="hljs-number">5713</span>/e75be23caee19f8041dfa635ddfbd0dcd8c8d981
     Database fluentbit
-    Table    cpu_samples</code></pre>
+    Table    cpu_samples
+</code></pre>
 
                                 
                                 </section>
@@ -770,7 +791,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Treasure Data","level":"1.6.6","depth":2,"next":{"title":"Fluent Bit for Developers","level":"1.7","depth":1,"path":"development/README.md","ref":"development/README.md","articles":[{"title":"Library API","level":"1.7.1","depth":2,"path":"development/library_api.md","ref":"development/library_api.md","articles":[]},{"title":"Ingest Records Manually","level":"1.7.2","depth":2,"path":"development/ingest_records_manually.md","ref":"development/ingest_records_manually.md","articles":[]}]},"previous":{"title":"Standard Output","level":"1.6.5","depth":2,"path":"output/stdout.md","ref":"output/stdout.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"output/td.md","mtime":"2016-06-03T17:20:54.253Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-11-10T05:37:30.307Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Treasure Data","level":"1.6.6","depth":2,"next":{"title":"Fluent Bit for Developers","level":"1.7","depth":1,"path":"development/README.md","ref":"development/README.md","articles":[{"title":"Library API","level":"1.7.1","depth":2,"path":"development/library_api.md","ref":"development/library_api.md","articles":[]},{"title":"Ingest Records Manually","level":"1.7.2","depth":2,"path":"development/ingest_records_manually.md","ref":"development/ingest_records_manually.md","articles":[]}]},"previous":{"title":"Standard Output","level":"1.6.5","depth":2,"path":"output/stdout.md","ref":"output/stdout.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"output/td.md","mtime":"2016-06-03T17:20:54.253Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-10T07:09:53.076Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

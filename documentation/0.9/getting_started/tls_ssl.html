@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.0">
+        <meta name="generator" content="GitBook 3.2.2">
         
         
         
@@ -703,42 +703,63 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="tls--ssl">TLS / SSL</h1><p>Fluent Bit provides integrated support for <em>Transport Layer Security</em> (TLS) and it predecessor <em>Secure Sockets Layer</em> (SSL) respectively. In this section we will refer as TLS only for both implementations.</p><p>Each output plugin that requires to perform Network I/O can optionally enable TLS and configure the behavior. The following table describe the properties available:</p><table>
+                                <h1 id="tls--ssl">TLS \/ SSL</h1>
+<p>Fluent Bit provides integrated support for <em>Transport Layer Security</em> (TLS) and it predecessor <em>Secure Sockets Layer</em> (SSL) respectively. In this section we will refer as TLS only for both implementations.</p>
+<p>Each output plugin that requires to perform Network I\/O can optionally enable TLS and configure the behavior. The following table describe the properties available:</p>
+<table>
 <thead>
-<tr><th>Property</th>
+<tr>
+<th>Property</th>
 <th>Description</th>
 <th>Default</th>
-</tr></thead><tbody>
-<tr><td>tls</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tls</td>
 <td>enable or disable TLS support</td>
 <td>Off</td>
-</tr><tr><td>tls.verify</td>
+</tr>
+<tr>
+<td>tls.verify</td>
 <td>force certificate validation</td>
 <td>On</td>
-</tr><tr><td>tls.ca_file</td>
+</tr>
+<tr>
+<td>tls.ca_file</td>
 <td>absolute path to CA certificate file</td>
 <td></td>
-</tr><tr><td>tls.crt_file</td>
+</tr>
+<tr>
+<td>tls.crt_file</td>
 <td>absolute path to Certificate file</td>
 <td></td>
-</tr><tr><td>tls.key_file</td>
+</tr>
+<tr>
+<td>tls.key_file</td>
 <td>absolute path to private Key file</td>
 <td></td>
-</tr><tr><td>tls.key_passwd</td>
+</tr>
+<tr>
+<td>tls.key_passwd</td>
 <td>optional password for tls.key_file file</td>
-<td></td>
-</tr></tbody></table>
-
-<p>The listed properties can be enabled in the configuration file, specifically on each output plugin section or directly through the command line. The following <strong>output</strong> plugins can take advante of the TLS feature:</p><ul><li><a href="../output/http.html">HTTP</a>
-</li>
-<li><a href="../output/elasticsearch.html">Elasticsearch</a>
-</li></ul>
-<h2 id="example-enable-tls-on-http-output">Example: enable TLS on HTTP output</h2><p>By default HTTP output plugin uses plain TCP, enabling TLS from the command line can be done with:</p><pre><code>$ fluent-bit -i cpu -t cpu -o http://192.168.2.3:80/something \
+</tr>
+</tbody>
+</table>
+<p>The listed properties can be enabled in the configuration file, specifically on each output plugin section or directly through the command line. The following <strong>output</strong> plugins can take advante of the TLS feature:</p>
+<ul>
+<li><a href="../output/http.html">HTTP</a></li>
+<li><a href="../output/elasticsearch.html">Elasticsearch</a></li>
+</ul>
+<h2 id="example-enable-tls-on-http-output">Example: enable TLS on HTTP output</h2>
+<p>By default HTTP output plugin uses plain TCP, enabling TLS from the command line can be done with:</p>
+<pre><code>$ fluent-bit -i cpu -t cpu -o http://192.168.2.3:80/something \
     -p tls=on         \
     -p tls.verify=off \
     -m &apos;*&apos;
-</code></pre>
-<p>In the command line above, the two properties <em>tls</em> and <em>tls.verify</em> where enabled for demonstration purposes (we strongly suggest always keep verification ON).</p><p>The same behavior can be accomplished using a configuration file:</p><pre><code>[INPUT]
+</code></pre><p>In the command line above, the two properties <em>tls</em> and <em>tls.verify</em> where enabled for demonstration purposes (we strongly suggest always keep verification ON).</p>
+<p>The same behavior can be accomplished using a configuration file:</p>
+<pre><code>[INPUT]
     Name  cpu
     Tag   cpu
 
@@ -749,8 +770,8 @@
     Port       80
     URI        /something
     tls        On
-    tls.verify Off</code></pre>
-
+    tls.verify Off
+</code></pre>
                                 
                                 </section>
                             
@@ -793,7 +814,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"TLS / SSL","level":"1.4.3","depth":2,"next":{"title":"Input Plugins","level":"1.5","depth":1,"path":"input/README.md","ref":"input/README.md","articles":[{"title":"CPU Usage","level":"1.5.1","depth":2,"path":"input/cpu.md","ref":"input/cpu.md","articles":[]},{"title":"Forward","level":"1.5.2","depth":2,"path":"input/forward.md","ref":"input/forward.md","articles":[]},{"title":"Head","level":"1.5.3","depth":2,"path":"input/head.md","ref":"input/head.md","articles":[]},{"title":"Health","level":"1.5.4","depth":2,"path":"input/health.md","ref":"input/health.md","articles":[]},{"title":"Kernel Log Buffer","level":"1.5.5","depth":2,"path":"input/kmsg.md","ref":"input/kmsg.md","articles":[]},{"title":"Memory Usage","level":"1.5.6","depth":2,"path":"input/mem.md","ref":"input/mem.md","articles":[]},{"title":"MQTT","level":"1.5.7","depth":2,"path":"input/mqtt.md","ref":"input/mqtt.md","articles":[]},{"title":"Random","level":"1.5.8","depth":2,"path":"input/random.md","ref":"input/random.md","articles":[]},{"title":"Serial Interface","level":"1.5.9","depth":2,"path":"input/serial.md","ref":"input/serial.md","articles":[]},{"title":"Standard Input","level":"1.5.10","depth":2,"path":"input/stdin.md","ref":"input/stdin.md","articles":[]},{"title":"XBee Radio","level":"1.5.11","depth":2,"path":"input/xbee.md","ref":"input/xbee.md","articles":[]}]},"previous":{"title":"Configuration File","level":"1.4.2","depth":2,"path":"getting_started/configuration_file.md","ref":"getting_started/configuration_file.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"getting_started/tls_ssl.md","mtime":"2016-09-07T16:01:18.520Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-11-10T05:37:30.307Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"TLS / SSL","level":"1.4.3","depth":2,"next":{"title":"Input Plugins","level":"1.5","depth":1,"path":"input/README.md","ref":"input/README.md","articles":[{"title":"CPU Usage","level":"1.5.1","depth":2,"path":"input/cpu.md","ref":"input/cpu.md","articles":[]},{"title":"Forward","level":"1.5.2","depth":2,"path":"input/forward.md","ref":"input/forward.md","articles":[]},{"title":"Head","level":"1.5.3","depth":2,"path":"input/head.md","ref":"input/head.md","articles":[]},{"title":"Health","level":"1.5.4","depth":2,"path":"input/health.md","ref":"input/health.md","articles":[]},{"title":"Kernel Log Buffer","level":"1.5.5","depth":2,"path":"input/kmsg.md","ref":"input/kmsg.md","articles":[]},{"title":"Memory Usage","level":"1.5.6","depth":2,"path":"input/mem.md","ref":"input/mem.md","articles":[]},{"title":"MQTT","level":"1.5.7","depth":2,"path":"input/mqtt.md","ref":"input/mqtt.md","articles":[]},{"title":"Random","level":"1.5.8","depth":2,"path":"input/random.md","ref":"input/random.md","articles":[]},{"title":"Serial Interface","level":"1.5.9","depth":2,"path":"input/serial.md","ref":"input/serial.md","articles":[]},{"title":"Standard Input","level":"1.5.10","depth":2,"path":"input/stdin.md","ref":"input/stdin.md","articles":[]},{"title":"XBee Radio","level":"1.5.11","depth":2,"path":"input/xbee.md","ref":"input/xbee.md","articles":[]}]},"previous":{"title":"Configuration File","level":"1.4.2","depth":2,"path":"getting_started/configuration_file.md","ref":"getting_started/configuration_file.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"getting_started/tls_ssl.md","mtime":"2016-11-10T06:32:25.566Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-10T07:09:53.076Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.0">
+        <meta name="generator" content="GitBook 3.2.2">
         
         
         
@@ -703,70 +703,118 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="configuration-file">Configuration File</h1><p>There are some cases where using the command line to start Fluent Bit is not ideal for some escenarios, when running it as a service a configuration file it&apos;s times better.</p><p>Fluent Bit allows to use one configuration file which works at a global scope and uses the <a href="configuration_schema.html">schema</a> defined previously.</p><p>The configuration file support three types of sections:</p><ul><li>Service
-</li>
-<li>Input
-</li>
-<li>Output
-</li></ul>
-<h2 id="service">Service</h2><p>The <em>Service</em> section defines global properties of the service, the keys available as of this version are described in the following table:</p><table>
+                                <h1 id="configuration-file">Configuration File</h1>
+<p>There are some cases where using the command line to start Fluent Bit is not ideal for some escenarios, when running it as a service a configuration file it&apos;s times better.</p>
+<p>Fluent Bit allows to use one configuration file which works at a global scope and uses the <a href="configuration_schema.html">schema</a> defined previously.</p>
+<p>The configuration file support three types of sections:</p>
+<ul>
+<li>Service</li>
+<li>Input</li>
+<li>Output</li>
+</ul>
+<h2 id="service">Service</h2>
+<p>The <em>Service</em> section defines global properties of the service, the keys available as of this version are described in the following table:</p>
+<table>
 <thead>
-<tr><th>Key</th>
+<tr>
+<th>Key</th>
 <th>Description</th>
 <th>Default Value</th>
-</tr></thead><tbody>
-<tr><td>Flush</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Flush</td>
 <td>Set the flush time in seconds. Everytime it timeouts, the engine will flush the records to the output plugin.</td>
 <td>5</td>
-</tr><tr><td>Daemon</td>
+</tr>
+<tr>
+<td>Daemon</td>
 <td>Boolean value to set if Fluent Bit should run as a Daemon (background) or not. Allowed values are: yes, no, on and off.</td>
 <td>Off</td>
-</tr><tr><td>Log_Level</td>
+</tr>
+<tr>
+<td>Log_Level</td>
 <td>Set the logging verbosity level. Allowed values are: error, info, debug and trace. Values are accumulative, e.g: if &apos;debug&apos; is set, it will include error, info and debug. Note that <em>trace</em> mode is only available if Fluent Bit was built with the <em>WITH_TRACE</em> option enabled.</td>
 <td>info</td>
-</tr><tr><td>HTTP_Monitor</td>
+</tr>
+<tr>
+<td>HTTP_Monitor</td>
 <td>Enable web service monitoring interface.</td>
 <td>Off</td>
-</tr><tr><td>HTTP_Port</td>
+</tr>
+<tr>
+<td>HTTP_Port</td>
 <td>TCP port for web service monitoring interface.</td>
 <td>2020</td>
-</tr></tbody></table>
-
-<h3 id="example">Example</h3><p>The following is an example of a <em>SERVICE</em> section:</p><pre><code class="lang-Python">[SERVICE]
+</tr>
+</tbody>
+</table>
+<h3 id="example">Example</h3>
+<p>The following is an example of a <em>SERVICE</em> section:</p>
+<pre><code class="lang-Python">[SERVICE]
     Flush           <span class="hljs-number">5</span>
     Daemon          off
     Log_Level       debug
     HTTP_Monitoring On
-    HTTP_Port       <span class="hljs-number">2020</span></code></pre>
-<h2 id="input">Input</h2><p>An <em>INPUT</em> section defines a source (related to an input plugin), here we will describe the base configuration for each <em>INPUT</em> section. Note that each input plugin may add it own configuration keys:</p><table>
+    HTTP_Port       <span class="hljs-number">2020</span>
+</code></pre>
+<h2 id="input">Input</h2>
+<p>An <em>INPUT</em> section defines a source (related to an input plugin), here we will describe the base configuration for each <em>INPUT</em> section. Note that each input plugin may add it own configuration keys:</p>
+<table>
 <thead>
-<tr><th>Key</th>
+<tr>
+<th>Key</th>
 <th>Description</th>
-</tr></thead><tbody>
-<tr><td>Name</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
 <td>Name of the input plugin.</td>
-</tr><tr><td>Tag</td>
+</tr>
+<tr>
+<td>Tag</td>
 <td>Tag name associated to all records comming from this plugin.</td>
-</tr></tbody></table>
-
-<p>The <em>Name</em> is mandatory and it let Fluent Bit know which input plugin should be loaded. The <em>Tag</em> is mandatory for all plugins except for the <em>input forward</em> plugin (as it provides dynamic tags).</p><h3 id="example">Example</h3><p>The following is an example of an <em>INPUT</em> section:</p><pre><code class="lang-Python">[INPUT]
+</tr>
+</tbody>
+</table>
+<p>The <em>Name</em> is mandatory and it let Fluent Bit know which input plugin should be loaded. The <em>Tag</em> is mandatory for all plugins except for the <em>input forward</em> plugin (as it provides dynamic tags).</p>
+<h3 id="example">Example</h3>
+<p>The following is an example of an <em>INPUT</em> section:</p>
+<pre><code class="lang-Python">[INPUT]
     Name cpu
-    Tag  my_cpu</code></pre>
-<h2 id="output">Output</h2><p>The <em>OUTPUT</em> section specify a destination that certain records should follow after a Tag match. The configuration support the following keys:</p><table>
+    Tag  my_cpu
+</code></pre>
+<h2 id="output">Output</h2>
+<p>The <em>OUTPUT</em> section specify a destination that certain records should follow after a Tag match. The configuration support the following keys:</p>
+<table>
 <thead>
-<tr><th>Key</th>
+<tr>
+<th>Key</th>
 <th>Description</th>
-</tr></thead><tbody>
-<tr><td>Name</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
 <td>Name of the output plugin.</td>
-</tr><tr><td>Match</td>
+</tr>
+<tr>
+<td>Match</td>
 <td>It set a pattern to match certain records Tag. It&apos;s case sensitive and support the start (*) character as a wildcard.</td>
-</tr></tbody></table>
-
-<h3 id="example">Example</h3><p>The following is an example of an <em>INPUT</em> section:</p><pre><code class="lang-Python">[OUTPUT]
+</tr>
+</tbody>
+</table>
+<h3 id="example">Example</h3>
+<p>The following is an example of an <em>INPUT</em> section:</p>
+<pre><code class="lang-Python">[OUTPUT]
     Name  stdout
-    Match my*cpu</code></pre>
-<h2 id="example-collecting-cpu-metrics">Example: collecting CPU metrics</h2><p>The following configuration file example demonstrates how to collect CPU metrics and flush the results every five seconds to the standard output:</p><pre><code class="lang-Python">[SERVICE]
+    Match my*cpu
+</code></pre>
+<h2 id="example-collecting-cpu-metrics">Example: collecting CPU metrics</h2>
+<p>The following configuration file example demonstrates how to collect CPU metrics and flush the results every five seconds to the standard output:</p>
+<pre><code class="lang-Python">[SERVICE]
     Flush     <span class="hljs-number">5</span>
     Daemon    off
     Log_Level debug
@@ -777,7 +825,8 @@
 
 [OUTPUT]
     Name  stdout
-    Match my*cpu</code></pre>
+    Match my*cpu
+</code></pre>
 
                                 
                                 </section>
@@ -821,7 +870,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Configuration File","level":"1.4.2","depth":2,"next":{"title":"TLS / SSL","level":"1.4.3","depth":2,"path":"getting_started/tls_ssl.md","ref":"getting_started/tls_ssl.md","articles":[]},"previous":{"title":"Configuration Schema","level":"1.4.1","depth":2,"path":"getting_started/configuration_schema.md","ref":"getting_started/configuration_schema.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"getting_started/configuration_file.md","mtime":"2016-08-04T22:53:52.022Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-11-10T05:37:30.307Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Configuration File","level":"1.4.2","depth":2,"next":{"title":"TLS / SSL","level":"1.4.3","depth":2,"path":"getting_started/tls_ssl.md","ref":"getting_started/tls_ssl.md","articles":[]},"previous":{"title":"Configuration Schema","level":"1.4.1","depth":2,"path":"getting_started/configuration_schema.md","ref":"getting_started/configuration_schema.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"getting_started/configuration_file.md","mtime":"2016-08-04T22:53:52.022Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-10T07:09:53.076Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

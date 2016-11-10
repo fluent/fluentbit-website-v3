@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.0">
+        <meta name="generator" content="GitBook 3.2.2">
         
         
         
@@ -703,18 +703,32 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="forward">Forward</h1><p><em>Forward</em> is the protocol used by <a href="http://www.fluentd.org" target="_blank">Fluentd</a> to route messages between peers. The <strong>forward</strong> output plugin allows to integrate <a href="http://fluentbit.io" target="_blank">Fluent Bit</a> with <a href="http://fluentd.org" target="_blank">Fluentd</a> easily. There are not configuration steps required besides to specify where <a href="http://fluentd.org" target="_blank">Fluentd</a> is located, it can be on the local host or a in a remote machine.</p><h2 id="configuration-parameters">Configuration Parameters</h2><p>The plugin supports the following configuration parameters:</p><table>
+                                <h1 id="forward">Forward</h1>
+<p><em>Forward</em> is the protocol used by <a href="http://www.fluentd.org" target="_blank">Fluentd</a> to route messages between peers. The <strong>forward</strong> output plugin allows to integrate <a href="http://fluentbit.io" target="_blank">Fluent Bit</a> with <a href="http://fluentd.org" target="_blank">Fluentd</a> easily. There are not configuration steps required besides to specify where <a href="http://fluentd.org" target="_blank">Fluentd</a> is located, it can be on the local host or a in a remote machine.</p>
+<h2 id="configuration-parameters">Configuration Parameters</h2>
+<p>The plugin supports the following configuration parameters:</p>
+<table>
 <thead>
-<tr><th>Key</th>
+<tr>
+<th>Key</th>
 <th>Description</th>
-</tr></thead><tbody>
-<tr><td>Host</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Host</td>
 <td>Target host where Fluent-Bit or Fluentd are listening for Forward messages.</td>
-</tr><tr><td>Port</td>
+</tr>
+<tr>
+<td>Port</td>
 <td>TCP Port of the target service.</td>
-</tr></tbody></table>
-
-<h2 id="forward-setup">Forward Setup</h2><p>Before to proceed, make sure that <a href="http://fluentd.org" target="_blank">Fluentd</a> is installed in your system, if it&apos;s not the case please refer to the following <a href="http://docs.fluentd.org/v0.12/categories/installation" target="_blank">Fluentd Installation</a> document and go ahead with that.</p><p>Once <a href="http://fluentd.org" target="_blank">Fluentd</a> is installed, create the following configuration file example that will allow us to stream data into it:</p><pre><code>&lt;source&gt;
+</tr>
+</tbody>
+</table>
+<h2 id="forward-setup">Forward Setup</h2>
+<p>Before to proceed, make sure that <a href="http://fluentd.org" target="_blank">Fluentd</a> is installed in your system, if it&apos;s not the case please refer to the following <a href="http://docs.fluentd.org/v0.12/categories/installation" target="_blank">Fluentd Installation</a> document and go ahead with that.</p>
+<p>Once <a href="http://fluentd.org" target="_blank">Fluentd</a> is installed, create the following configuration file example that will allow us to stream data into it:</p>
+<pre><code>&lt;source&gt;
   type forward
   bind 0.0.0.0
   port 12225
@@ -722,8 +736,10 @@
 
 &lt;match fluent_bit&gt;
   type stdout
-&lt;/match&gt;</code></pre>
-<p>That configuration file specifies that will listen for <em>TCP</em> connections on the port <em>12225</em> through the <strong>forward</strong> input type. Then for every message with a <em>fluent_bit</em> __TAG, will print it out to the standard output.</p><p>In one terminal launch <a href="http://fluentd.org" target="_blank">Fluentd</a> specifying the new configuration file created (in_fluent-bit.conf):</p><pre><code class="lang-bash">$ fluentd -c <span class="hljs-keyword">in</span>_fluent-bit.conf
+&lt;/match&gt;
+</code></pre><p>That configuration file specifies that will listen for <em>TCP</em> connections on the port <em>12225</em> through the <strong>forward</strong> input type. Then for every message with a <em>fluent_bit</em> __TAG, will print it out to the standard output.</p>
+<p>In one terminal launch <a href="http://fluentd.org" target="_blank">Fluentd</a> specifying the new configuration file created (in_fluent-bit.conf):</p>
+<pre><code class="lang-bash">$ fluentd -c <span class="hljs-keyword">in</span>_fluent-bit.conf
 2015-07-29 14:50:47 -0600 [info]: reading config file path=<span class="hljs-string">&quot;in_fluent-bit.conf&quot;</span>
 2015-07-29 14:50:47 -0600 [info]: starting fluentd-0.12.14
 2015-07-29 14:50:47 -0600 [info]: gem <span class="hljs-string">&apos;fluent-plugin-mongo&apos;</span> version <span class="hljs-string">&apos;0.7.9&apos;</span>
@@ -744,10 +760,17 @@
   <span class="hljs-built_in">type</span> stdout
   &lt;/match&gt;
 &lt;/ROOT&gt;
-2015-07-29 14:50:47 -0600 [info]: listening fluent socket on 0.0.0.0:12225</code></pre>
-<h2 id="fluent-bit-setup">Fluent Bit Setup</h2><p>Now that <a href="http://fluentd.org" target="_blank">Fluentd</a> is ready to receive messages, we need to specify where the <strong>forward</strong> output plugin will flush the information using the following format:</p><pre><code>bin/fluent-bit -i INPUT -o forward://HOST:PORT/TAG</code></pre>
-<p>If the <strong>TAG</strong> parameter is not set, the plugin will set the tag as <em>fluent_bit</em>. Keep in mind that <strong>TAG</strong> is important for routing rules inside <a href="http://fluentd.org" target="_blank">Fluentd</a>.</p><p>Using the <a href="../input/cpu.html">CPU</a> input plugin as an example we will flush CPU metrics to <a href="http://fluentd.org" target="_blank">Fluentd</a>:</p><pre><code class="lang-bash">$ bin/fluent-bit -i cpu -o forward://127.0.0.1:12225</code></pre>
-<p>In <a href="http://fluentbit.io" target="_blank">Fluent Bit</a> we should see the following output:</p><pre><code>Fluent Bit v0.3.0
+2015-07-29 14:50:47 -0600 [info]: listening fluent socket on 0.0.0.0:12225
+</code></pre>
+<h2 id="fluent-bit-setup">Fluent Bit Setup</h2>
+<p>Now that <a href="http://fluentd.org" target="_blank">Fluentd</a> is ready to receive messages, we need to specify where the <strong>forward</strong> output plugin will flush the information using the following format:</p>
+<pre><code>bin/fluent-bit -i INPUT -o forward://HOST:PORT/TAG
+</code></pre><p>If the <strong>TAG</strong> parameter is not set, the plugin will set the tag as <em>fluent_bit</em>. Keep in mind that <strong>TAG</strong> is important for routing rules inside <a href="http://fluentd.org" target="_blank">Fluentd</a>.</p>
+<p>Using the <a href="../input/cpu.html">CPU</a> input plugin as an example we will flush CPU metrics to <a href="http://fluentd.org" target="_blank">Fluentd</a>:</p>
+<pre><code class="lang-bash">$ bin/fluent-bit -i cpu -o forward://127.0.0.1:12225
+</code></pre>
+<p>In <a href="http://fluentbit.io" target="_blank">Fluent Bit</a> we should see the following output:</p>
+<pre><code>Fluent Bit v0.3.0
 Copyright (C) Treasure Data
 
 [2015/07/29 14:58:02] [ info] Configuration
@@ -759,13 +782,16 @@ Copyright (C) Treasure Data
 [2015/07/29 14:58:03] [debug] [in_cpu] CPU 13.00% (buffer=1)
 [2015/07/29 14:58:04] [debug] [in_cpu] CPU 8.50% (buffer=2)
 [2015/07/29 14:58:05] [debug] [in_cpu] CPU 2.50% (buffer=3)
-[2015/07/29 14:58:06] [ info] Flush buf 98 bytes</code></pre>
-<p>Now on the <a href="http://fluentd.org" target="_blank">Fluentd</a> side the following:</p><pre><code class="lang-bash">2015-07-29 14:50:47 -0600 [info]: listening fluent socket on 0.0.0.0:12225
+[2015/07/29 14:58:06] [ info] Flush buf 98 bytes
+</code></pre><p>Now on the <a href="http://fluentd.org" target="_blank">Fluentd</a> side the following:</p>
+<pre><code class="lang-bash">2015-07-29 14:50:47 -0600 [info]: listening fluent socket on 0.0.0.0:12225
 2015-07-29 14:58:02 -0600 fluent_bit: {<span class="hljs-string">&quot;cpu&quot;</span>:4.25}
 2015-07-29 14:58:03 -0600 fluent_bit: {<span class="hljs-string">&quot;cpu&quot;</span>:13.0}
 2015-07-29 14:58:04 -0600 fluent_bit: {<span class="hljs-string">&quot;cpu&quot;</span>:8.5}
-2015-07-29 14:58:05 -0600 fluent_bit: {<span class="hljs-string">&quot;cpu&quot;</span>:2.5}</code></pre>
+2015-07-29 14:58:05 -0600 fluent_bit: {<span class="hljs-string">&quot;cpu&quot;</span>:2.5}
+</code></pre>
 <p>So we gathered <a href="../input/cpu.html">CPU</a> metrics and flush them out to <a href="http://fluentd.org" target="_blank">Fluentd</a> properly.</p>
+
                                 
                                 </section>
                             
@@ -808,7 +834,7 @@ Copyright (C) Treasure Data
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Forward","level":"1.6.2","depth":2,"next":{"title":"HTTP","level":"1.6.3","depth":2,"path":"output/http.md","ref":"output/http.md","articles":[]},"previous":{"title":"Elasticsearch","level":"1.6.1","depth":2,"path":"output/elasticsearch.md","ref":"output/elasticsearch.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"output/forward.md","mtime":"2016-08-04T22:53:52.022Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-11-10T05:37:30.307Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Forward","level":"1.6.2","depth":2,"next":{"title":"HTTP","level":"1.6.3","depth":2,"path":"output/http.md","ref":"output/http.md","articles":[]},"previous":{"title":"Elasticsearch","level":"1.6.1","depth":2,"path":"output/elasticsearch.md","ref":"output/elasticsearch.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"output/forward.md","mtime":"2016-08-04T22:53:52.022Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-10T07:09:53.076Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
