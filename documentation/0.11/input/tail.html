@@ -1,0 +1,1090 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>Tail · GitBook</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="tcp.html" />
+    
+    
+    <link rel="prev" href="stdin.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../about/">
+            
+                <a href="../about/">
+            
+                    
+                    About
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../about/why.html">
+            
+                <a href="../about/why.html">
+            
+                    
+                    Why ?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../about/fluentd_and_fluentbit.html">
+            
+                <a href="../about/fluentd_and_fluentbit.html">
+            
+                    
+                    Fluentd & Fluent Bit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../about/license.html">
+            
+                <a href="../about/license.html">
+            
+                    
+                    License
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../installation/">
+            
+                <a href="../installation/">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../installation/requirements.html">
+            
+                <a href="../installation/requirements.html">
+            
+                    
+                    Requirements
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../installation/download_sources.html">
+            
+                <a href="../installation/download_sources.html">
+            
+                    
+                    Download Sources
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../installation/build_install.html">
+            
+                <a href="../installation/build_install.html">
+            
+                    
+                    Build and Install
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../installation/td-agent-bit.html">
+            
+                <a href="../installation/td-agent-bit.html">
+            
+                    
+                    TD Agent Bit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../installation/debian.html">
+            
+                <a href="../installation/debian.html">
+            
+                    
+                    Debian Packages
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../installation/ubuntu.html">
+            
+                <a href="../installation/ubuntu.html">
+            
+                    
+                    Ubuntu Packages
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../installation/redhat_centos.html">
+            
+                <a href="../installation/redhat_centos.html">
+            
+                    
+                    CentOS Packages
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../installation/raspberry_pi.html">
+            
+                <a href="../installation/raspberry_pi.html">
+            
+                    
+                    Raspberry Pi
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../installation/unit_tests.html">
+            
+                <a href="../installation/unit_tests.html">
+            
+                    
+                    Unit Tests
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../getting_started/">
+            
+                <a href="../getting_started/">
+            
+                    
+                    Getting Started
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../getting_started/input.html">
+            
+                <a href="../getting_started/input.html">
+            
+                    
+                    Input
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../getting_started/parser.html">
+            
+                <a href="../getting_started/parser.html">
+            
+                    
+                    Parser
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../getting_started/filter.html">
+            
+                <a href="../getting_started/filter.html">
+            
+                    
+                    Filter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../getting_started/buffer.html">
+            
+                <a href="../getting_started/buffer.html">
+            
+                    
+                    Buffer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../getting_started/routing.html">
+            
+                <a href="../getting_started/routing.html">
+            
+                    
+                    Routing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../getting_started/output.html">
+            
+                <a href="../getting_started/output.html">
+            
+                    
+                    Output
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../configuration/">
+            
+                <a href="../configuration/">
+            
+                    
+                    Configuration
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../configuration/schema.html">
+            
+                <a href="../configuration/schema.html">
+            
+                    
+                    Configuration Schema
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../configuration/file.html">
+            
+                <a href="../configuration/file.html">
+            
+                    
+                    Configuration File
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../configuration/tls_ssl.html">
+            
+                <a href="../configuration/tls_ssl.html">
+            
+                    
+                    TLS / SSL
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Input Plugins
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="cpu.html">
+            
+                <a href="cpu.html">
+            
+                    
+                    CPU Usage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="disk.html">
+            
+                <a href="disk.html">
+            
+                    
+                    Disk Usage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="forward.html">
+            
+                <a href="forward.html">
+            
+                    
+                    Forward
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="head.html">
+            
+                <a href="head.html">
+            
+                    
+                    Head
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="health.html">
+            
+                <a href="health.html">
+            
+                    
+                    Health
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="kmsg.html">
+            
+                <a href="kmsg.html">
+            
+                    
+                    Kernel Log Buffer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="mem.html">
+            
+                <a href="mem.html">
+            
+                    
+                    Memory Usage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="mqtt.html">
+            
+                <a href="mqtt.html">
+            
+                    
+                    MQTT
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="proc.html">
+            
+                <a href="proc.html">
+            
+                    
+                    Process
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="random.html">
+            
+                <a href="random.html">
+            
+                    
+                    Random
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.11" data-path="serial.html">
+            
+                <a href="serial.html">
+            
+                    
+                    Serial Interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.12" data-path="stdin.html">
+            
+                <a href="stdin.html">
+            
+                    
+                    Standard Input
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.13" data-path="tail.html">
+            
+                <a href="tail.html">
+            
+                    
+                    Tail
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.14" data-path="tcp.html">
+            
+                <a href="tcp.html">
+            
+                    
+                    TCP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.15" data-path="xbee.html">
+            
+                <a href="xbee.html">
+            
+                    
+                    XBee Radio
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../filter/">
+            
+                <a href="../filter/">
+            
+                    
+                    Filter Plugins
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../filter/grep.html">
+            
+                <a href="../filter/grep.html">
+            
+                    
+                    Grep
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../filter/kubernetes.md">
+            
+                <span>
+            
+                    
+                    Kubernetes
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../output/">
+            
+                <a href="../output/">
+            
+                    
+                    Output Plugins
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../output/elasticsearch.html">
+            
+                <a href="../output/elasticsearch.html">
+            
+                    
+                    Elasticsearch
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../output/flowcounter.html">
+            
+                <a href="../output/flowcounter.html">
+            
+                    
+                    FlowCounter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../output/forward.html">
+            
+                <a href="../output/forward.html">
+            
+                    
+                    Forward
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../output/http.html">
+            
+                <a href="../output/http.html">
+            
+                    
+                    HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="../output/influxdb.html">
+            
+                <a href="../output/influxdb.html">
+            
+                    
+                    InfluxDB
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="../output/nats.html">
+            
+                <a href="../output/nats.html">
+            
+                    
+                    NATS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7" data-path="../output/stdout.html">
+            
+                <a href="../output/stdout.html">
+            
+                    
+                    Standard Output
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.8" data-path="../output/td.html">
+            
+                <a href="../output/td.html">
+            
+                    
+                    Treasure Data
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../development/">
+            
+                <a href="../development/">
+            
+                    
+                    Fluent Bit for Developers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../development/library_api.html">
+            
+                <a href="../development/library_api.html">
+            
+                    
+                    Library API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../development/ingest_records_manually.html">
+            
+                <a href="../development/ingest_records_manually.html">
+            
+                    
+                    Ingest Records Manually
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Tail</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="tail-files">Tail Files</h1>
+<p>The <strong>tail</strong> input plugin allows to monitor one or several text files. It have a similar behavior to <em>tail -f</em> shell command.</p>
+<p>The plugin reads every matched file in the <em>Path</em> pattern and for every new line found (separated by a \n), it generate a new record. Optionally a database file can be used so the plugin can have a history of tracked files and a state of offsets, this is very useful to resume a state if the service is restarted.</p>
+<h2 id="configuration-parameters">Configuration Parameters</h2>
+<p>The plugin supports the following configuration parameters:</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Path</td>
+<td>Pattern specifying a specific log files or multiple ones through the use of common wildcards.</td>
+</tr>
+<tr>
+<td>Exclude_Path</td>
+<td>Set one or multiple shell patterns separated by commas to exclude files matching a certain criteria, e.g: exclude_path=*.gz,*.zip</td>
+</tr>
+<tr>
+<td>Refresh_Interval</td>
+<td>The interval of refreshing the list of watched files. Default is 60 seconds.</td>
+</tr>
+<tr>
+<td>Rotate_Wait</td>
+<td>Specify the number of extra seconds to monitor a file once is rotated in case some pending data is flushed. Default is 5 seconds.</td>
+</tr>
+<tr>
+<td>DB</td>
+<td>Specify the database file to keep track of monitored files and offsets.</td>
+</tr>
+</tbody>
+</table>
+<p>Note that if the database parameter <em>db</em> is <strong>not</strong> specified, by default the plugin will start reading each target file from the beginning.</p>
+<h2 id="getting-started">Getting Started</h2>
+<p>In order to tail text or log files, you can run the plugin from the command line or through the configuration file:</p>
+<h3 id="command-line">Command Line</h3>
+<p>From the command line you can let Fluent Bit parse text files with the following options:</p>
+<pre><code class="lang-bash">$ fluent-bit -i tail -p path=/var/<span class="hljs-built_in">log</span>/syslog -o stdout
+</code></pre>
+<h3 id="configuration-file">Configuration File</h3>
+<p>In your main configuration file append the following <em>Input</em> &amp; <em>Output</em> sections:</p>
+<pre><code class="lang-python">[INPUT]
+    Name        tail
+    Path        /var/log/syslog
+
+[OUTPUT]
+    Name   stdout
+    Match  *
+</code></pre>
+<h3 id="tailing-files-keeping-state">Tailing files keeping state</h3>
+<p>The <em>tail</em> input plugin a feature to save the state of the tracked files, is strongly suggested you enabled this. For this purpose the <strong>db</strong> property is available, e.g:</p>
+<pre><code class="lang-bash">$ fluent-bit -i tail -p path=/var/<span class="hljs-built_in">log</span>/syslog -p db=/path/to/logs.db -o stdout
+</code></pre>
+<p>When running, the database file <em>/path/to/logs.db</em> will be created, this database is backed by SQLite3 so if you are interested into explore the content, you can open it with the SQLite client tool, e.g:</p>
+<pre><code>$ sqlite3 tail.db
+-- Loading resources from /home/edsiper/.sqliterc
+
+SQLite version 3.14.1 2016-08-11 18:53:32
+Enter &quot;.help&quot; for usage hints.
+sqlite&gt; SELECT * FROM in_tail_files;
+id     name                              offset        inode         created
+-----  --------------------------------  ------------  ------------  ----------
+1      /var/log/syslog                   73453145      23462108      1480371857
+sqlite&gt;
+</code></pre><blockquote>
+<p>Make sure to explore when Fluent Bit is not hard working on the database file, otherwise you will see some <em>Error: database is locked</em> messages.</p>
+</blockquote>
+<h4 id="formatting-sqlite">Formatting SQLite</h4>
+<p>By default SQLite client tool do not format the columns in a human read-way, so to explore <em>in_tail_files</em> table you can create a config file in <strong>~/.sqliterc</strong> with the following content:</p>
+<pre><code>.headers on
+.mode column
+.width 5 32 12 12 10
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="stdin.html" class="navigation navigation-prev " aria-label="Previous page: Standard Input">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="tcp.html" class="navigation navigation-next " aria-label="Next page: TCP">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Tail","level":"1.6.13","depth":2,"next":{"title":"TCP","level":"1.6.14","depth":2,"path":"input/tcp.md","ref":"input/tcp.md","articles":[]},"previous":{"title":"Standard Input","level":"1.6.12","depth":2,"path":"input/stdin.md","ref":"input/stdin.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["addcssjs"],"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"input/tail.md","mtime":"2016-12-08T20:47:45.575Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-01T21:11:42.454Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    
+    <script type="text/javascript" src="../js/heapanalytics.js"></script>
+    
+    <script type="text/javascript" src="../js/googleanalytics.js"></script>
+    
+
+    </body>
+</html>
+
