@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="" >
     <head>
-        <title>CentOS Packages · Fluent Bit v0.11 Documentation</title>
+        <title>Kubernetes · Fluent Bit v0.11 Documentation</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -60,10 +60,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="raspberry_pi.html" />
+    <link rel="next" href="../output/" />
     
     
-    <link rel="prev" href="ubuntu.html" />
+    <link rel="prev" href="grep.html" />
     
 
     </head>
@@ -163,9 +163,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="./">
+        <li class="chapter " data-level="1.3" data-path="../installation/">
             
-                <a href="./">
+                <a href="../installation/">
             
                     
                     Installation
@@ -177,9 +177,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="requirements.html">
+        <li class="chapter " data-level="1.3.1" data-path="../installation/requirements.html">
             
-                <a href="requirements.html">
+                <a href="../installation/requirements.html">
             
                     
                     Requirements
@@ -190,9 +190,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="download_sources.html">
+        <li class="chapter " data-level="1.3.2" data-path="../installation/download_sources.html">
             
-                <a href="download_sources.html">
+                <a href="../installation/download_sources.html">
             
                     
                     Download Sources
@@ -203,9 +203,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="build_install.html">
+        <li class="chapter " data-level="1.3.3" data-path="../installation/build_install.html">
             
-                <a href="build_install.html">
+                <a href="../installation/build_install.html">
             
                     
                     Build and Install
@@ -216,9 +216,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" data-path="td-agent-bit.html">
+        <li class="chapter " data-level="1.3.4" data-path="../installation/td-agent-bit.html">
             
-                <a href="td-agent-bit.html">
+                <a href="../installation/td-agent-bit.html">
             
                     
                     TD Agent Bit
@@ -229,9 +229,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5" data-path="debian.html">
+        <li class="chapter " data-level="1.3.5" data-path="../installation/debian.html">
             
-                <a href="debian.html">
+                <a href="../installation/debian.html">
             
                     
                     Debian Packages
@@ -242,9 +242,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.6" data-path="ubuntu.html">
+        <li class="chapter " data-level="1.3.6" data-path="../installation/ubuntu.html">
             
-                <a href="ubuntu.html">
+                <a href="../installation/ubuntu.html">
             
                     
                     Ubuntu Packages
@@ -255,9 +255,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.7" data-path="redhat_centos.html">
+        <li class="chapter " data-level="1.3.7" data-path="../installation/redhat_centos.html">
             
-                <a href="redhat_centos.html">
+                <a href="../installation/redhat_centos.html">
             
                     
                     CentOS Packages
@@ -268,9 +268,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.8" data-path="raspberry_pi.html">
+        <li class="chapter " data-level="1.3.8" data-path="../installation/raspberry_pi.html">
             
-                <a href="raspberry_pi.html">
+                <a href="../installation/raspberry_pi.html">
             
                     
                     Raspberry Pi
@@ -281,9 +281,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.9" data-path="unit_tests.html">
+        <li class="chapter " data-level="1.3.9" data-path="../installation/unit_tests.html">
             
-                <a href="unit_tests.html">
+                <a href="../installation/unit_tests.html">
             
                     
                     Unit Tests
@@ -668,9 +668,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7" data-path="../filter/">
+        <li class="chapter " data-level="1.7" data-path="./">
             
-                <a href="../filter/">
+                <a href="./">
             
                     
                     Filter Plugins
@@ -682,9 +682,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.7.1" data-path="../filter/grep.html">
+        <li class="chapter " data-level="1.7.1" data-path="grep.html">
             
-                <a href="../filter/grep.html">
+                <a href="grep.html">
             
                     
                     Grep
@@ -695,9 +695,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.2" data-path="../filter/kubernetes.html">
+        <li class="chapter active" data-level="1.7.2" data-path="kubernetes.html">
             
-                <a href="../filter/kubernetes.html">
+                <a href="kubernetes.html">
             
                     
                     Kubernetes
@@ -911,7 +911,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >CentOS Packages</a>
+        <a href=".." >Kubernetes</a>
     </h1>
 </div>
 
@@ -926,36 +926,53 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="install-on-redhat--centos">Install on Redhat / CentOS</h1>
-<p>Fluent Bit is distributed as <strong>td-agent-bit</strong> package and is available for the latest stable CentOS system. This stable Fluent Bit distribution package is maintained by <a href="https://www.treasuredata.com" target="_blank">Treasure Data, Inc</a>.</p>
-<h1 id="configure-yum">Configure Yum</h1>
-<p>We provide <strong>td-agent-bit</strong> through a Yum repository. In order to add the repository reference to your system, please add a new file called <em>td-agent-bit.repo</em> in <em>/etc/yum.repos.d/</em> with the following content:</p>
-<pre><code>[td-agent-bit]
-name = TD Agent Bit
-baseurl = http://packages.fluentbit.io/centos/7
-gpgcheck=1
-gpgkey=http://packages.fluentbit.io/fluentbit.key
-enabled=1
-</code></pre><p>note: we encourage you always enable the <em>gpgcheck</em> for security reasons. All our packages are signed.</p>
-<h2 id="install">Install</h2>
-<p>Once your repository is configured, run the following command to install it:</p>
-<pre><code class="lang-bash">$ yum install td-agent-bit
-</code></pre>
-<p>Now the following step is to instruct <em>systemd</em> to enable the service:</p>
-<pre><code class="lang-bash">$ service td-agent-bit start
-</code></pre>
-<p>If you do a status check, you should see a similar output like this:</p>
-<pre><code class="lang-bash">$ service td-agent-bit status
-Redirecting to /bin/systemctl status  td-agent-bit.service
-&#x25CF; td-agent-bit.service - TD Agent Bit
-   Loaded: loaded (/usr/lib/systemd/system/td-agent-bit.service; disabled; vendor preset: disabled)
-   Active: active (running) since Thu 2016-07-07 02:08:01 BST; 9s ago
- Main PID: 3820 (td-agent-bit)
-   CGroup: /system.slice/td-agent-bit.service
-           &#x2514;&#x2500;3820 /opt/td-agent-bit/bin/td-agent-bit -c etc/td-agent-bit/td-agent-bit.conf
-...
-</code></pre>
-<p>The default configuration of <strong>td-agent-bit</strong> is collecting metrics of CPU usage and sending the records to the standard output, you can see the outgoing data in your <em>/var/log/messages</em> file.</p>
+                                <h1 id="kubernetes-filter">Kubernetes Filter</h1>
+<p>The <em>Kubernetes Filter</em> allows to enrich your log files with Kubernetes metadata.</p>
+<p>When Fluent Bit is deployed in Kubernetes as a DaemonSet and configured to read the log files from the containers (using tail plugin), this filter aims to perform the following operations:</p>
+<ul>
+<li>Analize the Tag and extract the following metadata:<ul>
+<li>POD Name</li>
+<li>Namespace</li>
+<li>Container Name</li>
+<li>Container ID</li>
+</ul>
+</li>
+<li>Query Kubernetes API Server to obtain extra metadata for the POD in question:<ul>
+<li>POD ID</li>
+<li>Labels</li>
+<li>Annotations</li>
+</ul>
+</li>
+</ul>
+<p>The data is cached locally in memory and appended to each record.</p>
+<h2 id="configuration-parameters">Configuration Parameters</h2>
+<p>The plugin supports the following configuration parameters:</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kube_URL</td>
+<td>API Server end-point</td>
+<td><a href="https://kubernetes.default.svc:443" target="_blank">https://kubernetes.default.svc:443</a></td>
+</tr>
+<tr>
+<td>Kube_CA_File</td>
+<td>CA certificate file</td>
+<td>/var/run/secrets/kubernetes.io/serviceaccount/ca.crt</td>
+</tr>
+<tr>
+<td>Kube_Token_File</td>
+<td>Token file</td>
+<td>/var/run/secrets/kubernetes.io/serviceaccount/token</td>
+</tr>
+</tbody>
+</table>
 
                                 
                                 </section>
@@ -983,12 +1000,12 @@ Redirecting to /bin/systemctl status  td-agent-bit.service
 
             
                 
-                <a href="ubuntu.html" class="navigation navigation-prev " aria-label="Previous page: Ubuntu Packages">
+                <a href="grep.html" class="navigation navigation-prev " aria-label="Previous page: Grep">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="raspberry_pi.html" class="navigation navigation-next " aria-label="Next page: Raspberry Pi">
+                <a href="../output/" class="navigation navigation-next " aria-label="Next page: Output Plugins">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -999,7 +1016,7 @@ Redirecting to /bin/systemctl status  td-agent-bit.service
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"CentOS Packages","level":"1.3.7","depth":2,"next":{"title":"Raspberry Pi","level":"1.3.8","depth":2,"path":"installation/raspberry_pi.md","ref":"installation/raspberry_pi.md","articles":[]},"previous":{"title":"Ubuntu Packages","level":"1.3.6","depth":2,"path":"installation/ubuntu.md","ref":"installation/ubuntu.md","articles":[]},"dir":"ltr"},"config":{"plugins":["addcssjs"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.11 Documentation","gitbook":"*"},"file":{"path":"installation/redhat_centos.md","mtime":"2016-07-07T01:27:08.037Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-02T01:03:04.831Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Kubernetes","level":"1.7.2","depth":2,"next":{"title":"Output Plugins","level":"1.8","depth":1,"path":"output/README.md","ref":"output/README.md","articles":[{"title":"Elasticsearch","level":"1.8.1","depth":2,"path":"output/elasticsearch.md","ref":"output/elasticsearch.md","articles":[]},{"title":"FlowCounter","level":"1.8.2","depth":2,"path":"output/flowcounter.md","ref":"output/flowcounter.md","articles":[]},{"title":"Forward","level":"1.8.3","depth":2,"path":"output/forward.md","ref":"output/forward.md","articles":[]},{"title":"HTTP","level":"1.8.4","depth":2,"path":"output/http.md","ref":"output/http.md","articles":[]},{"title":"InfluxDB","level":"1.8.5","depth":2,"path":"output/influxdb.md","ref":"output/influxdb.md","articles":[]},{"title":"NATS","level":"1.8.6","depth":2,"path":"output/nats.md","ref":"output/nats.md","articles":[]},{"title":"Standard Output","level":"1.8.7","depth":2,"path":"output/stdout.md","ref":"output/stdout.md","articles":[]},{"title":"Treasure Data","level":"1.8.8","depth":2,"path":"output/td.md","ref":"output/td.md","articles":[]}]},"previous":{"title":"Grep","level":"1.7.1","depth":2,"path":"filter/grep.md","ref":"filter/grep.md","articles":[]},"dir":"ltr"},"config":{"plugins":["addcssjs"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.11 Documentation","gitbook":"*"},"file":{"path":"filter/kubernetes.md","mtime":"2017-03-01T23:04:53.417Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-02T01:03:04.831Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
