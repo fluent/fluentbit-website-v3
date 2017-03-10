@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="" >
     <head>
-        <title>Filter · Fluent Bit v0.11 Documentation</title>
+        <title>Back Pressure · Fluent Bit v0.11 Documentation</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -60,10 +60,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="buffer.html" />
+    <link rel="next" href="memory_usage.html" />
     
     
-    <link rel="prev" href="parser.html" />
+    <link rel="prev" href="tls_ssl.html" />
     
 
     </head>
@@ -299,9 +299,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="./">
+        <li class="chapter " data-level="1.4" data-path="../getting_started/">
             
-                <a href="./">
+                <a href="../getting_started/">
             
                     
                     Getting Started
@@ -313,9 +313,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="input.html">
+        <li class="chapter " data-level="1.4.1" data-path="../getting_started/input.html">
             
-                <a href="input.html">
+                <a href="../getting_started/input.html">
             
                     
                     Input
@@ -326,9 +326,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="parser.html">
+        <li class="chapter " data-level="1.4.2" data-path="../getting_started/parser.html">
             
-                <a href="parser.html">
+                <a href="../getting_started/parser.html">
             
                     
                     Parser
@@ -339,9 +339,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4.3" data-path="filter.html">
+        <li class="chapter " data-level="1.4.3" data-path="../getting_started/filter.html">
             
-                <a href="filter.html">
+                <a href="../getting_started/filter.html">
             
                     
                     Filter
@@ -352,9 +352,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.4" data-path="buffer.html">
+        <li class="chapter " data-level="1.4.4" data-path="../getting_started/buffer.html">
             
-                <a href="buffer.html">
+                <a href="../getting_started/buffer.html">
             
                     
                     Buffer
@@ -365,9 +365,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.5" data-path="routing.html">
+        <li class="chapter " data-level="1.4.5" data-path="../getting_started/routing.html">
             
-                <a href="routing.html">
+                <a href="../getting_started/routing.html">
             
                     
                     Routing
@@ -378,9 +378,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.6" data-path="output.html">
+        <li class="chapter " data-level="1.4.6" data-path="../getting_started/output.html">
             
-                <a href="output.html">
+                <a href="../getting_started/output.html">
             
                     
                     Output
@@ -396,9 +396,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5" data-path="../configuration/">
+        <li class="chapter " data-level="1.5" data-path="./">
             
-                <a href="../configuration/">
+                <a href="./">
             
                     
                     Configuration
@@ -410,9 +410,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.1" data-path="../configuration/schema.html">
+        <li class="chapter " data-level="1.5.1" data-path="schema.html">
             
-                <a href="../configuration/schema.html">
+                <a href="schema.html">
             
                     
                     Configuration Schema
@@ -423,9 +423,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.2" data-path="../configuration/file.html">
+        <li class="chapter " data-level="1.5.2" data-path="file.html">
             
-                <a href="../configuration/file.html">
+                <a href="file.html">
             
                     
                     Configuration File
@@ -436,9 +436,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.3" data-path="../configuration/tls_ssl.html">
+        <li class="chapter " data-level="1.5.3" data-path="tls_ssl.html">
             
-                <a href="../configuration/tls_ssl.html">
+                <a href="tls_ssl.html">
             
                     
                     TLS / SSL
@@ -449,9 +449,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.4" data-path="../configuration/back_pressure.html">
+        <li class="chapter active" data-level="1.5.4" data-path="back_pressure.html">
             
-                <a href="../configuration/back_pressure.html">
+                <a href="back_pressure.html">
             
                     
                     Back Pressure
@@ -462,9 +462,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.5" data-path="../configuration/memory_usage.html">
+        <li class="chapter " data-level="1.5.5" data-path="memory_usage.html">
             
-                <a href="../configuration/memory_usage.html">
+                <a href="memory_usage.html">
             
                     
                     Memory Usage
@@ -950,7 +950,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Filter</a>
+        <a href=".." >Back Pressure</a>
     </h1>
 </div>
 
@@ -965,12 +965,36 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="filter">Filter</h1>
-<p>In production environments we want to have full control of the data we are collecting, filtering is an important feature that allows to <strong>alter</strong> the data before to deliver it to some destination.</p>
-<p><img src="../imgs/flb_workflow_filter.jpg" alt=""></p>
-<p>Filtering is implemented through plugins, so each filter available could be used to match, exclude or enrich your logs with some specific metadata.</p>
-<p>Very similar to the input plugins, Filters runs in an instance context, which it have it own and independent configuration. Configuration keys are often called <strong>properties</strong>.</p>
-<p>For more details about the Filters available and it usage, please refer to the <a href="../filter/">Filters</a> section.</p>
+                                <h1 id="back-pressure">Back Pressure</h1>
+<p>In certain environments is common to see that logs or data being ingested is faster than the ability to flush it to some destinations. The common case is reading from big log files and dispatching the logs to a backend over the network which takes some time to respond, this generate backpressure leading to a high memory consumption in the service.</p>
+<p>In order to avoid back pressure, Fluent Bit implements a mechanism in the engine that restrict the amount of data than an input plugin can ingest, this is done through the configuration parameter <strong>Mem_Buf_Limit</strong>.</p>
+<h2 id="membuflimit">Mem_Buf_Limit</h2>
+<p>This option is disabled by default and can be applied to all input plugins. Let&apos;s explain it behavior using the following scenario:</p>
+<ul>
+<li>Mem_Buf_Limit is set to 1MB (one megabyte)</li>
+<li>input plugin tries to append 700KB</li>
+<li>engine route the data to an output plugin</li>
+<li>output plugin backend (HTTP Server) is down</li>
+<li>engine scheduler will retry the flush after 10 seconds</li>
+<li>input plugin tries to append 500KB</li>
+</ul>
+<p>At this exact point, the engine will <strong>allow</strong> to append those 500KB of data into the engine: in total we have 1.2MB. The options works in a permisive mode before to reach the limit, but the limit is<strong>exceeded</strong> the following actions are taken:</p>
+<ul>
+<li>block local buffers for the input plugin (cannot append more data)</li>
+<li>notify the input plugin invoking a <strong>pause</strong> callback</li>
+</ul>
+<p>The engine will protect it self and will not append more data coming from the input plugin in question; Note that is the plugin responsability to keep their state and take some decisions about what to do on that <em>paused</em> state.</p>
+<p>After some seconds if the scheduler was able to flush the initial 700KB of data or it gave up after retrying, that amount memory is released and internally the following actions happens:</p>
+<ul>
+<li>Upon data buffer release (700KB), the internal counters get updated</li>
+<li>Counters now are set at 500KB</li>
+<li>Since 500KB is &lt; 1MB it check the input plugin state</li>
+<li>If the plugin is paused, it invoke a <strong>resume</strong> callback</li>
+<li>input plugin can continue appending more data</li>
+</ul>
+<h2 id="about-pause-and-resume-callbacks">About pause and resume Callbacks</h2>
+<p>Each plugin is independent and not all of them implements the <strong>pause</strong> and <strong>resume</strong> callbacks. As said, these callbacks are just a notification mechanism for the plugin.</p>
+<p>The plugin who implements and keep a good state is the <a href="../input/tail.html">Tail Input</a> plugin. When the <strong>pause</strong> callback is triggered, it stop their collectors and stop appending data. Upon <strong>resume</strong>, it re-enable the collectors.</p>
 
                                 
                                 </section>
@@ -998,12 +1022,12 @@
 
             
                 
-                <a href="parser.html" class="navigation navigation-prev " aria-label="Previous page: Parser">
+                <a href="tls_ssl.html" class="navigation navigation-prev " aria-label="Previous page: TLS / SSL">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="buffer.html" class="navigation navigation-next " aria-label="Next page: Buffer">
+                <a href="memory_usage.html" class="navigation navigation-next " aria-label="Next page: Memory Usage">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1014,7 +1038,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Filter","level":"1.4.3","depth":2,"next":{"title":"Buffer","level":"1.4.4","depth":2,"path":"getting_started/buffer.md","ref":"getting_started/buffer.md","articles":[]},"previous":{"title":"Parser","level":"1.4.2","depth":2,"path":"getting_started/parser.md","ref":"getting_started/parser.md","articles":[]},"dir":"ltr"},"config":{"plugins":["addcssjs"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.11 Documentation","gitbook":"*"},"file":{"path":"getting_started/filter.md","mtime":"2017-03-01T22:49:32.767Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-10T20:48:55.955Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Back Pressure","level":"1.5.4","depth":2,"next":{"title":"Memory Usage","level":"1.5.5","depth":2,"path":"configuration/memory_usage.md","ref":"configuration/memory_usage.md","articles":[]},"previous":{"title":"TLS / SSL","level":"1.5.3","depth":2,"path":"configuration/tls_ssl.md","ref":"configuration/tls_ssl.md","articles":[]},"dir":"ltr"},"config":{"plugins":["addcssjs"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.11 Documentation","gitbook":"*"},"file":{"path":"configuration/back_pressure.md","mtime":"2017-03-10T20:06:44.475Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-10T20:48:55.955Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
