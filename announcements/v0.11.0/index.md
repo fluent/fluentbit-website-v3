@@ -44,10 +44,12 @@ This release is a major version, several new features have been added:
 - Input
   - input plugins: msgpack buffers now are handled by Fluent Bit Core, input plugins uses new API to ingest data.
   - in\_tail: add support for parsing, new _Parser_ configuration key.
-  - in\_tail: support to append file name to the tags when a wildcard is specified.
+  - in\_tail: add support to append file name to the tags when a wildcard is specified.
+  - in\_tail: add support to append file name in the record map through _path\_key_ option.
   - in\_proc: new features to collect memory usage and count open file descriptors by process.
   - in\_mem: adjustments to generate info similar to free(1) command.
   - in\_disk: new plugin to gather disks metrics.
+  - in\_forward: add support for PackedForward mode (used by Fluentd).
 
 - Output Plugins
   - out\_flowcounter: support counters for different inputs.
