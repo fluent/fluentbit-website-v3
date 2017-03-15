@@ -966,7 +966,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="elasticsearch">Elasticsearch</h1>
-<p>The <strong>es</strong> output plugin, allows to flush your records into a <a href="http://www.elastic.co" target="_blank">Elastic Search</a> instance. The following instructions assumes that you have a fully operational Elasticsearch service running.</p>
+<p>The <strong>es</strong> output plugin, allows to flush your records into a <a href="http://www.elastic.co" target="_blank">Elasticsearch</a> database. The following instructions assumes that you have a fully operational Elasticsearch service running in your environment.</p>
 <h2 id="configuration-parameters">Configuration Parameters</h2>
 <table>
 <thead>
@@ -989,13 +989,38 @@
 </tr>
 <tr>
 <td>Index</td>
-<td>Elastic index</td>
+<td>Index name</td>
 <td>fluentbit</td>
 </tr>
 <tr>
 <td>Type</td>
-<td>Elastic type</td>
-<td>test</td>
+<td>Type name</td>
+<td>flb_type</td>
+</tr>
+<tr>
+<td>Logstash_Format</td>
+<td>Enable Logstash format compatibility. This option takes a boolean value: True/False, On/Off</td>
+<td>Off</td>
+</tr>
+<tr>
+<td>Logstash_Prefix</td>
+<td>When enabling Logstash_Format, the Index name is composed using a prefix and the date, e.g: If Logstash_Prefix is equals to &apos;mydata&apos; your index will become &apos;mydata-YYYY.MM.DD&apos;. The last string appended belongs to the date when the data is being generated.</td>
+<td>logstash</td>
+</tr>
+<tr>
+<td>Logstash_DateFormat</td>
+<td>Time format (based on <a href="http://man7.org/linux/man-pages/man3/strftime.3.html" target="_blank">strftime</a>) to generate the second part of the Index name.</td>
+<td>%Y.%m.%d</td>
+</tr>
+<tr>
+<td>Time_Key</td>
+<td>When Logstash_Format is enabled, each record will get a new timestamp field. The Time_Key property defines the name of that field.</td>
+<td>@timestamp</td>
+</tr>
+<tr>
+<td>Time_Key_Format</td>
+<td>When Logstash_Format is enabled, this property defines the format of the timestamp.</td>
+<td>%Y-%m-%dT%H:%M:%S</td>
 </tr>
 </tbody>
 </table>
@@ -1077,7 +1102,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Elasticsearch","level":"1.8.1","depth":2,"next":{"title":"FlowCounter","level":"1.8.2","depth":2,"path":"output/flowcounter.md","ref":"output/flowcounter.md","articles":[]},"previous":{"title":"Output Plugins","level":"1.8","depth":1,"path":"output/README.md","ref":"output/README.md","articles":[{"title":"Elasticsearch","level":"1.8.1","depth":2,"path":"output/elasticsearch.md","ref":"output/elasticsearch.md","articles":[]},{"title":"FlowCounter","level":"1.8.2","depth":2,"path":"output/flowcounter.md","ref":"output/flowcounter.md","articles":[]},{"title":"Forward","level":"1.8.3","depth":2,"path":"output/forward.md","ref":"output/forward.md","articles":[]},{"title":"HTTP","level":"1.8.4","depth":2,"path":"output/http.md","ref":"output/http.md","articles":[]},{"title":"InfluxDB","level":"1.8.5","depth":2,"path":"output/influxdb.md","ref":"output/influxdb.md","articles":[]},{"title":"NATS","level":"1.8.6","depth":2,"path":"output/nats.md","ref":"output/nats.md","articles":[]},{"title":"Standard Output","level":"1.8.7","depth":2,"path":"output/stdout.md","ref":"output/stdout.md","articles":[]},{"title":"Treasure Data","level":"1.8.8","depth":2,"path":"output/td.md","ref":"output/td.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["addcssjs"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.11 Documentation","gitbook":"*"},"file":{"path":"output/elasticsearch.md","mtime":"2016-09-07T17:12:07.936Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-14T19:41:33.155Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Elasticsearch","level":"1.8.1","depth":2,"next":{"title":"FlowCounter","level":"1.8.2","depth":2,"path":"output/flowcounter.md","ref":"output/flowcounter.md","articles":[]},"previous":{"title":"Output Plugins","level":"1.8","depth":1,"path":"output/README.md","ref":"output/README.md","articles":[{"title":"Elasticsearch","level":"1.8.1","depth":2,"path":"output/elasticsearch.md","ref":"output/elasticsearch.md","articles":[]},{"title":"FlowCounter","level":"1.8.2","depth":2,"path":"output/flowcounter.md","ref":"output/flowcounter.md","articles":[]},{"title":"Forward","level":"1.8.3","depth":2,"path":"output/forward.md","ref":"output/forward.md","articles":[]},{"title":"HTTP","level":"1.8.4","depth":2,"path":"output/http.md","ref":"output/http.md","articles":[]},{"title":"InfluxDB","level":"1.8.5","depth":2,"path":"output/influxdb.md","ref":"output/influxdb.md","articles":[]},{"title":"NATS","level":"1.8.6","depth":2,"path":"output/nats.md","ref":"output/nats.md","articles":[]},{"title":"Standard Output","level":"1.8.7","depth":2,"path":"output/stdout.md","ref":"output/stdout.md","articles":[]},{"title":"Treasure Data","level":"1.8.8","depth":2,"path":"output/td.md","ref":"output/td.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["addcssjs"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.11 Documentation","gitbook":"*"},"file":{"path":"output/elasticsearch.md","mtime":"2017-03-15T18:24:43.683Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-15T18:26:23.295Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
