@@ -5,7 +5,7 @@ title: Fluent Bit v0.11.0 - Release Notes
 intro: Release Notes
 ---
 
-# Release Notes v0.11.0 - DRAFT
+# Release Notes v0.11.0
 
 [Fluent Bit](http://fluentbit.io) is a Fast and Lightweight Data Forwarder for Linux, BSD and OSX. We are proud to announce the availability of __Fluent Bit v0.11.0__.
 
@@ -41,6 +41,9 @@ This release is a major version, several new features have been added:
 - Proxy
   - Refactored Golang interface for output plugins
 
+- Logger
+  - Fix initialization mode and make it more friendly for daemon mode.
+
 - Input
   - input plugins: msgpack buffers now are handled by Fluent Bit Core, input plugins uses new API to ingest data.
   - in\_tail: add support for parsing, new _Parser_ configuration key.
@@ -55,8 +58,9 @@ This release is a major version, several new features have been added:
   - out\_flowcounter: support counters for different inputs.
   - out\_lib: support JSON output.
   - out\_file: new plugin to write records to the file system.
-  - out\_es (elasticsearch): add support for nested fields.
-  - out\_es (elasticsearch): fix buffering realloc logic.
+  - out\_es (Elasticsearch): new support for logstash format.
+  - out\_es (Elasticsearch): add support for nested fields.
+  - out\_es (Elasticsearch): fix buffering realloc logic.
   - out\_nats: enable by default.
   - out\_influxdb: fix buffering realloc logic.
 

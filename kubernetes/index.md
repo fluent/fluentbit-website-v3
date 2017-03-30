@@ -11,7 +11,7 @@ intro: Release notes
 
 For Kubernetes log handlers are independent components that helps to collect and process log files for every POD in the nodes.
 
-The __upcoming__ Fluent Bit __v0.11__ (March 2017), comes with fully support for Kubernetes clusters:
+The __recently__ released Fluent Bit __v0.11__, comes with full support for Kubernetes clusters:
 
 - Read every container and POD log file
 - Enrich logs with Kubernetes metadata:
