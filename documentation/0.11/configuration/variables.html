@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="" >
     <head>
-        <title>Filter · Fluent Bit v0.11 Documentation</title>
+        <title>Configuration Variables · Fluent Bit v0.11 Documentation</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -60,10 +60,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="buffer.html" />
+    <link rel="next" href="tls_ssl.html" />
     
     
-    <link rel="prev" href="parser.html" />
+    <link rel="prev" href="file.html" />
     
 
     </head>
@@ -299,9 +299,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="./">
+        <li class="chapter " data-level="1.4" data-path="../getting_started/">
             
-                <a href="./">
+                <a href="../getting_started/">
             
                     
                     Getting Started
@@ -313,9 +313,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="input.html">
+        <li class="chapter " data-level="1.4.1" data-path="../getting_started/input.html">
             
-                <a href="input.html">
+                <a href="../getting_started/input.html">
             
                     
                     Input
@@ -326,9 +326,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="parser.html">
+        <li class="chapter " data-level="1.4.2" data-path="../getting_started/parser.html">
             
-                <a href="parser.html">
+                <a href="../getting_started/parser.html">
             
                     
                     Parser
@@ -339,9 +339,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4.3" data-path="filter.html">
+        <li class="chapter " data-level="1.4.3" data-path="../getting_started/filter.html">
             
-                <a href="filter.html">
+                <a href="../getting_started/filter.html">
             
                     
                     Filter
@@ -352,9 +352,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.4" data-path="buffer.html">
+        <li class="chapter " data-level="1.4.4" data-path="../getting_started/buffer.html">
             
-                <a href="buffer.html">
+                <a href="../getting_started/buffer.html">
             
                     
                     Buffer
@@ -365,9 +365,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.5" data-path="routing.html">
+        <li class="chapter " data-level="1.4.5" data-path="../getting_started/routing.html">
             
-                <a href="routing.html">
+                <a href="../getting_started/routing.html">
             
                     
                     Routing
@@ -378,9 +378,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.6" data-path="output.html">
+        <li class="chapter " data-level="1.4.6" data-path="../getting_started/output.html">
             
-                <a href="output.html">
+                <a href="../getting_started/output.html">
             
                     
                     Output
@@ -396,9 +396,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5" data-path="../configuration/">
+        <li class="chapter " data-level="1.5" data-path="./">
             
-                <a href="../configuration/">
+                <a href="./">
             
                     
                     Configuration
@@ -410,9 +410,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.1" data-path="../configuration/schema.html">
+        <li class="chapter " data-level="1.5.1" data-path="schema.html">
             
-                <a href="../configuration/schema.html">
+                <a href="schema.html">
             
                     
                     Configuration Schema
@@ -423,9 +423,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.2" data-path="../configuration/file.html">
+        <li class="chapter " data-level="1.5.2" data-path="file.html">
             
-                <a href="../configuration/file.html">
+                <a href="file.html">
             
                     
                     Configuration File
@@ -436,9 +436,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.3" data-path="../configuration/variables.html">
+        <li class="chapter active" data-level="1.5.3" data-path="variables.html">
             
-                <a href="../configuration/variables.html">
+                <a href="variables.html">
             
                     
                     Configuration Variables
@@ -449,9 +449,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.4" data-path="../configuration/tls_ssl.html">
+        <li class="chapter " data-level="1.5.4" data-path="tls_ssl.html">
             
-                <a href="../configuration/tls_ssl.html">
+                <a href="tls_ssl.html">
             
                     
                     TLS / SSL
@@ -462,9 +462,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.5" data-path="../configuration/backpressure.html">
+        <li class="chapter " data-level="1.5.5" data-path="backpressure.html">
             
-                <a href="../configuration/backpressure.html">
+                <a href="backpressure.html">
             
                     
                     Backpressure
@@ -475,9 +475,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.6" data-path="../configuration/memory_usage.html">
+        <li class="chapter " data-level="1.5.6" data-path="memory_usage.html">
             
-                <a href="../configuration/memory_usage.html">
+                <a href="memory_usage.html">
             
                     
                     Memory Usage
@@ -976,7 +976,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Filter</a>
+        <a href=".." >Configuration Variables</a>
     </h1>
 </div>
 
@@ -991,12 +991,39 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="filter">Filter</h1>
-<p>In production environments we want to have full control of the data we are collecting, filtering is an important feature that allows to <strong>alter</strong> the data before to deliver it to some destination.</p>
-<p><img src="../imgs/flb_workflow_filter.jpg" alt=""></p>
-<p>Filtering is implemented through plugins, so each filter available could be used to match, exclude or enrich your logs with some specific metadata.</p>
-<p>Very similar to the input plugins, Filters runs in an instance context, which it have it own and independent configuration. Configuration keys are often called <strong>properties</strong>.</p>
-<p>For more details about the Filters available and it usage, please refer to the <a href="../filter/">Filters</a> section.</p>
+                                <h1 id="configuration-variables">Configuration Variables</h1>
+<p>Fluent Bit support the usage of environment variables in any value associated to a key when using a configuration file.</p>
+<p>The variables are case sensitive and can be used in the following format:</p>
+<pre><code>${MY_VARIABLE}
+</code></pre><p>When Fluent Bit starts, the configuration reader will detect any request for ${MY_VARIABLE} and will try to resolve it value.</p>
+<h2 id="example">Example</h2>
+<p>Create the following configuration file (<em>fluent-bit.conf</em>):</p>
+<pre><code>[SERVICE]
+    Flush        1
+    Daemon       Off
+    Log_Level    info
+
+[INPUT]
+    Name cpu
+    Tag  cpu.local
+
+[OUTPUT]
+    Name  ${MY_OUTPUT}
+    Match *
+</code></pre><p>Open a terminal and set the environment variable:</p>
+<pre><code class="lang-bash">$ <span class="hljs-built_in">export</span> MY_OUTPUT=stdout
+</code></pre>
+<blockquote>
+<p>The above command set the &apos;stdout&apos; value to the variable MY_OUTPUT.</p>
+</blockquote>
+<p>Run Fluent Bit with the recently created configuration file:</p>
+<pre><code>$ bin/fluent-bit -c fluent-bit.conf
+Fluent-Bit v0.11.0
+Copyright (C) Treasure Data
+
+[2017/04/03 12:25:25] [ info] [engine] started
+[0] cpu.local: [1491243925, {&quot;cpu_p&quot;=&gt;1.750000, &quot;user_p&quot;=&gt;1.750000, &quot;system_p&quot;=&gt;0.000000, &quot;cpu0.p_cpu&quot;=&gt;3.000000, &quot;cpu0.p_user&quot;=&gt;2.000000, &quot;cpu0.p_system&quot;=&gt;1.000000, &quot;cpu1.p_cpu&quot;=&gt;0.000000, &quot;cpu1.p_user&quot;=&gt;0.000000, &quot;cpu1.p_system&quot;=&gt;0.000000, &quot;cpu2.p_cpu&quot;=&gt;4.000000, &quot;cpu2.p_user&quot;=&gt;4.000000, &quot;cpu2.p_system&quot;=&gt;0.000000, &quot;cpu3.p_cpu&quot;=&gt;1.000000, &quot;cpu3.p_user&quot;=&gt;1.000000, &quot;cpu3.p_system&quot;=&gt;0.000000}]
+</code></pre><p>As you can see the service worked properly as the configuration was valid.</p>
 
                                 
                                 </section>
@@ -1024,12 +1051,12 @@
 
             
                 
-                <a href="parser.html" class="navigation navigation-prev " aria-label="Previous page: Parser">
+                <a href="file.html" class="navigation navigation-prev " aria-label="Previous page: Configuration File">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="buffer.html" class="navigation navigation-next " aria-label="Next page: Buffer">
+                <a href="tls_ssl.html" class="navigation navigation-next " aria-label="Next page: TLS / SSL">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1040,7 +1067,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Filter","level":"1.4.3","depth":2,"next":{"title":"Buffer","level":"1.4.4","depth":2,"path":"getting_started/buffer.md","ref":"getting_started/buffer.md","articles":[]},"previous":{"title":"Parser","level":"1.4.2","depth":2,"path":"getting_started/parser.md","ref":"getting_started/parser.md","articles":[]},"dir":"ltr"},"config":{"plugins":["addcssjs"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.11 Documentation","gitbook":"*"},"file":{"path":"getting_started/filter.md","mtime":"2017-03-01T22:49:32.767Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-03T18:28:34.943Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Configuration Variables","level":"1.5.3","depth":2,"next":{"title":"TLS / SSL","level":"1.5.4","depth":2,"path":"configuration/tls_ssl.md","ref":"configuration/tls_ssl.md","articles":[]},"previous":{"title":"Configuration File","level":"1.5.2","depth":2,"path":"configuration/file.md","ref":"configuration/file.md","articles":[]},"dir":"ltr"},"config":{"plugins":["addcssjs"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.11 Documentation","gitbook":"*"},"file":{"path":"configuration/variables.md","mtime":"2017-04-03T18:27:36.405Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-03T18:28:34.943Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
