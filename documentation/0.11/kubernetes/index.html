@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="" >
     <head>
-        <title>CentOS Packages · Fluent Bit v0.11 Documentation</title>
+        <title>Kubernetes · Fluent Bit v0.11 Documentation</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -60,10 +60,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="raspberry_pi.html" />
+    <link rel="next" href="../development/" />
     
     
-    <link rel="prev" href="ubuntu.html" />
+    <link rel="prev" href="../output/td.html" />
     
 
     </head>
@@ -163,9 +163,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="./">
+        <li class="chapter " data-level="1.3" data-path="../installation/">
             
-                <a href="./">
+                <a href="../installation/">
             
                     
                     Installation
@@ -177,9 +177,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="requirements.html">
+        <li class="chapter " data-level="1.3.1" data-path="../installation/requirements.html">
             
-                <a href="requirements.html">
+                <a href="../installation/requirements.html">
             
                     
                     Requirements
@@ -190,9 +190,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="download_sources.html">
+        <li class="chapter " data-level="1.3.2" data-path="../installation/download_sources.html">
             
-                <a href="download_sources.html">
+                <a href="../installation/download_sources.html">
             
                     
                     Download Sources
@@ -203,9 +203,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="build_install.html">
+        <li class="chapter " data-level="1.3.3" data-path="../installation/build_install.html">
             
-                <a href="build_install.html">
+                <a href="../installation/build_install.html">
             
                     
                     Build and Install
@@ -216,9 +216,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" data-path="td-agent-bit.html">
+        <li class="chapter " data-level="1.3.4" data-path="../installation/td-agent-bit.html">
             
-                <a href="td-agent-bit.html">
+                <a href="../installation/td-agent-bit.html">
             
                     
                     TD Agent Bit
@@ -229,9 +229,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5" data-path="debian.html">
+        <li class="chapter " data-level="1.3.5" data-path="../installation/debian.html">
             
-                <a href="debian.html">
+                <a href="../installation/debian.html">
             
                     
                     Debian Packages
@@ -242,9 +242,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.6" data-path="ubuntu.html">
+        <li class="chapter " data-level="1.3.6" data-path="../installation/ubuntu.html">
             
-                <a href="ubuntu.html">
+                <a href="../installation/ubuntu.html">
             
                     
                     Ubuntu Packages
@@ -255,9 +255,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.7" data-path="redhat_centos.html">
+        <li class="chapter " data-level="1.3.7" data-path="../installation/redhat_centos.html">
             
-                <a href="redhat_centos.html">
+                <a href="../installation/redhat_centos.html">
             
                     
                     CentOS Packages
@@ -268,9 +268,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.8" data-path="raspberry_pi.html">
+        <li class="chapter " data-level="1.3.8" data-path="../installation/raspberry_pi.html">
             
-                <a href="raspberry_pi.html">
+                <a href="../installation/raspberry_pi.html">
             
                     
                     Raspberry Pi
@@ -281,9 +281,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.9" data-path="unit_tests.html">
+        <li class="chapter " data-level="1.3.9" data-path="../installation/unit_tests.html">
             
-                <a href="unit_tests.html">
+                <a href="../installation/unit_tests.html">
             
                     
                     Unit Tests
@@ -901,9 +901,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9" data-path="../kubernetes/">
+        <li class="chapter active" data-level="1.9" data-path="./">
             
-                <a href="../kubernetes/">
+                <a href="./">
             
                     
                     Kubernetes
@@ -989,7 +989,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >CentOS Packages</a>
+        <a href=".." >Kubernetes</a>
     </h1>
 </div>
 
@@ -1004,36 +1004,33 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="install-on-redhat--centos">Install on Redhat / CentOS</h1>
-<p>Fluent Bit is distributed as <strong>td-agent-bit</strong> package and is available for the latest stable CentOS system. This stable Fluent Bit distribution package is maintained by <a href="https://www.treasuredata.com" target="_blank">Treasure Data, Inc</a>.</p>
-<h1 id="configure-yum">Configure Yum</h1>
-<p>We provide <strong>td-agent-bit</strong> through a Yum repository. In order to add the repository reference to your system, please add a new file called <em>td-agent-bit.repo</em> in <em>/etc/yum.repos.d/</em> with the following content:</p>
-<pre><code>[td-agent-bit]
-name = TD Agent Bit
-baseurl = http://packages.fluentbit.io/centos/7
-gpgcheck=1
-gpgkey=http://packages.fluentbit.io/fluentbit.key
-enabled=1
-</code></pre><p>note: we encourage you always enable the <em>gpgcheck</em> for security reasons. All our packages are signed.</p>
-<h2 id="install">Install</h2>
-<p>Once your repository is configured, run the following command to install it:</p>
-<pre><code class="lang-bash">$ yum install td-agent-bit
-</code></pre>
-<p>Now the following step is to instruct <em>systemd</em> to enable the service:</p>
-<pre><code class="lang-bash">$ service td-agent-bit start
-</code></pre>
-<p>If you do a status check, you should see a similar output like this:</p>
-<pre><code class="lang-bash">$ service td-agent-bit status
-Redirecting to /bin/systemctl status  td-agent-bit.service
-&#x25CF; td-agent-bit.service - TD Agent Bit
-   Loaded: loaded (/usr/lib/systemd/system/td-agent-bit.service; disabled; vendor preset: disabled)
-   Active: active (running) since Thu 2016-07-07 02:08:01 BST; 9s ago
- Main PID: 3820 (td-agent-bit)
-   CGroup: /system.slice/td-agent-bit.service
-           &#x2514;&#x2500;3820 /opt/td-agent-bit/bin/td-agent-bit -c etc/td-agent-bit/td-agent-bit.conf
-...
-</code></pre>
-<p>The default configuration of <strong>td-agent-bit</strong> is collecting metrics of CPU usage and sending the records to the standard output, you can see the outgoing data in your <em>/var/log/messages</em> file.</p>
+                                <h1 id="kubernetes">Kubernetes</h1>
+<p><img src="../imgs/flb_kubernetes.png" alt=""></p>
+<p>Fluent Bit as a log forwarder is a perfect fit for Kubernetes use case. The following document describes how to deploy Fluent Bit for your log collection needs.</p>
+<h2 id="concepts">Concepts</h2>
+<p>Before to get started is important to understand how Fluent Bit will be deployed. Kubernetes manage a cluster of <em>nodes</em>, so our log agent tool will need to run on every node to collect logs from every <em>POD</em>, for hence Fluent Bit is deployed as a DaemonSet (a POD that runs on every <em>node</em> of the cluster).</p>
+<p>When Fluent Bit runs, it will read, parse and filter the logs of every POD and will enrich each entry with the following information (metadata):</p>
+<ul>
+<li>POD Name</li>
+<li>POD ID</li>
+<li>Container Name</li>
+<li>Container ID</li>
+<li>Labels</li>
+<li>Annotations</li>
+</ul>
+<p>To obtain these information, a built-in filter plugin called <em>kubernetes</em> talks to the Kubernetes API Server to retrieve relevant information such as the <em>pod_id</em>, <em>labels</em> and <em>annotations</em>, other fields such as <em>pod_name</em>, <em>container_id</em> and <em>container_name</em> are retrieved locally from the log file names. All of this is handled automatically, no intervention is required from a configuration aspect.</p>
+<blockquote>
+<p>Our Kubernetes Filter plugin is fully inspired on the <a href="https://github.com/fabric8io/fluent-plugin-kubernetes_metadata_filter" target="_blank">Fluentd Kubernetes Metadata Filter</a> written by <a href="https://github.com/jimmidyson" target="_blank">Jimmi Dyson</a>.</p>
+</blockquote>
+<h2 id="getting-started">Getting Started</h2>
+<p>The following steps assumes that you have a Kubernetes cluster running with an Elasticsearch database on it. Our default configuration assumes that your database can be reached through the DNS name <em>elasticsearch-logging</em>.</p>
+<p>Please download the Fluent Bit DaemonSet for Elasticsearch from here:</p>
+<ul>
+<li><a href="https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-daemonset/master/fluent-bit-daemonset-elasticsearch.yaml" target="_blank">fluent-bit-daemonset-elasticsearch.yaml</a></li>
+</ul>
+<p>Now your master node deploy the daemonset with:</p>
+<pre><code>$ kubectl apply -f ./fluent-bit-daemonset-elasticsearch.yaml
+</code></pre><p>After a few seconds Fluent Bit will be running and ingesting your logs into your Elasticsearch database. If you database have a different DNS name than <em>elasticsearch-logging</em>, make sure to perform the proper adjustments to the Yaml file.</p>
 
                                 
                                 </section>
@@ -1061,12 +1058,12 @@ Redirecting to /bin/systemctl status  td-agent-bit.service
 
             
                 
-                <a href="ubuntu.html" class="navigation navigation-prev " aria-label="Previous page: Ubuntu Packages">
+                <a href="../output/td.html" class="navigation navigation-prev " aria-label="Previous page: Treasure Data">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="raspberry_pi.html" class="navigation navigation-next " aria-label="Next page: Raspberry Pi">
+                <a href="../development/" class="navigation navigation-next " aria-label="Next page: Fluent Bit for Developers">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1077,7 +1074,7 @@ Redirecting to /bin/systemctl status  td-agent-bit.service
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"CentOS Packages","level":"1.3.7","depth":2,"next":{"title":"Raspberry Pi","level":"1.3.8","depth":2,"path":"installation/raspberry_pi.md","ref":"installation/raspberry_pi.md","articles":[]},"previous":{"title":"Ubuntu Packages","level":"1.3.6","depth":2,"path":"installation/ubuntu.md","ref":"installation/ubuntu.md","articles":[]},"dir":"ltr"},"config":{"plugins":["addcssjs"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.11 Documentation","gitbook":"*"},"file":{"path":"installation/redhat_centos.md","mtime":"2016-07-07T01:27:08.037Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-25T22:41:02.374Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Kubernetes","level":"1.9","depth":1,"next":{"title":"Fluent Bit for Developers","level":"1.10","depth":1,"path":"development/README.md","ref":"development/README.md","articles":[{"title":"Library API","level":"1.10.1","depth":2,"path":"development/library_api.md","ref":"development/library_api.md","articles":[]},{"title":"Ingest Records Manually","level":"1.10.2","depth":2,"path":"development/ingest_records_manually.md","ref":"development/ingest_records_manually.md","articles":[]}]},"previous":{"title":"Treasure Data","level":"1.8.9","depth":2,"path":"output/td.md","ref":"output/td.md","articles":[]},"dir":"ltr"},"config":{"plugins":["addcssjs"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.11 Documentation","gitbook":"*"},"file":{"path":"kubernetes/README.md","mtime":"2017-04-25T22:40:46.054Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-25T22:41:02.374Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
