@@ -18,9 +18,10 @@ This is a bug fix release over 0.11 series that includes the following changes:
   - Lib: upgrade Jemalloc to v4.5.0
 
 - Plugins
+  - out\_es (elasticsearch): support X-Pack Basic Auth
+  - out\_file: use improved API to perform msgpack->json conversion
   - in\_syslog: support old clients
   - filter\_kubernetes: fix missing initialization on cache
-  - out\_file: use improved API to perform msgpack->json conversion
 
 ## Contributors
 
