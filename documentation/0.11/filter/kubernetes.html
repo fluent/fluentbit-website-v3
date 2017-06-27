@@ -1093,27 +1093,59 @@
 </thead>
 <tbody>
 <tr>
-<td>Kube_URL</td>
+<td><a href="#config_kube_url">Kube_URL</a></td>
 <td>API Server end-point</td>
 <td><a href="https://kubernetes.default.svc:443" target="_blank">https://kubernetes.default.svc:443</a></td>
 </tr>
 <tr>
-<td>Kube_CA_File</td>
+<td><a href="#config_kube_ca_file">Kube_CA_File</a></td>
 <td>CA certificate file</td>
 <td>/var/run/secrets/kubernetes.io/serviceaccount/ca.crt</td>
 </tr>
 <tr>
-<td>Kube_Token_File</td>
+<td><a href="#config_kube_token_file">Kube_Token_File</a></td>
 <td>Token file</td>
 <td>/var/run/secrets/kubernetes.io/serviceaccount/token</td>
 </tr>
 <tr>
-<td>Merge_JSON_Log</td>
-<td>When enabled, it checks if the <em>log</em> field content is a JSON string map, if so, it append the map fields as part of the log structure.</td>
+<td><a href="#config_merge_json_log">Merge_JSON_Log</a></td>
+<td>Interpret message <em>log</em> field as a structured message</td>
+<td>Off</td>
+</tr>
+<tr>
+<td><a href="#config_merge_json_key">Merge_JSON_Key</a></td>
+<td>Set a new key name to append <em>log</em> structured message</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#config_dummy_meta">Dummy_Meta</a></td>
+<td>Append dummy metadata</td>
 <td>Off</td>
 </tr>
 </tbody>
 </table>
+<h3 id="config_kube_url">Kube_URL </h3>
+<p>The filter aims to enrigh logs with Kubernetes metadata, this information comes from the Kubernetes API Server and the <a href="#config_kube_url">Kube_URL</a> configuration property aims to specify the HTTP endpoint of the API Server. Different Kubernetes deployments might have a different end-points.</p>
+<p><strong>Default</strong> <a href="https://kubernetes.default.svc:443" target="_blank">https://kubernetes.default.svc:443</a></p>
+<h3 id="config_kube_ca_file">Kube_CA_File </h3>
+<p>When accessing the API Server in secure mode (TLS), the <a href="#config_kube_ca_file">Kube_CA_File</a> defines the absolute path for the root CA certificate. This certificate exists on every node of the cluster.</p>
+<p><strong>Default</strong> /var/run/secrets/kubernetes.io/serviceaccount/ca.crt</p>
+<h3 id="config_kube_token_file">Kube_Token_File </h3>
+<p>When accessing the API Server, the Kubernetes HTTP end-point requires an authorization token. The <a href="#config_kube_token_file">Kube_Token_File</a> defines the absolute path of this token.</p>
+<p><strong>Default</strong> /var/run/secrets/kubernetes.io/serviceaccount/token</p>
+<h3 id="config_merge_json_log">Merge_JSON_Log </h3>
+<p>Applications might generate their logs in JSON format, if so the container engine (e.g: Docker) will threat that log line as a string leading to a nested JSON map. Enabling <a href="#config_merge_json_log">Merge_JSON_Log</a> instruct Fluent Bit to parse and format that JSON-string as native structured fields.</p>
+<p><strong>Default</strong> Off</p>
+<h3 id="config_merge_json_key">Merge_JSON_Key </h3>
+<p>Specify an optional key name to append structured fields from the <em>log</em> message when Merge_JSON_Log is enabled.</p>
+<blockquote>
+<p>this option has been introduced in Fluent Bit v0.11.11</p>
+</blockquote>
+<h3 id="config_dummy_meta">Dummy_Meta </h3>
+<p>When enabled this option makes the filter to skip API Server and instead just insert a dummy metadata into each log line. This option is available only for testing and development purposes, do not use in production.</p>
+<blockquote>
+<p>this option has been introduced in Fluent Bit v0.11.11</p>
+</blockquote>
 
                                 
                                 </section>
@@ -1157,7 +1189,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Kubernetes","level":"1.8.2","depth":2,"next":{"title":"Output Plugins","level":"1.9","depth":1,"path":"output/README.md","ref":"output/README.md","articles":[{"title":"Elasticsearch","level":"1.9.1","depth":2,"path":"output/elasticsearch.md","ref":"output/elasticsearch.md","articles":[]},{"title":"File","level":"1.9.2","depth":2,"path":"output/file.md","ref":"output/file.md","articles":[]},{"title":"FlowCounter","level":"1.9.3","depth":2,"path":"output/flowcounter.md","ref":"output/flowcounter.md","articles":[]},{"title":"Forward","level":"1.9.4","depth":2,"path":"output/forward.md","ref":"output/forward.md","articles":[]},{"title":"HTTP","level":"1.9.5","depth":2,"path":"output/http.md","ref":"output/http.md","articles":[]},{"title":"InfluxDB","level":"1.9.6","depth":2,"path":"output/influxdb.md","ref":"output/influxdb.md","articles":[]},{"title":"NATS","level":"1.9.7","depth":2,"path":"output/nats.md","ref":"output/nats.md","articles":[]},{"title":"Standard Output","level":"1.9.8","depth":2,"path":"output/stdout.md","ref":"output/stdout.md","articles":[]},{"title":"Treasure Data","level":"1.9.9","depth":2,"path":"output/td.md","ref":"output/td.md","articles":[]}]},"previous":{"title":"Grep","level":"1.8.1","depth":2,"path":"filter/grep.md","ref":"filter/grep.md","articles":[]},"dir":"ltr"},"config":{"plugins":["addcssjs"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.11 Documentation","gitbook":"*"},"file":{"path":"filter/kubernetes.md","mtime":"2017-05-17T15:53:45.333Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-26T03:47:46.527Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Kubernetes","level":"1.8.2","depth":2,"next":{"title":"Output Plugins","level":"1.9","depth":1,"path":"output/README.md","ref":"output/README.md","articles":[{"title":"Elasticsearch","level":"1.9.1","depth":2,"path":"output/elasticsearch.md","ref":"output/elasticsearch.md","articles":[]},{"title":"File","level":"1.9.2","depth":2,"path":"output/file.md","ref":"output/file.md","articles":[]},{"title":"FlowCounter","level":"1.9.3","depth":2,"path":"output/flowcounter.md","ref":"output/flowcounter.md","articles":[]},{"title":"Forward","level":"1.9.4","depth":2,"path":"output/forward.md","ref":"output/forward.md","articles":[]},{"title":"HTTP","level":"1.9.5","depth":2,"path":"output/http.md","ref":"output/http.md","articles":[]},{"title":"InfluxDB","level":"1.9.6","depth":2,"path":"output/influxdb.md","ref":"output/influxdb.md","articles":[]},{"title":"NATS","level":"1.9.7","depth":2,"path":"output/nats.md","ref":"output/nats.md","articles":[]},{"title":"Standard Output","level":"1.9.8","depth":2,"path":"output/stdout.md","ref":"output/stdout.md","articles":[]},{"title":"Treasure Data","level":"1.9.9","depth":2,"path":"output/td.md","ref":"output/td.md","articles":[]}]},"previous":{"title":"Grep","level":"1.8.1","depth":2,"path":"filter/grep.md","ref":"filter/grep.md","articles":[]},"dir":"ltr"},"config":{"plugins":["addcssjs","livereload"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.11 Documentation","gitbook":"*"},"file":{"path":"filter/kubernetes.md","mtime":"2017-06-27T19:40:37.122Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-27T19:33:17.789Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1166,6 +1198,10 @@
     
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
