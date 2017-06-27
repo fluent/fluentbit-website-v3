@@ -1,5 +1,6 @@
 /* Add here all your css styles (customizations) */
 
+
 /*Navbar Menu*/
 .header-v6 .navbar-nav > li > a {
     font-size: 12px;
@@ -23,6 +24,10 @@
 
 .interactive-slider-v2:after {
   background: rgba(0,0,0,.4);
+}
+
+.interactive-slider-v2 h1 {
+    text-tranform: none;
 }
 
 .flb-intro {

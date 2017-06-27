@@ -511,6 +511,14 @@ a.read-more:hover {
 	background:#27d7e7;
 }
 
+.service-box-v1 li:hover {
+  color: #27d7e7;
+}
+
+.service-box-v1 p::after {
+  background: #27d7e7;
+}
+
 /* Thumbnail (Recent Work)
 ------------------------------------*/
 .thumbnail-style h3 a:hover {

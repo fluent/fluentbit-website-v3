@@ -1006,7 +1006,7 @@
 /*Colored Content Boxes
 ------------------------------------*/
 .service-block {
-	padding: 20px 30px;
+	padding: 60px 30px;
 	text-align: center;
 	margin-bottom: 20px;
 }
@@ -3337,7 +3337,7 @@
 	[22. Quote]
 ----------------------------------------------------*/
 .quote-v1 {
-  padding: 60px 0;
+  padding: 170px 0 150px;
   text-align: center;
   background: url(../img/patterns/5.png) repeat;
 }
@@ -3553,7 +3553,7 @@
 ------------------------------------*/
 .interactive-slider-v2 {
   z-index: 1;
-  padding: 400px 0;
+  padding: 200px 0;
   position: relative;
   text-align: center;
   background: url(../img/bg/18.jpg) no-repeat;
@@ -3590,9 +3590,42 @@
 }
 
 .interactive-slider-v2.intro-promo-img {
-  background: url(../img/intro/promo.jpg) no-repeat;
-  background-size: cover;
-  background-position: center center;
+  padding: 80px 0;
+  background: url(../img/intro/promo.jpg) repeat-x fixed center center / cover ;
+  -webkit-animation: infiniteBackground 65s linear infinite;
+  -moz-animation: infiniteBackground 65s linear infinite;
+  animation: infiniteBackground 65s linear infinite;
+}
+@media screen and (max-width: 992px) {
+  .interactive-slider-v2.intro-promo-img {
+    -webkit-animation: none;
+    -moz-animation: none;
+    animation: none;
+  }
+}
+@keyframes infiniteBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 1024px 0;
+  }
+}
+@-webkit-keyframes infiniteBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 1024px 0;
+  }
+}
+@-moz-keyframe infiniteBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 1024px 0;
+  }
 }
 
 .interactive-slider-v2:after {

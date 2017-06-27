@@ -1,7 +1,7 @@
 /*
  * Template Name: Unify - Responsive Bootstrap Template
  * Description: Business, Corporate, Portfolio, E-commerce, Blog and One Page Template.
- * Version: 1.9
+ * Version: 1.9.2
  * Author: @htmlstream
  * Website: http://htmlstream.com
 */
@@ -634,7 +634,7 @@ a.btn-u-xs {
 
 /*For FF Only*/
 @-moz-document url-prefix() {
-	.footer-subsribe .btn-u {
+	.footer-subscribe .btn-u {
 		padding-bottom: 4px;
 	}
 }
@@ -2571,31 +2571,4 @@ img.img-center,
 		transform: translateY(36px);
 		-webkit-transform: translateY(36px);
 	}
-}
-
-.equal-height-columns-v3 {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
-.equal-height-column-v3,
-.equal-height-column-v3--middle {
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-flex-align: top;
-	-ms-flex-align: top;
-	-webkit-align-items: top;
-	align-items: top;
-}
-.equal-height-column-v3--middle {
-	-webkit-flex-align: center;
-	-ms-flex-align: center;
-	-webkit-align-items: center;
-	align-items: center;
 }

@@ -6,12 +6,15 @@
 
 var App = function () {
 	// We extend jQuery by method hasAttr
-	$.fn.hasAttr = function(name) {
+	jQuery.fn.hasAttr = function(name) {
 	  return this.attr(name) !== undefined;
 	};
 
 	// Fixed Header
 	function handleHeader() {
+		if (jQuery(window).scrollTop() > 100) {
+			jQuery('.header-fixed .header-sticky').addClass('header-fixed-shrink');
+		}
 		jQuery(window).scroll(function() {
 		  if (jQuery(window).scrollTop() > 100) {
 			jQuery('.header-fixed .header-sticky').addClass('header-fixed-shrink');
@@ -60,7 +63,7 @@ var App = function () {
 
 	// Search Box v2 (Header v8)
 	function handleSearchV2() {
-		$(".blog-topbar .search-btn").on("click", function() {
+		jQuery(".blog-topbar .search-btn").on("click", function() {
 		  if (jQuery(".topbar-search-block").hasClass("topbar-search-visible")) {
 			jQuery(".topbar-search-block").slideUp();
 			jQuery(".topbar-search-block").removeClass("topbar-search-visible");
@@ -69,19 +72,22 @@ var App = function () {
 			jQuery(".topbar-search-block").addClass("topbar-search-visible");
 		  }
 		});
-		$(".blog-topbar .search-close").on("click", function() {
+		jQuery(".blog-topbar .search-close").on("click", function() {
 		  jQuery(".topbar-search-block").slideUp();
 		  jQuery(".topbar-search-block").removeClass("topbar-search-visible");
 		});
 		jQuery(window).scroll(function() {
-		  jQuery(".topbar-search-block").slideUp();
-		  jQuery(".topbar-search-block").removeClass("topbar-search-visible");
+			var isiPhone = /iphone/i.test(navigator.userAgent.toLowerCase());
+			if (!isiPhone) {
+			  jQuery(".topbar-search-block").slideUp();
+			  jQuery(".topbar-search-block").removeClass("topbar-search-visible");
+			}
 		});
 	}
 
 	// TopBar (Header v8)
 	function handleTopBar() {
-		$(".topbar-toggler").on("click", function() {
+		jQuery(".topbar-toggler").on("click", function() {
 		  if (jQuery(".topbar-toggler").hasClass("topbar-list-visible")) {
 			jQuery(".topbar-menu").slideUp();
 			jQuery(this).removeClass("topbar-list-visible");
@@ -94,7 +100,7 @@ var App = function () {
 
 	// TopBar SubMenu (Header v8)
 	function handleTopBarSubMenu() {
-		$(".topbar-list > li").on("click", function(e) {
+		jQuery(".topbar-list > li").on("click", function(e) {
 		  if (jQuery(this).children("ul").hasClass("topbar-dropdown")) {
 			if (jQuery(this).children("ul").hasClass("topbar-dropdown-visible")) {
 			  jQuery(this).children(".topbar-dropdown").slideUp();
@@ -118,21 +124,21 @@ var App = function () {
 	// Equal Height Columns
 	function handleEqualHeightColumns() {
 		var EqualHeightColumns = function () {
-			$(".equal-height-columns").each(function() {
+			jQuery(".equal-height-columns").each(function() {
 				heights = [];
-				$(".equal-height-column", this).each(function() {
-					$(this).removeAttr("style");
-					heights.push($(this).height()); // write column's heights to the array
+				jQuery(".equal-height-column", this).each(function() {
+					jQuery(this).removeAttr("style");
+					heights.push(jQuery(this).height()); // write column's heights to the array
 				});
-				$(".equal-height-column", this).height(Math.max.apply(Math, heights)); //find and set max
+				jQuery(".equal-height-column", this).height(Math.max.apply(Math, heights)); //find and set max
 			});
 		}
 
 		EqualHeightColumns();
-		$(window).resize(function() {
+		jQuery(window).resize(function() {
 			EqualHeightColumns();
 		});
-		$(window).load(function() {
+		jQuery(window).load(function() {
 			EqualHeightColumns();
 		});
 	}
@@ -140,67 +146,63 @@ var App = function () {
 	// Equal Height Image-Columns
 	function handleEqualHeightColumns__Images() {
 		var EqualHeightColumns__Images = function () {
-			$('.equal-height-columns-v2').each(function() {
+			jQuery('.equal-height-columns-v2').each(function() {
 				var heights = [];
-				$('.equal-height-column-v2', this).each(function() {
-					$(this).removeAttr('style');
-					heights.push($(this).height()); // Write column's heights to the array
+				jQuery('.equal-height-column-v2', this).each(function() {
+					jQuery(this).removeAttr('style');
+					heights.push(jQuery(this).height()); // Write column's heights to the array
 				});
-				$('.equal-height-column-v2', this).height(Math.max.apply(Math, heights)); // Find and set max
+				jQuery('.equal-height-column-v2', this).height(Math.max.apply(Math, heights)); // Find and set max
 
-				$('.equal-height-column-v2', this).each(function() {
-					if ($(this).hasAttr('data-image-src')) {
-						$(this).css('background', 'url('+$(this).attr('data-image-src')+') no-repeat scroll 50% 0 / cover');
+				jQuery('.equal-height-column-v2', this).each(function() {
+					if (jQuery(this).hasAttr('data-image-src')) {
+						jQuery(this).css('background', 'url('+jQuery(this).attr('data-image-src')+') no-repeat scroll 50% 0 / cover');
 					}
 				});
 			});
 		}
-    $('.equal-height-columns-v2').ready(function() {
+    jQuery('.equal-height-columns-v2').ready(function() {
       EqualHeightColumns__Images();
     });
-		$(window).resize(function() {
+		jQuery(window).resize(function() {
 			EqualHeightColumns__Images();
 		});
 	}
 
 	// Full Screen
 	var handleFullscreen = function() {
-		var WindowHeight = $(window).height();
+		var WindowHeight = jQuery(window).height();
 		var HeaderHeight = 0;
 
-		if ($(document.body).hasClass("promo-padding-top")) {
-		  HeaderHeight = $(".header").height();
+		if (jQuery(document.body).hasClass("promo-padding-top")) {
+		  HeaderHeight = jQuery(".header").height();
 		} else {
 		  HeaderHeight = 0;
 		}
 
-		$(".fullheight").css("height", WindowHeight - HeaderHeight);
+		jQuery(".fullheight").css("height", WindowHeight - HeaderHeight);
 
-		$(window).resize(function() {
-		  var WindowHeight = $(window).height();
-		  $(".fullheight").css("height", WindowHeight - HeaderHeight);
+		jQuery(window).resize(function() {
+		  var WindowHeight = jQuery(window).height();
+		  jQuery(".fullheight").css("height", WindowHeight - HeaderHeight);
 		});
 	}
 
 	// Align Middle
 	var handleValignMiddle = function() {
-		$(".valign__middle").each(function() {
-		  $(this).css("padding-top", $(this).parent().height() / 2 - $(this).height() / 2);
+		jQuery(".valign__middle").each(function() {
+		  jQuery(this).css("padding-top", jQuery(this).parent().height() / 2 - jQuery(this).height() / 2);
 		});
-		$(window).resize(function() {
-		  $(".valign__middle").each(function() {
-			$(this).css("padding-top", $(this).parent().height() / 2 - $(this).height() / 2);
+		jQuery(window).resize(function() {
+		  jQuery(".valign__middle").each(function() {
+			jQuery(this).css("padding-top", jQuery(this).parent().height() / 2 - jQuery(this).height() / 2);
 		  });
 		});
 	}
 
 	// Hover Selector
 	function handleHoverSelector() {
-		// $('.hoverSelector').on('hover', function(e) {
-		// 	$('.hoverSelectorBlock', this).toggleClass('show');
-		// 	e.stopPropagation();
-		// });
-	    $('.hoverSelector').on('click', function(e) {
+	    jQuery('.hoverSelector').on('click', function(e) {
 	      if (jQuery(this).children('ul').hasClass('languages')) {
 	        if (jQuery(this).children('ul').hasClass('languages-visible')) {
 	          jQuery(this).children('.languages').slideUp();
@@ -210,7 +212,6 @@ var App = function () {
 	          jQuery(this).children('.languages').addClass('languages-visible');
 	        }
 	      }
-	      //e.preventDefault();
 	    });
 	}
 

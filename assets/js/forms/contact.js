@@ -13,11 +13,21 @@ var ContactForm = function () {
 	                {
 	                    required: true
 	                },
+	                email:
+	                {
+	                    required: true,
+	                    email: true
+	                },
 	                message:
 	                {
 	                    required: true,
 	                    minlength: 10
 	                },
+	                captcha:
+	                {
+	                    required: true,
+	                    remote: 'assets/plugins/sky-forms-pro/skyforms/captcha/process.php'
+	                }
 	            },
 	                                
 	            // Messages for form validation
@@ -27,10 +37,20 @@ var ContactForm = function () {
 	                {
 	                    required: 'Please enter your name',
 	                },
+	                email:
+	                {
+	                    required: 'Please enter your email address',
+	                    email: 'Please enter a VALID email address'
+	                },
 	                message:
 	                {
 	                    required: 'Please enter your message'
 	                },
+	                captcha:
+	                {
+	                    required: 'Please enter characters',
+	                    remote: 'Correct captcha is required'
+	                }
 	            },
 	                                
 	            // Ajax form submition                  
