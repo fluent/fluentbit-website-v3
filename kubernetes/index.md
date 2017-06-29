@@ -6,7 +6,7 @@ article_title: Kubernetes
 intro: Release notes
 ---
 
-![](/assets/img/fluentbit_kubernetes.png)
+![](/assets/img-flb/fluentbit_kubernetes.png)
 
 > For a quick start, jump now to the [Official Kubernetes Documentation](http://fluentbit.io/documentation/0.11/kubernetes/)
 

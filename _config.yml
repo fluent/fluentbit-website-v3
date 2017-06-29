@@ -10,6 +10,9 @@ url: "http://fluentbit.io"
 twitter_username: fluentbit
 github_username:  fluent
 
+# Blog
+permalink: /blog/:year/:month/:day/:title/
+
 # Build settings
 #markdown: kramdown
 markdown: redcarpet

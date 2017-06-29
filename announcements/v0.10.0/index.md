@@ -1,5 +1,5 @@
 ---
-layout: announcement
+layout: documentation
 version: v0.10.0
 title: Fluent Bit v0.10.0 - Release Notes
 intro: Release notes

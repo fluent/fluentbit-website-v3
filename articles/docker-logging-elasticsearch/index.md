@@ -1,5 +1,5 @@
 ---
-layout: article
+layout: documentation
 version: 0.1
 title: Fluent Bit - Docker Logging & Elasticsearch
 article_title: Fluent Bit / Articles
