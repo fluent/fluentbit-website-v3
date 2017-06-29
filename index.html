@@ -8,11 +8,6 @@ layout: home
 
   <div class="row margin-bottom-60">
     <div class="col-sm-6">
-{% for post in site.posts %}
-    <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-    <p><small><strong>{{ post.date | date: "%B %e, %Y" }}</strong> . {{ post.category }} . <a href="http://erjjones.github.com{{ post.url }}#disqus_thread"></a></small></p>
-    {% endfor %}
-
       <p>
         Fluent Bit is an open source and multi-platform <strong>Log Forwarder</strong>
         which allows you to collect data/logs from different sources, unify and send them to
