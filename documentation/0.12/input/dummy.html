@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="" >
     <head>
-        <title>Process · Fluent Bit v0.11 Documentation</title>
+        <title>Dummy · Fluent Bit v0.11 Documentation</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -60,10 +60,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="random.html" />
+    <link rel="next" href="forward.html" />
     
     
-    <link rel="prev" href="netif.html" />
+    <link rel="prev" href="disk.html" />
     
 
     </head>
@@ -546,7 +546,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.3" data-path="dummy.html">
+        <li class="chapter active" data-level="1.6.3" data-path="dummy.html">
             
                 <a href="dummy.html">
             
@@ -650,7 +650,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.6.11" data-path="proc.html">
+        <li class="chapter " data-level="1.6.11" data-path="proc.html">
             
                 <a href="proc.html">
             
@@ -1151,7 +1151,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Process</a>
+        <a href=".." >Dummy</a>
     </h1>
 </div>
 
@@ -1166,10 +1166,12 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="process">Process</h1>
-<p><em>Process</em> input plugin allows you to check how health a process is. It does the check by issuing a process every a certain interval of time.</p>
+                                <h1 id="dummy">Dummy</h1>
+<p>The <strong>dummy</strong> input plugin, generates dummy events. It is useful for testing, debugging, benchmarking and getting started with Fluent Bit.</p>
 <h2 id="configuration-parameters">Configuration Parameters</h2>
 <p>The plugin supports the following configuration parameters:</p>
+<h2 id="getting-started">Getting Started</h2>
+<p>You can run the plugin from the command line or through the configuration file:</p>
 <table>
 <thead>
 <tr>
@@ -1179,61 +1181,35 @@
 </thead>
 <tbody>
 <tr>
-<td>Proc_Name</td>
-<td>Name of the target Process to check.</td>
+<td>Dummy</td>
+<td>Dummy JSON record. Default: <code>{&quot;message&quot;:&quot;dummy&quot;}</code></td>
 </tr>
 <tr>
-<td>Interval_Sec</td>
-<td>Interval in seconds between the service checks. Default value is <em>1</em>.</td>
-</tr>
-<tr>
-<td>Internal_Nsec</td>
-<td>Specify a nanoseconds interval for service checks, it works in conjuntion with the Interval_Sec configuration key. Default value is <em>0</em>.</td>
-</tr>
-<tr>
-<td>Alert</td>
-<td>If enabled, it will only generate messages if the target process is down. By default this option is disabled.</td>
-</tr>
-<tr>
-<td>Fd</td>
-<td>If enabled, a number of fd is appended to each records. Default value is true.</td>
-</tr>
-<tr>
-<td>Mem</td>
-<td>If enabled, memory usage of the process is appended to each records. Default value is true.</td>
+<td>Rate</td>
+<td>Events number generated per second. Default: 1</td>
 </tr>
 </tbody>
 </table>
-<h2 id="getting-started">Getting Started</h2>
-<p>In order to start performing the checks, you can run the plugin from the command line or through the configuration file:</p>
-<p>The following example will check the health of <em>crond</em> process.</p>
-<pre><code class="lang-bash">$ fluent-bit -i proc -p proc_name=crond -o stdout
+<h3 id="command-line">Command Line</h3>
+<pre><code class="lang-bash">$ fluent-bit -i dummy -o stdout
+Fluent-Bit v0.12.0
+Copyright (C) Treasure Data
+
+[2017/07/06 21:55:29] [ info] [engine] started
+[0] dummy.0: [1499345730.015265366, {<span class="hljs-string">&quot;message&quot;</span>=&gt;<span class="hljs-string">&quot;dummy&quot;</span>}]
+[1] dummy.0: [1499345731.002371371, {<span class="hljs-string">&quot;message&quot;</span>=&gt;<span class="hljs-string">&quot;dummy&quot;</span>}]
+[2] dummy.0: [1499345732.000267932, {<span class="hljs-string">&quot;message&quot;</span>=&gt;<span class="hljs-string">&quot;dummy&quot;</span>}]
+[3] dummy.0: [1499345733.000757746, {<span class="hljs-string">&quot;message&quot;</span>=&gt;<span class="hljs-string">&quot;dummy&quot;</span>}]
 </code></pre>
 <h3 id="configuration-file">Configuration File</h3>
 <p>In your main configuration file append the following <em>Input</em> &amp; <em>Output</em> sections:</p>
 <pre><code class="lang-python">[INPUT]
-    Name          proc
-    Proc_Name     crond
-    Interval_Sec  <span class="hljs-number">1</span>
-    Interval_NSec <span class="hljs-number">0</span>
-    Fd            true
-    Mem           true
+    Name   dummy
+    Tag    dummy.log
 
 [OUTPUT]
     Name   stdout
     Match  *
-</code></pre>
-<h2 id="testing">Testing</h2>
-<p>Once Fluent Bit is running, you will see the health of process:</p>
-<pre><code class="lang-bash">$ fluent-bit -i proc -p proc_name=fluent-bit -o stdout
-Fluent-Bit v0.11.0
-Copyright (C) Treasure Data
-
-[2017/01/30 21:44:56] [ info] [engine] started
-[0] proc.0: [1485780297, {<span class="hljs-string">&quot;alive&quot;</span>=&gt;<span class="hljs-literal">true</span>, <span class="hljs-string">&quot;proc_name&quot;</span>=&gt;<span class="hljs-string">&quot;fluent-bit&quot;</span>, <span class="hljs-string">&quot;pid&quot;</span>=&gt;10964, <span class="hljs-string">&quot;mem.VmPeak&quot;</span>=&gt;14740000, <span class="hljs-string">&quot;mem.VmSize&quot;</span>=&gt;14740000, <span class="hljs-string">&quot;mem.VmLck&quot;</span>=&gt;0, <span class="hljs-string">&quot;mem.VmHWM&quot;</span>=&gt;1120000, <span class="hljs-string">&quot;mem.VmRSS&quot;</span>=&gt;1120000, <span class="hljs-string">&quot;mem.VmData&quot;</span>=&gt;2276000, <span class="hljs-string">&quot;mem.VmStk&quot;</span>=&gt;88000, <span class="hljs-string">&quot;mem.VmExe&quot;</span>=&gt;1768000, <span class="hljs-string">&quot;mem.VmLib&quot;</span>=&gt;2328000, <span class="hljs-string">&quot;mem.VmPTE&quot;</span>=&gt;68000, <span class="hljs-string">&quot;mem.VmSwap&quot;</span>=&gt;0, <span class="hljs-string">&quot;fd&quot;</span>=&gt;18}]
-[1] proc.0: [1485780298, {<span class="hljs-string">&quot;alive&quot;</span>=&gt;<span class="hljs-literal">true</span>, <span class="hljs-string">&quot;proc_name&quot;</span>=&gt;<span class="hljs-string">&quot;fluent-bit&quot;</span>, <span class="hljs-string">&quot;pid&quot;</span>=&gt;10964, <span class="hljs-string">&quot;mem.VmPeak&quot;</span>=&gt;14740000, <span class="hljs-string">&quot;mem.VmSize&quot;</span>=&gt;14740000, <span class="hljs-string">&quot;mem.VmLck&quot;</span>=&gt;0, <span class="hljs-string">&quot;mem.VmHWM&quot;</span>=&gt;1148000, <span class="hljs-string">&quot;mem.VmRSS&quot;</span>=&gt;1148000, <span class="hljs-string">&quot;mem.VmData&quot;</span>=&gt;2276000, <span class="hljs-string">&quot;mem.VmStk&quot;</span>=&gt;88000, <span class="hljs-string">&quot;mem.VmExe&quot;</span>=&gt;1768000, <span class="hljs-string">&quot;mem.VmLib&quot;</span>=&gt;2328000, <span class="hljs-string">&quot;mem.VmPTE&quot;</span>=&gt;68000, <span class="hljs-string">&quot;mem.VmSwap&quot;</span>=&gt;0, <span class="hljs-string">&quot;fd&quot;</span>=&gt;18}]
-[2] proc.0: [1485780299, {<span class="hljs-string">&quot;alive&quot;</span>=&gt;<span class="hljs-literal">true</span>, <span class="hljs-string">&quot;proc_name&quot;</span>=&gt;<span class="hljs-string">&quot;fluent-bit&quot;</span>, <span class="hljs-string">&quot;pid&quot;</span>=&gt;10964, <span class="hljs-string">&quot;mem.VmPeak&quot;</span>=&gt;14740000, <span class="hljs-string">&quot;mem.VmSize&quot;</span>=&gt;14740000, <span class="hljs-string">&quot;mem.VmLck&quot;</span>=&gt;0, <span class="hljs-string">&quot;mem.VmHWM&quot;</span>=&gt;1152000, <span class="hljs-string">&quot;mem.VmRSS&quot;</span>=&gt;1148000, <span class="hljs-string">&quot;mem.VmData&quot;</span>=&gt;2276000, <span class="hljs-string">&quot;mem.VmStk&quot;</span>=&gt;88000, <span class="hljs-string">&quot;mem.VmExe&quot;</span>=&gt;1768000, <span class="hljs-string">&quot;mem.VmLib&quot;</span>=&gt;2328000, <span class="hljs-string">&quot;mem.VmPTE&quot;</span>=&gt;68000, <span class="hljs-string">&quot;mem.VmSwap&quot;</span>=&gt;0, <span class="hljs-string">&quot;fd&quot;</span>=&gt;18}]
-[3] proc.0: [1485780300, {<span class="hljs-string">&quot;alive&quot;</span>=&gt;<span class="hljs-literal">true</span>, <span class="hljs-string">&quot;proc_name&quot;</span>=&gt;<span class="hljs-string">&quot;fluent-bit&quot;</span>, <span class="hljs-string">&quot;pid&quot;</span>=&gt;10964, <span class="hljs-string">&quot;mem.VmPeak&quot;</span>=&gt;14740000, <span class="hljs-string">&quot;mem.VmSize&quot;</span>=&gt;14740000, <span class="hljs-string">&quot;mem.VmLck&quot;</span>=&gt;0, <span class="hljs-string">&quot;mem.VmHWM&quot;</span>=&gt;1152000, <span class="hljs-string">&quot;mem.VmRSS&quot;</span>=&gt;1148000, <span class="hljs-string">&quot;mem.VmData&quot;</span>=&gt;2276000, <span class="hljs-string">&quot;mem.VmStk&quot;</span>=&gt;88000, <span class="hljs-string">&quot;mem.VmExe&quot;</span>=&gt;1768000, <span class="hljs-string">&quot;mem.VmLib&quot;</span>=&gt;2328000, <span class="hljs-string">&quot;mem.VmPTE&quot;</span>=&gt;68000, <span class="hljs-string">&quot;mem.VmSwap&quot;</span>=&gt;0, <span class="hljs-string">&quot;fd&quot;</span>=&gt;18}]
 </code></pre>
 
                                 
@@ -1262,12 +1238,12 @@ Copyright (C) Treasure Data
 
             
                 
-                <a href="netif.html" class="navigation navigation-prev " aria-label="Previous page: Network Traffic">
+                <a href="disk.html" class="navigation navigation-prev " aria-label="Previous page: Disk Usage">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="random.html" class="navigation navigation-next " aria-label="Next page: Random">
+                <a href="forward.html" class="navigation navigation-next " aria-label="Next page: Forward">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1278,7 +1254,7 @@ Copyright (C) Treasure Data
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Process","level":"1.6.11","depth":2,"next":{"title":"Random","level":"1.6.12","depth":2,"path":"input/random.md","ref":"input/random.md","articles":[]},"previous":{"title":"Network Traffic","level":"1.6.10","depth":2,"path":"input/netif.md","ref":"input/netif.md","articles":[]},"dir":"ltr"},"config":{"plugins":["addcssjs"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.11 Documentation","gitbook":"*"},"file":{"path":"input/proc.md","mtime":"2017-03-09T08:29:42.512Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-26T03:25:59.487Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Dummy","level":"1.6.3","depth":2,"next":{"title":"Forward","level":"1.6.4","depth":2,"path":"input/forward.md","ref":"input/forward.md","articles":[]},"previous":{"title":"Disk Usage","level":"1.6.2","depth":2,"path":"input/disk.md","ref":"input/disk.md","articles":[]},"dir":"ltr"},"config":{"plugins":["addcssjs"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.11 Documentation","gitbook":"*"},"file":{"path":"input/dummy.md","mtime":"2017-07-23T17:30:31.260Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-26T03:25:59.487Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
