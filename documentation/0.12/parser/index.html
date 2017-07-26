@@ -449,7 +449,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.4" data-path="../configuration/unit_sizes.html">
+        <li class="chapter " data-level="1.5.4" data-path="../configuration/commands.html">
+            
+                <a href="../configuration/commands.html">
+            
+                    
+                    Configuration Commands
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../configuration/unit_sizes.html">
             
                 <a href="../configuration/unit_sizes.html">
             
@@ -462,7 +475,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.5" data-path="../configuration/tls_ssl.html">
+        <li class="chapter " data-level="1.5.6" data-path="../configuration/tls_ssl.html">
             
                 <a href="../configuration/tls_ssl.html">
             
@@ -475,7 +488,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.6" data-path="../configuration/backpressure.html">
+        <li class="chapter " data-level="1.5.7" data-path="../configuration/backpressure.html">
             
                 <a href="../configuration/backpressure.html">
             
@@ -488,7 +501,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.7" data-path="../configuration/memory_usage.html">
+        <li class="chapter " data-level="1.5.8" data-path="../configuration/memory_usage.html">
             
                 <a href="../configuration/memory_usage.html">
             
@@ -1181,9 +1194,9 @@
 <li>Syslog rfc5424</li>
 <li>Syslog rfc3164</li>
 </ul>
-<p>Parsers are defined in a configuration file that might be loaded at start time, either from the command line or through the main Fluent Bit configuration file.</p>
+<p>Parsers are defined in one or multiple configuration files that are loaded at start time, either from the command line or through the main Fluent Bit configuration file.</p>
 <h2 id="configuration-parameters">Configuration Parameters</h2>
-<p>The following table describes the available options for each parser definition</p>
+<p>Multiple parsers can be defined and each section have it own properties. The following table describes the available options for each parser definition:</p>
 <table>
 <thead>
 <tr>
@@ -1198,7 +1211,7 @@
 </tr>
 <tr>
 <td>Format</td>
-<td>Specify the format of the parser, the available options here are: json or regex.</td>
+<td>Specify the format of the parser, the available options here are: <a href="json.html">json</a> or <a href="regular_expression.html">regex</a>.</td>
 </tr>
 <tr>
 <td>Regex</td>
@@ -1223,7 +1236,7 @@
 </tbody>
 </table>
 <h2 id="parsers-configuration-file">Parsers Configuration File</h2>
-<p>The parsers file expose all parsers available that can be used by the Input plugins that are aware of this feature. A parsers file can have multiple entries like this:</p>
+<p>All parsers <strong>must</strong> be defined in a <em>parsers.conf</em> file, <strong>not</strong> in the Fluent Bit global configuration file. The parsers file expose all parsers available that can be used by the Input plugins that are aware of this feature. A parsers file can have multiple entries like this:</p>
 <pre><code>[PARSER]
     Name        docker
     Format      json
@@ -1241,7 +1254,7 @@
     Types pid:integer
 </code></pre><p>For more information about the parsers available, please refer to the default parsers file distributed with Fluent Bit source code:</p>
 <p><a href="https://github.com/fluent/fluent-bit/blob/master/conf/parsers.conf" target="_blank">https://github.com/fluent/fluent-bit/blob/master/conf/parsers.conf</a></p>
-<h2 id="fractional-seconds">Fractional Seconds</h2>
+<h2 id="time-resolution-and-fractional-seconds">Time Resolution and Fractional Seconds</h2>
 <p>Some timestamps might have fractional seconds like <em>2017-05-17T15:44:31<strong>.187512963</strong>Z</em>. Since Fluent Bit v0.12 we have full support for nanoseconds resolution, the <strong>%L</strong> format option for Time_Format is provided as a way to indicate that content must be interpreted as fractional seconds.</p>
 <blockquote>
 <p>Note: The option %L is only valid when used after seconds, e.g: %S.%L</p>
@@ -1289,7 +1302,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Parsers","level":"1.7","depth":1,"next":{"title":"JSON","level":"1.7.1","depth":2,"path":"parser/json.md","ref":"parser/json.md","articles":[]},"previous":{"title":"TCP","level":"1.6.18","depth":2,"path":"input/tcp.md","ref":"input/tcp.md","articles":[]},"dir":"ltr"},"config":{"plugins":["addcssjs"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.11 Documentation","gitbook":"*"},"file":{"path":"parser/README.md","mtime":"2017-07-23T17:30:31.260Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-26T03:25:59.487Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Parsers","level":"1.7","depth":1,"next":{"title":"JSON","level":"1.7.1","depth":2,"path":"parser/json.md","ref":"parser/json.md","articles":[]},"previous":{"title":"TCP","level":"1.6.18","depth":2,"path":"input/tcp.md","ref":"input/tcp.md","articles":[]},"dir":"ltr"},"config":{"plugins":["addcssjs"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.11 Documentation","gitbook":"*"},"file":{"path":"parser/README.md","mtime":"2017-07-26T16:26:32.323Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-26T17:44:06.420Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

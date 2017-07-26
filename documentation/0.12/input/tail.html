@@ -449,7 +449,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.4" data-path="../configuration/unit_sizes.html">
+        <li class="chapter " data-level="1.5.4" data-path="../configuration/commands.html">
+            
+                <a href="../configuration/commands.html">
+            
+                    
+                    Configuration Commands
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../configuration/unit_sizes.html">
             
                 <a href="../configuration/unit_sizes.html">
             
@@ -462,7 +475,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.5" data-path="../configuration/tls_ssl.html">
+        <li class="chapter " data-level="1.5.6" data-path="../configuration/tls_ssl.html">
             
                 <a href="../configuration/tls_ssl.html">
             
@@ -475,7 +488,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.6" data-path="../configuration/backpressure.html">
+        <li class="chapter " data-level="1.5.7" data-path="../configuration/backpressure.html">
             
                 <a href="../configuration/backpressure.html">
             
@@ -488,7 +501,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.7" data-path="../configuration/memory_usage.html">
+        <li class="chapter " data-level="1.5.8" data-path="../configuration/memory_usage.html">
             
                 <a href="../configuration/memory_usage.html">
             
@@ -1169,7 +1182,14 @@
                                 <h1 id="tail-files">Tail Files</h1>
 <p>The <strong>tail</strong> input plugin allows to monitor one or several text files. It have a similar behavior to <em>tail -f</em> shell command.</p>
 <p>The plugin reads every matched file in the <em>Path</em> pattern and for every new line found (separated by a \n), it generate a new record. Optionally a database file can be used so the plugin can have a history of tracked files and a state of offsets, this is very useful to resume a state if the service is restarted.</p>
-<h2 id="configuration-parameters">Configuration Parameters</h2>
+<p>Content:</p>
+<ul>
+<li><a href="#config">Configuration Parameters</a></li>
+<li><a href="#multiline">Multiline Parameters</a></li>
+<li><a href="#getting_started">Getting Started</a></li>
+<li><a href="#keep_state">Tailing Files Keeping State</a></li>
+</ul>
+<h2 id="config">Configuration Parameters </h2>
 <p>The plugin supports the following configuration parameters:</p>
 <table>
 <thead>
@@ -1237,6 +1257,7 @@
 </tbody>
 </table>
 <p>Note that if the database parameter <em>db</em> is <strong>not</strong> specified, by default the plugin will start reading each target file from the beginning.</p>
+<h3 id="multiline">Multiline Configuration Parameters </h3>
 <p>Additionally the following options exists to configure the handling of multi-lines files:</p>
 <table>
 <thead>
@@ -1268,7 +1289,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="getting-started">Getting Started</h2>
+<h2 id="getting_started">Getting Started </h2>
 <p>In order to tail text or log files, you can run the plugin from the command line or through the configuration file:</p>
 <h3 id="command-line">Command Line</h3>
 <p>From the command line you can let Fluent Bit parse text files with the following options:</p>
@@ -1284,7 +1305,7 @@
     Name   stdout
     Match  *
 </code></pre>
-<h3 id="tailing-files-keeping-state">Tailing files keeping state</h3>
+<h2 id="keep_state">Tailing files keeping state </h2>
 <p>The <em>tail</em> input plugin a feature to save the state of the tracked files, is strongly suggested you enabled this. For this purpose the <strong>db</strong> property is available, e.g:</p>
 <pre><code class="lang-bash">$ fluent-bit -i tail -p path=/var/<span class="hljs-built_in">log</span>/syslog -p db=/path/to/logs.db -o stdout
 </code></pre>
@@ -1350,7 +1371,7 @@ sqlite&gt;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Tail","level":"1.6.17","depth":2,"next":{"title":"TCP","level":"1.6.18","depth":2,"path":"input/tcp.md","ref":"input/tcp.md","articles":[]},"previous":{"title":"Systemd","level":"1.6.16","depth":2,"path":"input/systemd.md","ref":"input/systemd.md","articles":[]},"dir":"ltr"},"config":{"plugins":["addcssjs"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.11 Documentation","gitbook":"*"},"file":{"path":"input/tail.md","mtime":"2017-07-23T17:30:31.260Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-26T03:25:59.487Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Tail","level":"1.6.17","depth":2,"next":{"title":"TCP","level":"1.6.18","depth":2,"path":"input/tcp.md","ref":"input/tcp.md","articles":[]},"previous":{"title":"Systemd","level":"1.6.16","depth":2,"path":"input/systemd.md","ref":"input/systemd.md","articles":[]},"dir":"ltr"},"config":{"plugins":["addcssjs"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.11 Documentation","gitbook":"*"},"file":{"path":"input/tail.md","mtime":"2017-07-26T16:34:42.943Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-26T17:44:06.420Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

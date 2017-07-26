@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="" >
     <head>
-        <title>JSON · Fluent Bit v0.11 Documentation</title>
+        <title>Configuration Commands · Fluent Bit v0.11 Documentation</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -60,10 +60,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="regular_expression.html" />
+    <link rel="next" href="unit_sizes.html" />
     
     
-    <link rel="prev" href="./" />
+    <link rel="prev" href="variables.html" />
     
 
     </head>
@@ -396,9 +396,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5" data-path="../configuration/">
+        <li class="chapter " data-level="1.5" data-path="./">
             
-                <a href="../configuration/">
+                <a href="./">
             
                     
                     Configuration
@@ -410,9 +410,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.1" data-path="../configuration/schema.html">
+        <li class="chapter " data-level="1.5.1" data-path="schema.html">
             
-                <a href="../configuration/schema.html">
+                <a href="schema.html">
             
                     
                     Configuration Schema
@@ -423,9 +423,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.2" data-path="../configuration/file.html">
+        <li class="chapter " data-level="1.5.2" data-path="file.html">
             
-                <a href="../configuration/file.html">
+                <a href="file.html">
             
                     
                     Configuration File
@@ -436,9 +436,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.3" data-path="../configuration/variables.html">
+        <li class="chapter " data-level="1.5.3" data-path="variables.html">
             
-                <a href="../configuration/variables.html">
+                <a href="variables.html">
             
                     
                     Configuration Variables
@@ -449,9 +449,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.4" data-path="../configuration/commands.html">
+        <li class="chapter active" data-level="1.5.4" data-path="commands.html">
             
-                <a href="../configuration/commands.html">
+                <a href="commands.html">
             
                     
                     Configuration Commands
@@ -462,9 +462,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.5" data-path="../configuration/unit_sizes.html">
+        <li class="chapter " data-level="1.5.5" data-path="unit_sizes.html">
             
-                <a href="../configuration/unit_sizes.html">
+                <a href="unit_sizes.html">
             
                     
                     Unit Sizes
@@ -475,9 +475,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.6" data-path="../configuration/tls_ssl.html">
+        <li class="chapter " data-level="1.5.6" data-path="tls_ssl.html">
             
-                <a href="../configuration/tls_ssl.html">
+                <a href="tls_ssl.html">
             
                     
                     TLS / SSL
@@ -488,9 +488,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.7" data-path="../configuration/backpressure.html">
+        <li class="chapter " data-level="1.5.7" data-path="backpressure.html">
             
-                <a href="../configuration/backpressure.html">
+                <a href="backpressure.html">
             
                     
                     Backpressure
@@ -501,9 +501,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.8" data-path="../configuration/memory_usage.html">
+        <li class="chapter " data-level="1.5.8" data-path="memory_usage.html">
             
-                <a href="../configuration/memory_usage.html">
+                <a href="memory_usage.html">
             
                     
                     Memory Usage
@@ -772,9 +772,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7" data-path="./">
+        <li class="chapter " data-level="1.7" data-path="../parser/">
             
-                <a href="./">
+                <a href="../parser/">
             
                     
                     Parsers
@@ -786,9 +786,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.7.1" data-path="json.html">
+        <li class="chapter " data-level="1.7.1" data-path="../parser/json.html">
             
-                <a href="json.html">
+                <a href="../parser/json.html">
             
                     
                     JSON
@@ -799,9 +799,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.2" data-path="regular_expression.html">
+        <li class="chapter " data-level="1.7.2" data-path="../parser/regular_expression.html">
             
-                <a href="regular_expression.html">
+                <a href="../parser/regular_expression.html">
             
                     
                     Regular Expression
@@ -1164,7 +1164,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >JSON</a>
+        <a href=".." >Configuration Commands</a>
     </h1>
 </div>
 
@@ -1179,22 +1179,82 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="json-parser">JSON Parser</h1>
-<p>The JSON parser is the simplest option: if the original log source is a JSON map string, it will take it structure and convert it directly to the internal binary representation.</p>
-<p>A simple configuration that can be found in the default parsers configuration file, is the entry to parse Docker log files (when the tail input plugin is used):</p>
-<pre><code class="lang-python">[PARSER]
-    Name        docker
-    Format      json
-    Time_Key    time
-    Time_Format %Y-%m-%dT%H:%M:%S %z
-</code></pre>
-<p>The following log entry is a valid content for the parser defined above:</p>
-<pre><code class="lang-json">{<span class="hljs-string">&quot;key1&quot;</span>: <span class="hljs-number">12345</span>, <span class="hljs-string">&quot;key2&quot;</span>: <span class="hljs-string">&quot;abc&quot;</span>, <span class="hljs-string">&quot;time&quot;</span>: <span class="hljs-string">&quot;28/Jul/2006:10:22:04 -0300&quot;</span>}
-</code></pre>
-<p>After processing, it internal representation will be:</p>
-<pre><code>[1154103724, {&quot;key1&quot;=&gt;12345, &quot;key2&quot;=&gt;&quot;abc&quot;}]
-</code></pre><p>The time have been converted to Unix timestamp (UTC) and the map reduced to each component of the original message.</p>
+                                <h1 id="configuration-commands">Configuration Commands</h1>
+<p>Configuration files must be flexible enough for any deployment need, but they must keep a clean and readable format.</p>
+<p>Fluent Bit <em>Commands</em> extends a configuration file with specific built-in features. The list of commands available as of Fluent Bit 0.12 series are:</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Prototype</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#cmd_include">@INCLUDE</a></td>
+<td>@INCLUDE FILE</td>
+<td>Include a configuration file</td>
+</tr>
+<tr>
+<td><a href="#cmd_set">@SET</a></td>
+<td>@SET KEY=VAL</td>
+<td>Set a configuration variable</td>
+</tr>
+</tbody>
+</table>
+<h2 id="cmd_include">@INCLUDE Command </h2>
+<p>Configuring a logging pipeline might lead to an extensive configuration file. In order to maintain a human-readable configuration, it&apos;s suggested to split the configuration in multiple files.</p>
+<p>The @INCLUDE command allows the configuration reader to include an external configuration file, e.g:</p>
+<pre><code>[SERVICE]
+    Flush 1
 
+@INCLUDE inputs.conf
+@INCLUDE outputs.conf
+</code></pre><p>The above example defines the main service configuration file and also include two files to continue the configuration:</p>
+<h5 id="inputsconf">inputs.conf</h5>
+<pre><code>[INPUT]
+    Name cpu
+    Tag  mycpu
+
+[INPUT]
+    Name tail
+    Path /var/log/*.log
+    Tag  varlog.*
+</code></pre><h5 id="outputsconf">outputs.conf</h5>
+<pre><code>[OUTPUT]
+    Name   stdout
+    Match  mycpu
+
+[OUTPUT]
+    Name            es
+    Match           varlog.*
+    Host            127.0.0.1
+    Port            9200
+    Logstash_Format On
+</code></pre><p>Note that despites the order of inclusion, Fluent Bit will <strong>ALWAYS</strong> respect the following order:</p>
+<ul>
+<li>Service</li>
+<li>Inputs</li>
+<li>Filters</li>
+<li>Outputs</li>
+</ul>
+<h2 id="cmd_set">@SET Command </h2>
+<p>Fluent Bit supports <a href="variables.html">configuration variables</a>, one way to expose this variables to Fluent Bit is through setting a Shell environment variable, the other is through the <em>@SET</em> command.</p>
+<p>The @SET command can only be used at root level of each line, meaning it cannot be used inside a section, e.g:</p>
+<pre><code>
+@SET my_input=cpu
+@SET my_output=stdout
+
+[SERVICE]
+    Flush 1
+
+[INPUT]
+    Name ${my_input}
+
+[OUTPUT]
+    Name ${my_output}
+</code></pre>
                                 
                                 </section>
                             
@@ -1221,12 +1281,12 @@
 
             
                 
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Parsers">
+                <a href="variables.html" class="navigation navigation-prev " aria-label="Previous page: Configuration Variables">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="regular_expression.html" class="navigation navigation-next " aria-label="Next page: Regular Expression">
+                <a href="unit_sizes.html" class="navigation navigation-next " aria-label="Next page: Unit Sizes">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1237,7 +1297,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"JSON","level":"1.7.1","depth":2,"next":{"title":"Regular Expression","level":"1.7.2","depth":2,"path":"parser/regular_expression.md","ref":"parser/regular_expression.md","articles":[]},"previous":{"title":"Parsers","level":"1.7","depth":1,"path":"parser/README.md","ref":"parser/README.md","articles":[{"title":"JSON","level":"1.7.1","depth":2,"path":"parser/json.md","ref":"parser/json.md","articles":[]},{"title":"Regular Expression","level":"1.7.2","depth":2,"path":"parser/regular_expression.md","ref":"parser/regular_expression.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["addcssjs"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.11 Documentation","gitbook":"*"},"file":{"path":"parser/json.md","mtime":"2017-05-11T03:53:17.923Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-26T17:44:06.420Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Configuration Commands","level":"1.5.4","depth":2,"next":{"title":"Unit Sizes","level":"1.5.5","depth":2,"path":"configuration/unit_sizes.md","ref":"configuration/unit_sizes.md","articles":[]},"previous":{"title":"Configuration Variables","level":"1.5.3","depth":2,"path":"configuration/variables.md","ref":"configuration/variables.md","articles":[]},"dir":"ltr"},"config":{"plugins":["addcssjs"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.11 Documentation","gitbook":"*"},"file":{"path":"configuration/commands.md","mtime":"2017-07-26T17:40:00.632Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-26T17:44:06.420Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
