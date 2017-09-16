@@ -1193,35 +1193,44 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="fluent-bit-docker-images">Fluent Bit Docker Images</h1>
-<p>Every version of Fluent Bit is available on Docker Hub ready for production usage, the following tags are available on <a href="https://hub.docker.com/r/fluent/fluent-bit/" target="_blank">fluent/fluent-bit</a> image:</p>
+<p>Fluent Bit container image is also available on Docker Hub ready for production usage. The following table describe the tags are available on <a href="https://hub.docker.com/r/fluent/fluent-bit/" target="_blank">fluent/fluent-bit</a> repository:</p>
 <table>
 <thead>
 <tr>
-<th>Tag</th>
+<th>Tag(s)</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>0.12</td>
-<td>Latest build for 0.12 stable series</td>
+<td>0.12, latest</td>
+<td>Latest release of 0.12 stable series</td>
 </tr>
 <tr>
-<td>0.11</td>
-<td>Latest build for 0.11 series, no longer maintained</td>
+<td>0.12.2</td>
+<td>Container image of Fluent Bit <a href="http://fluentbit.io/announcements/v0.12.2" target="_blank">v0.12.2</a></td>
+</tr>
+<tr>
+<td>0.12.1</td>
+<td>Container image of Fluent Bit <a href="http://fluentbit.io/announcements/v0.12.1" target="_blank">v0.12.1</a></td>
+</tr>
+<tr>
+<td>0.12.0</td>
+<td>Container image of Fluent Bit <a href="http://fluentbit.io/announcements/v0.12.0" target="_blank">v0.12.0</a></td>
 </tr>
 </tbody>
 </table>
+<p>Is strongly suggest that you always use the newest image of Fluent Bit.</p>
 <h2 id="getting-started">Getting Started</h2>
 <p>Download the last stable image from 0.12 series:</p>
 <pre><code>$ docker pull fluent/fluent-bit:0.12
 </code></pre><p>Once the image is in place, now run the following (useless) test which makes Fluent Bit meassure CPU usage by the container:</p>
 <pre><code>$ docker run -ti fluent/fluent-bit:0.12 /fluent-bit/bin/fluent-bit -i cpu -o stdout -f 1
 </code></pre><p>That command will let Fluent Bit meassure CPU usage every second and flush the results to the standard output, e.g:</p>
-<pre><code>Fluent-Bit v0.12.1
+<pre><code>Fluent-Bit v0.12.2
 Copyright (C) Treasure Data
 
-[2017/09/01 18:29:02] [ info] [engine] started
+[2017/09/15 18:29:02] [ info] [engine] started
 [0] cpu.0: [1504290543.000487750, {&quot;cpu_p&quot;=&gt;0.750000, &quot;user_p&quot;=&gt;0.250000, &quot;system_p&quot;=&gt;0.500000, &quot;cpu0.p_cpu&quot;=&gt;0.000000, &quot;cpu0.p_user&quot;=&gt;0.000000, &quot;cpu0.p_system&quot;=&gt;0.000000, &quot;cpu1.p_cpu&quot;=&gt;1.000000, &quot;cpu1.p_user&quot;=&gt;0.000000, &quot;cpu1.p_system&quot;=&gt;1.000000, &quot;cpu2.p_cpu&quot;=&gt;1.000000, &quot;cpu2.p_user&quot;=&gt;1.000000, &quot;cpu2.p_system&quot;=&gt;0.000000, &quot;cpu3.p_cpu&quot;=&gt;0.000000, &quot;cpu3.p_user&quot;=&gt;0.000000, &quot;cpu3.p_system&quot;=&gt;0.000000}]
 </code></pre>
                                 
@@ -1266,7 +1275,7 @@ Copyright (C) Treasure Data
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Docker Images","level":"1.3.4","depth":2,"next":{"title":"TD Agent Bit","level":"1.3.5","depth":2,"path":"installation/td-agent-bit.md","ref":"installation/td-agent-bit.md","articles":[]},"previous":{"title":"Build and Install","level":"1.3.3","depth":2,"path":"installation/build_install.md","ref":"installation/build_install.md","articles":[]},"dir":"ltr"},"config":{"plugins":["addcssjs"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.12 Documentation","gitbook":"*"},"file":{"path":"installation/docker.md","mtime":"2017-09-01T18:30:09.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-12T01:19:25.104Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Docker Images","level":"1.3.4","depth":2,"next":{"title":"TD Agent Bit","level":"1.3.5","depth":2,"path":"installation/td-agent-bit.md","ref":"installation/td-agent-bit.md","articles":[]},"previous":{"title":"Build and Install","level":"1.3.3","depth":2,"path":"installation/build_install.md","ref":"installation/build_install.md","articles":[]},"dir":"ltr"},"config":{"plugins":["addcssjs"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.12 Documentation","gitbook":"*"},"file":{"path":"installation/docker.md","mtime":"2017-09-15T23:51:14.738Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-16T05:42:57.800Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

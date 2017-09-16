@@ -1194,11 +1194,11 @@
                                 
                                 <h1 id="fluentd-and-fluent-bit">Fluentd and Fluent Bit</h1>
 <p>Data collection matters and nowadays the scenarios from where the information can <em>come from</em> are very variable. For hence to be more flexible on certain markets needs, we may need different options. On this page we will describe the relationship between the <a href="http://fluentd.org" target="_blank">Fluentd</a> and <a href="http://fluentbit.io" target="_blank">Fluent Bit</a> open source projects.</p>
-<p><a href="http://fluentd.org" target="_blank">Fluentd</a> and <a href="http://fluentbit.io" target="_blank">Fluent Bit</a> projects are both created and sponsored by <a href="http://treasuredata.com" target="_blank">Treasure Data</a> and they aim to solve the <em>Data Collection</em> and <em>Data Forwarding</em> needs as a whole.</p>
-<p>From an architecture usability perspective:</p>
+<p><a href="http://fluentd.org" target="_blank">Fluentd</a> and <a href="http://fluentbit.io" target="_blank">Fluent Bit</a> projects are both created and sponsored by <a href="http://treasuredata.com" target="_blank">Treasure Data</a> and they aim to solve the <em>collection</em>, <em>processing</em> and <em>delivery</em> of Logs.</p>
+<p>Both projects shares a lot of similarities, Fluent Bit is fully based in the design and experience of Fluentd architecture and general design. Choosing which one to use depends of the final needs, from an architecture perspective we can consider:</p>
 <ul>
-<li>Fluentd is an Aggregator.</li>
-<li>Fluent Bit is a Data Forwarder.</li>
+<li>Fluentd is a log collector, processor and aggregator.</li>
+<li>Fluent Bit is a log collector and processor (it dont&apos; have strong aggregation features such as Fluentd).</li>
 </ul>
 <p>The following table describe a comparisson on different areas of the projects:</p>
 <table>
@@ -1238,7 +1238,7 @@
 <tr>
 <td>Plugins</td>
 <td>More than 650 plugins available</td>
-<td>Around 30 plugins available</td>
+<td>Around 35 plugins available</td>
 </tr>
 <tr>
 <td>License</td>
@@ -1247,7 +1247,7 @@
 </tr>
 </tbody>
 </table>
-<p>Considering Fluentd as a main Aggregator and Fluent Bit as a Data Forwarder, we can see both projects complement each other providing a full reliable solution.</p>
+<p>Considering Fluentd as a main Aggregator and Fluent Bit as a Log Forwarder, we can see both projects complement each other providing a full reliable solution.</p>
 
                                 
                                 </section>
@@ -1291,7 +1291,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Fluentd & Fluent Bit","level":"1.2.2","depth":2,"next":{"title":"License","level":"1.2.3","depth":2,"path":"about/license.md","ref":"about/license.md","articles":[]},"previous":{"title":"Why ?","level":"1.2.1","depth":2,"path":"about/why.md","ref":"about/why.md","articles":[]},"dir":"ltr"},"config":{"plugins":["addcssjs"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.12 Documentation","gitbook":"*"},"file":{"path":"about/fluentd_and_fluentbit.md","mtime":"2017-03-01T22:49:32.767Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-12T01:19:25.104Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Fluentd & Fluent Bit","level":"1.2.2","depth":2,"next":{"title":"License","level":"1.2.3","depth":2,"path":"about/license.md","ref":"about/license.md","articles":[]},"previous":{"title":"Why ?","level":"1.2.1","depth":2,"path":"about/why.md","ref":"about/why.md","articles":[]},"dir":"ltr"},"config":{"plugins":["addcssjs"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.12 Documentation","gitbook":"*"},"file":{"path":"about/fluentd_and_fluentbit.md","mtime":"2017-09-16T00:01:12.891Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-16T05:42:57.800Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
