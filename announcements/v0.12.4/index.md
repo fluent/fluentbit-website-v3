@@ -19,9 +19,9 @@ This is a minor fix release over 0.12 series that includes the following changes
   - Parser: on failure, print name of the parser involved.
 
 - Plugins
-  - [Systemd (input)](http://fluentbit.io/documentation/v0.12/input/systemd): fix cursor
+  - [Systemd (input)](http://fluentbit.io/documentation/0.12/input/systemd): fix cursor
   position when starting up, jump to next.
-  - [Stdin (input)](http://fluentbit.io/documentation/v0.12/input/systemd): fix built-in JSON reader usage.
+  - [Stdin (input)](http://fluentbit.io/documentation/0.12/input/systemd): fix built-in JSON reader usage.
 
 ## Contributors
 

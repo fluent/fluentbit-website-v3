@@ -17,8 +17,8 @@ This is a minor fix release over 0.12 series that includes the following changes
   - Config: improved MongoDB parser regular expression
 
 - Plugins
-  - [Systemd (input)](http://fluentbit.io/documentation/v0.12/input/systemd.html): new configuration option _read\_from\_tail_ to read just new messages.
-  - [Parser (filter)](http://fluentbit.io/documentation/v0.12/filter/parser.html): fix array index when processing next result.
+  - [Systemd (input)](http://fluentbit.io/documentation/0.12/input/systemd.html): new configuration option _read\_from\_tail_ to read just new messages.
+  - [Parser (filter)](http://fluentbit.io/documentation/0.12/filter/parser.html): fix array index when processing next result.
 
 ## Contributors
 
