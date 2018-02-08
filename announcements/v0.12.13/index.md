@@ -20,7 +20,6 @@ This is a minor fix release over 0.12 series that includes the following changes
 - Plugins
   - [Tail (input)](http://fluentbit.io/documentation/0.12/input/tail.html): fix leak on error condition for rotated files.
   - [Tail (input)](http://fluentbit.io/documentation/0.12/input/tail.html): if parser fails, pack raw text.
-  - [Tail (input)](http://fluentbit.io/documentation/0.12/input/tail.html): on pause, do not stop monitoring new files and rotated files.
   - [Systemd (input)](http://fluentbit.io/documentation/0.12/input/systemd.html): partial fix for stalled reads.
   - [Grep (filter)](http://fluentbit.io/documentation/0.12/filter/grep.html): use internal regex engine instead of system regex.h
 
