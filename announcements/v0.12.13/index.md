@@ -7,7 +7,7 @@ intro: Release Notes
 
 # Release Notes v0.12.13
 
-[Fluent Bit](http://fluentbit.io) is a Fast and Lightweight Data Forwarder for Linux, BSD and OSX. We are proud to announce the availability of __Fluent Bit v0.12.11__.
+[Fluent Bit](http://fluentbit.io) is a Fast and Lightweight Data Forwarder for Linux, BSD and OSX. We are proud to announce the availability of __Fluent Bit v0.12.13__.
 
 ## Changes
 
