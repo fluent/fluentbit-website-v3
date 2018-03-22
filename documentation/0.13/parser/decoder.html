@@ -611,7 +611,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.4" data-path="../input/forward.html">
+        <li class="chapter " data-level="1.6.4" data-path="../input/exec.html">
+            
+                <a href="../input/exec.html">
+            
+                    
+                    Exec
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../input/forward.html">
             
                 <a href="../input/forward.html">
             
@@ -624,7 +637,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.5" data-path="../input/head.html">
+        <li class="chapter " data-level="1.6.6" data-path="../input/head.html">
             
                 <a href="../input/head.html">
             
@@ -637,7 +650,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.6" data-path="../input/health.html">
+        <li class="chapter " data-level="1.6.7" data-path="../input/health.html">
             
                 <a href="../input/health.html">
             
@@ -650,7 +663,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.7" data-path="../input/kmsg.html">
+        <li class="chapter " data-level="1.6.8" data-path="../input/kmsg.html">
             
                 <a href="../input/kmsg.html">
             
@@ -663,7 +676,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.8" data-path="../input/mem.html">
+        <li class="chapter " data-level="1.6.9" data-path="../input/mem.html">
             
                 <a href="../input/mem.html">
             
@@ -676,7 +689,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.9" data-path="../input/mqtt.html">
+        <li class="chapter " data-level="1.6.10" data-path="../input/mqtt.html">
             
                 <a href="../input/mqtt.html">
             
@@ -689,7 +702,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.10" data-path="../input/netif.html">
+        <li class="chapter " data-level="1.6.11" data-path="../input/netif.html">
             
                 <a href="../input/netif.html">
             
@@ -702,7 +715,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.11" data-path="../input/proc.html">
+        <li class="chapter " data-level="1.6.12" data-path="../input/proc.html">
             
                 <a href="../input/proc.html">
             
@@ -715,7 +728,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.12" data-path="../input/random.html">
+        <li class="chapter " data-level="1.6.13" data-path="../input/random.html">
             
                 <a href="../input/random.html">
             
@@ -728,7 +741,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.13" data-path="../input/serial.html">
+        <li class="chapter " data-level="1.6.14" data-path="../input/serial.html">
             
                 <a href="../input/serial.html">
             
@@ -741,7 +754,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.14" data-path="../input/stdin.html">
+        <li class="chapter " data-level="1.6.15" data-path="../input/stdin.html">
             
                 <a href="../input/stdin.html">
             
@@ -754,7 +767,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.15" data-path="../input/syslog.html">
+        <li class="chapter " data-level="1.6.16" data-path="../input/syslog.html">
             
                 <a href="../input/syslog.html">
             
@@ -767,7 +780,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.16" data-path="../input/systemd.html">
+        <li class="chapter " data-level="1.6.17" data-path="../input/systemd.html">
             
                 <a href="../input/systemd.html">
             
@@ -780,7 +793,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.17" data-path="../input/tail.html">
+        <li class="chapter " data-level="1.6.18" data-path="../input/tail.html">
             
                 <a href="../input/tail.html">
             
@@ -793,7 +806,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.18" data-path="../input/tcp.html">
+        <li class="chapter " data-level="1.6.19" data-path="../input/tcp.html">
             
                 <a href="../input/tcp.html">
             
@@ -1237,20 +1250,24 @@
 <pre><code>{&quot;status&quot;: &quot;up and running&quot;}
 </code></pre><p>Then the Docker log message become encapsulated as follows:</p>
 <pre><code>{&quot;log&quot;:&quot;{\&quot;status\&quot;: \&quot;up and running\&quot;}\r\n&quot;,&quot;stream&quot;:&quot;stdout&quot;,&quot;time&quot;:&quot;2018-03-09T01:01:44.851160855Z&quot;}
-</code></pre><p>as you can see the original message is handled as a escaped string. Ideally in Fluent Bit we would like to keep having the original structured message and not a string.</p>
+</code></pre><p>as you can see the original message is handled as an escaped string. Ideally in Fluent Bit we would like to keep having the original structured message and not a string.</p>
 <h2 id="getting-started">Getting Started</h2>
-<p>Decoders are a built-in feature available through the Parsers file, each Parser definition can optionally set one or multiple decoders. Our pre-defined Docker Parser have the following definition:</p>
+<p>Decoders are a built-in feature available through the Parsers file, each Parser definition can optionally set one or multiple decoders. There are two type of decoders type:</p>
+<ul>
+<li>Decode_Field: if the content can be decoded in a structured message, append that structure message (keys and values) to the original log message.</li>
+<li>Decode_Field_As: any content decoded (unstructured or structured) will be replaced in the same key/value, no extra keys are added.</li>
+</ul>
+<p>Our pre-defined Docker Parser have the following definition:</p>
 <pre><code>[PARSER]
     Name         docker
     Format       json
     Time_Key     time
     Time_Format  %Y-%m-%dT%H:%M:%S.%L
     Time_Keep    On
-    # Command    |  Decoder | Field | Optional Action   |
-    # ===========|==========|=======|===================|
-    Decode_Field    json       log    try_next
-    Decode_Field    escaped    log
-</code></pre><p>Each line in the parser with a key <em>Decode_Field</em>  instruct the parser to apply a specific decoder on a given field, optionally it offer the option to take an extra action if the decoder cannot succeed. </p>
+    # Command       |  Decoder  | Field | Optional Action   |
+    # ==============|===========|=======|===================|
+    Decode_Field_As    escaped     log
+</code></pre><p>Each line in the parser with a key <em>Decode_Field</em>  instruct the parser to apply a specific decoder on a given field, optionally it offer the option to take an extra action if the decoder cannot succeed.</p>
 <h3 id="decoders">Decoders</h3>
 <table>
 <thead>
@@ -1271,7 +1288,30 @@
 </tbody>
 </table>
 <h3 id="optional-actions">Optional Actions</h3>
-<p>By default if a decoder fails to decode the field, it will pack the raw message without any changes. Optionally an action can be defined when that exception happens. If the action <strong>try_next</strong> was defined, it will use the next decoder available.</p>
+<p>By default if a decoder fails to decode the field or want to try a next decoder, is possible to define an optional action. Available actions are:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>try_next</td>
+<td>if the decoder failed, apply the next Decoder in the list for the same field.</td>
+</tr>
+<tr>
+<td>do_next</td>
+<td>if the decoder succeeded or failed, apply the next Decoder in the list for the same field.</td>
+</tr>
+</tbody>
+</table>
+<p>Note that actions are affected by some restrictions:</p>
+<ul>
+<li>on Decode_Field_As, if succeeded, another decoder of the same type in the same field can be applied only if the data continue being a unstructed message (raw text).</li>
+<li>on Decode_Field, if succeeded, can only be applied once for the same field. By nature Decode_Field aims to decode a structured message.</li>
+</ul>
 
                                 
                                 </section>
@@ -1315,7 +1355,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Decoders","level":"1.7.3","depth":2,"next":{"title":"Filter Plugins","level":"1.8","depth":1,"path":"filter/README.md","ref":"filter/README.md","articles":[{"title":"Grep","level":"1.8.1","depth":2,"path":"filter/grep.md","ref":"filter/grep.md","articles":[]},{"title":"Kubernetes","level":"1.8.2","depth":2,"path":"filter/kubernetes.md","ref":"filter/kubernetes.md","articles":[]},{"title":"Parser","level":"1.8.3","depth":2,"path":"filter/parser.md","ref":"filter/parser.md","articles":[]},{"title":"Record Modifier","level":"1.8.4","depth":2,"path":"filter/record_modifier.md","ref":"filter/record_modifier.md","articles":[]},{"title":"Standard Output","level":"1.8.5","depth":2,"path":"filter/stdout.md","ref":"filter/stdout.md","articles":[]},{"title":"Throttle","level":"1.8.6","depth":2,"path":"filter/throttle.md","ref":"filter/throttle.md","articles":[]}]},"previous":{"title":"Regular Expression Parser","level":"1.7.2","depth":2,"path":"parser/regular_expression.md","ref":"parser/regular_expression.md","articles":[]},"dir":"ltr"},"config":{"plugins":["addcssjs"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.12 Documentation","gitbook":"*"},"file":{"path":"parser/decoder.md","mtime":"2018-03-09T01:17:02.306Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-03-09T01:43:19.266Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Decoders","level":"1.7.3","depth":2,"next":{"title":"Filter Plugins","level":"1.8","depth":1,"path":"filter/README.md","ref":"filter/README.md","articles":[{"title":"Grep","level":"1.8.1","depth":2,"path":"filter/grep.md","ref":"filter/grep.md","articles":[]},{"title":"Kubernetes","level":"1.8.2","depth":2,"path":"filter/kubernetes.md","ref":"filter/kubernetes.md","articles":[]},{"title":"Parser","level":"1.8.3","depth":2,"path":"filter/parser.md","ref":"filter/parser.md","articles":[]},{"title":"Record Modifier","level":"1.8.4","depth":2,"path":"filter/record_modifier.md","ref":"filter/record_modifier.md","articles":[]},{"title":"Standard Output","level":"1.8.5","depth":2,"path":"filter/stdout.md","ref":"filter/stdout.md","articles":[]},{"title":"Throttle","level":"1.8.6","depth":2,"path":"filter/throttle.md","ref":"filter/throttle.md","articles":[]}]},"previous":{"title":"Regular Expression Parser","level":"1.7.2","depth":2,"path":"parser/regular_expression.md","ref":"parser/regular_expression.md","articles":[]},"dir":"ltr"},"config":{"plugins":["addcssjs"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.12 Documentation","gitbook":"*"},"file":{"path":"parser/decoder.md","mtime":"2018-03-21T15:39:17.604Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-03-22T16:36:58.609Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
