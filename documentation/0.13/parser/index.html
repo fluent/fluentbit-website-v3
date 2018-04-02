@@ -1136,7 +1136,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.12" data-path="../output/td.html">
+        <li class="chapter " data-level="1.9.12" data-path="../output/splunk.html">
+            
+                <a href="../output/splunk.html">
+            
+                    
+                    Splunk
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.13" data-path="../output/td.html">
             
                 <a href="../output/td.html">
             
@@ -1289,7 +1302,7 @@
 </tr>
 <tr>
 <td>Time_Format</td>
-<td>Specify the format of the time field so it can be recognized and analyzed properly.</td>
+<td>Specify the format of the time field so it can be recognized and analyzed properly. Fluent-bit uses <code>strptime(3)</code> to parse time so you can ferer to <a href="https://linux.die.net/man/3/strptime" target="_blank">strptime documentation</a> for available modifiers.</td>
 </tr>
 <tr>
 <td>Time_Keep</td>
@@ -1327,7 +1340,7 @@
 <h2 id="time-resolution-and-fractional-seconds">Time Resolution and Fractional Seconds</h2>
 <p>Some timestamps might have fractional seconds like <em>2017-05-17T15:44:31<strong>.187512963</strong>Z</em>. Since Fluent Bit v0.12 we have full support for nanoseconds resolution, the <strong>%L</strong> format option for Time_Format is provided as a way to indicate that content must be interpreted as fractional seconds.</p>
 <blockquote>
-<p>Note: The option %L is only valid when used after seconds, e.g: %S.%L</p>
+<p>Note: The option %L is only valid when used after seconds (<code>%S</code>) or seconds since the Epoch (<code>%s</code>), e.g: <code>%S.%L</code> or <code>%s.%L</code></p>
 </blockquote>
 
                                 
@@ -1372,7 +1385,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Parsers","level":"1.7","depth":1,"next":{"title":"JSON Parser","level":"1.7.1","depth":2,"path":"parser/json.md","ref":"parser/json.md","articles":[]},"previous":{"title":"TCP","level":"1.6.19","depth":2,"path":"input/tcp.md","ref":"input/tcp.md","articles":[]},"dir":"ltr"},"config":{"plugins":["addcssjs"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.12 Documentation","gitbook":"*"},"file":{"path":"parser/README.md","mtime":"2018-03-28T16:48:08.779Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-03-28T16:49:00.415Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Parsers","level":"1.7","depth":1,"next":{"title":"JSON Parser","level":"1.7.1","depth":2,"path":"parser/json.md","ref":"parser/json.md","articles":[]},"previous":{"title":"TCP","level":"1.6.19","depth":2,"path":"input/tcp.md","ref":"input/tcp.md","articles":[]},"dir":"ltr"},"config":{"plugins":["addcssjs"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.12 Documentation","gitbook":"*"},"file":{"path":"parser/README.md","mtime":"2018-04-02T18:12:39.457Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-04-02T22:35:11.215Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
