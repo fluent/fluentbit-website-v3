@@ -1297,6 +1297,17 @@
 <tr>
 <td>HTTP_Passwd</td>
 <td>Password for user defined in HTTP_User</td>
+<td></td>
+</tr>
+<tr>
+<td>Tag_Keys</td>
+<td>Space separated list of keys that needs to be tagged</td>
+<td></td>
+</tr>
+<tr>
+<td>Auto_Tags</td>
+<td>Automatically tag keys where value is <em>string</em>. This option takes a boolean value: True/False, On/Off.</td>
+<td>Off</td>
 </tr>
 </tbody>
 </table>
@@ -1323,6 +1334,28 @@
     Database      fluentbit
     Sequence_Tag  _seq
 </code></pre>
+<h4 id="tagging">Tagging</h4>
+<p>Basic example of <code>Tag_Keys</code> usage:</p>
+<pre><code class="lang-Python">[INPUT]
+    Name            tail
+    Tag             apache.access
+    parser          apache2
+    path            /var/log/apache2/access.log
+
+[OUTPUT]
+    Name          influxdb
+    Match         *
+    Host          <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>
+    Port          <span class="hljs-number">8086</span>
+    Database      fluentbit
+    Sequence_Tag  _seq
+    <span class="hljs-comment"># make tags from method and path fields</span>
+    Tag_Keys      method path
+</code></pre>
+<p>With <strong>Auto_Tags=On</strong> in this example cause error,
+because every parsed field value type is <em>string</em>.
+Best usage of this option in metrics like record where
+one ore more field value is not <em>string</em> typed.</p>
 <h3 id="testing">Testing</h3>
 <p>Before to start Fluent Bit, make sure the target database exists on InfluxDB, using the above example, we will insert the data into a <em>fluentbit</em> database.</p>
 <h4 id="1-create-database">1. Create database</h4>
@@ -1364,6 +1397,22 @@ time                  cpu_p   system_p    user_p
 1481132864000000000   11.25       3.75     7.5
 </code></pre><p>The CPU input plugin gather more metrics per CPU core, in the above example we just selected three specific metrics. The following query will give a full result:</p>
 <pre><code>&gt; SELECT * FROM cpu
+</code></pre><h4 id="4-view-tags">4. View tags</h4>
+<p>Query tagged keys:</p>
+<pre><code>&gt; SHOW TAG KEYS ON fluentbit FROM &quot;apache.access&quot;
+name: apache.access
+tagKey
+------
+_seq
+method
+path
+</code></pre><p>And now query <em>method</em> key values:</p>
+<pre><code>&gt; SHOW TAG VALUES ON fluentbit FROM &quot;apache.access&quot; WITH KEY = &quot;method&quot;
+name: apache.access
+key    value
+---    -----
+method &quot;MATCH&quot;
+method &quot;POST&quot;
 </code></pre>
                                 
                                 </section>
@@ -1407,7 +1456,7 @@ time                  cpu_p   system_p    user_p
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"InfluxDB","level":"1.9.7","depth":2,"next":{"title":"Kafka REST Proxy","level":"1.9.8","depth":2,"path":"output/kafka-rest-proxy.md","ref":"output/kafka-rest-proxy.md","articles":[]},"previous":{"title":"HTTP","level":"1.9.6","depth":2,"path":"output/http.md","ref":"output/http.md","articles":[]},"dir":"ltr"},"config":{"plugins":["addcssjs"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.12 Documentation","gitbook":"*"},"file":{"path":"output/influxdb.md","mtime":"2018-04-02T17:27:28.252Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-04-02T22:35:11.215Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"InfluxDB","level":"1.9.7","depth":2,"next":{"title":"Kafka REST Proxy","level":"1.9.8","depth":2,"path":"output/kafka-rest-proxy.md","ref":"output/kafka-rest-proxy.md","articles":[]},"previous":{"title":"HTTP","level":"1.9.6","depth":2,"path":"output/http.md","ref":"output/http.md","articles":[]},"dir":"ltr"},"config":{"plugins":["addcssjs"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.12 Documentation","gitbook":"*"},"file":{"path":"output/influxdb.md","mtime":"2018-04-13T23:11:28.646Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-04-13T23:11:35.165Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
