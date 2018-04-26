@@ -18,7 +18,7 @@ This is a minor fix release over 0.12 series that includes the following changes
   - I/O: fix handling of event mask in socket validation
   - Lib: JSMN: merge improvements for strict mode
   - Plugins
-    - [HTTP Output](http://fluentbit.io/documentation/0.12/output/http): add more details in debug messages.
+    - [HTTP Output](http://fluentbit.io/documentation/0.12/output/http.html): add more details in debug messages.
 
 ## Contributors
 
