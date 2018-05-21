@@ -974,6 +974,32 @@
             
         </li>
     
+        <li class="chapter " data-level="1.8.7" data-path="../filter/nest.html">
+            
+                <a href="../filter/nest.html">
+            
+                    
+                    Nest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.8" data-path="../filter/modify.html">
+            
+                <a href="../filter/modify.html">
+            
+                    
+                    Modify
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1330,8 +1356,12 @@
 </tr>
 <tr>
 <td>Format</td>
-<td>Specify the data format to be used in the HTTP request body, by default it uses <em>msgpack</em>, optionally it can be set to <em>json</em>.</td>
+<td>Specify the data format to be used in the HTTP request body, by default it uses <em>msgpack</em>. Other supported formats are <em>json</em> and <em>json_stream</em>.</td>
 <td>msgpack</td>
+</tr>
+<tr>
+<td>header_tag</td>
+<td>Specify an optional HTTP header field for the original message tag.</td>
 </tr>
 </tbody>
 </table>
@@ -1357,6 +1387,31 @@
     Port  <span class="hljs-number">80</span>
     URI   /something
 </code></pre>
+<p>By default, the URI becomes tag of the message, the original tag is ignore. To
+retain the tag, multiple configuration sections has to be made based and flush
+to different URIs.</p>
+<p>Another approach we also support is the sending the original message tag
+in a configurabled header. It&apos;s up to the receiver to do what it want with that
+header field: parse it and use it as the tag for example. With fluend
+http plugin, it&apos;s straightforward.</p>
+<p>To configure this behaviour, add this config:</p>
+<pre><code>[OUTPUT]
+    Name  http
+    Match *
+    Host  192.168.2.3
+    Port  80
+    URI   /something
+    header_tag  FLUENT-TAG
+</code></pre><p>Given the default http input fluentd plugin: <a href="https://github.com/fluent/fluentd/blob/1afbfb17c833b05757122a53ea14b17af659fd75/lib/fluent/plugin/in_http.rb#L212-L215" target="_blank">https://github.com/fluent/fluentd/blob/1afbfb17c833b05757122a53ea14b17af659fd75/lib/fluent/plugin/in_http.rb#L212-L215</a></p>
+<p>We can easily parse the tag like this:</p>
+<pre><code class="lang-ruby">@@ -<span class="hljs-number">153</span>,<span class="hljs-number">6</span> +<span class="hljs-number">153</span>,<span class="hljs-number">7</span> @@ <span class="hljs-class"><span class="hljs-keyword">module</span> <span class="hljs-title">Fluent::Plugin</span></span>
+       <span class="hljs-keyword">begin</span>
+         path = path_info[<span class="hljs-number">1</span>..-<span class="hljs-number">1</span>]  <span class="hljs-comment"># remove /</span>
+         tag = path.split(<span class="hljs-string">&apos;/&apos;</span>).join(<span class="hljs-string">&apos;.&apos;</span>)
++        tag = params[<span class="hljs-string">&quot;HTTP_FLUENT_TAG&quot;</span>] <span class="hljs-keyword">if</span> params[<span class="hljs-string">&quot;HTTP_FLUENT_TAG&quot;</span>]
+         record_time, record = parse_params(params)
+</code></pre>
+<p>Notice how we override the tag, which is from URI path, with our custom header</p>
 
                                 
                                 </section>
@@ -1400,7 +1455,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"HTTP","level":"1.9.7","depth":2,"next":{"title":"InfluxDB","level":"1.9.8","depth":2,"path":"output/influxdb.md","ref":"output/influxdb.md","articles":[]},"previous":{"title":"Forward","level":"1.9.6","depth":2,"path":"output/forward.md","ref":"output/forward.md","articles":[]},"dir":"ltr"},"config":{"plugins":["addcssjs"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.12 Documentation","gitbook":"*"},"file":{"path":"output/http.md","mtime":"2018-03-07T18:15:19.922Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-10T02:19:00.821Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"HTTP","level":"1.9.7","depth":2,"next":{"title":"InfluxDB","level":"1.9.8","depth":2,"path":"output/influxdb.md","ref":"output/influxdb.md","articles":[]},"previous":{"title":"Forward","level":"1.9.6","depth":2,"path":"output/forward.md","ref":"output/forward.md","articles":[]},"dir":"ltr"},"config":{"plugins":["addcssjs"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.12 Documentation","gitbook":"*"},"file":{"path":"output/http.md","mtime":"2018-05-21T19:37:15.564Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-21T19:37:26.485Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
