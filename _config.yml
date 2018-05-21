@@ -17,5 +17,5 @@ permalink: /blog/:year/:month/:day/:title/
 #markdown: kramdown
 markdown: redcarpet
 flb_major       : "0.13"
-flb_version     : 0.13.1
-flb_release_date: May 09, 2018
+flb_version     : 0.13.2
+flb_release_date: May 21, 2018

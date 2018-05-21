@@ -11,7 +11,7 @@ intro: Release Notes
 
 ## Changes
 
-This is a minor fix release over 0.12 series that includes the following changes:
+This is a minor fix release over 0.13 series that includes the following changes:
 
   - Plugins
     - Input
