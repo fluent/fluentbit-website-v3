@@ -1,0 +1,1430 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>Memory Usage · Fluent Bit v0.12 Documentation</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../input/" />
+    
+    
+    <link rel="prev" href="backpressure.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../about/">
+            
+                <a href="../about/">
+            
+                    
+                    About
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../about/why.html">
+            
+                <a href="../about/why.html">
+            
+                    
+                    Why ?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../about/fluentd_and_fluentbit.html">
+            
+                <a href="../about/fluentd_and_fluentbit.html">
+            
+                    
+                    Fluentd & Fluent Bit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../about/license.html">
+            
+                <a href="../about/license.html">
+            
+                    
+                    License
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../installation/">
+            
+                <a href="../installation/">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../installation/requirements.html">
+            
+                <a href="../installation/requirements.html">
+            
+                    
+                    Requirements
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../installation/download_sources.html">
+            
+                <a href="../installation/download_sources.html">
+            
+                    
+                    Download Sources
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../installation/build_install.html">
+            
+                <a href="../installation/build_install.html">
+            
+                    
+                    Build and Install
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../installation/docker.html">
+            
+                <a href="../installation/docker.html">
+            
+                    
+                    Docker Images
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../installation/kubernetes.html">
+            
+                <a href="../installation/kubernetes.html">
+            
+                    
+                    Kubernetes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../installation/td-agent-bit.html">
+            
+                <a href="../installation/td-agent-bit.html">
+            
+                    
+                    TD Agent Bit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../installation/debian.html">
+            
+                <a href="../installation/debian.html">
+            
+                    
+                    Debian Packages
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../installation/ubuntu.html">
+            
+                <a href="../installation/ubuntu.html">
+            
+                    
+                    Ubuntu Packages
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../installation/redhat_centos.html">
+            
+                <a href="../installation/redhat_centos.html">
+            
+                    
+                    CentOS Packages
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../installation/raspberry_pi.html">
+            
+                <a href="../installation/raspberry_pi.html">
+            
+                    
+                    Raspberry Pi
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="../installation/unit_tests.html">
+            
+                <a href="../installation/unit_tests.html">
+            
+                    
+                    Unit Tests
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../getting_started/">
+            
+                <a href="../getting_started/">
+            
+                    
+                    Getting Started
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../getting_started/input.html">
+            
+                <a href="../getting_started/input.html">
+            
+                    
+                    Input
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../getting_started/parser.html">
+            
+                <a href="../getting_started/parser.html">
+            
+                    
+                    Parser
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../getting_started/filter.html">
+            
+                <a href="../getting_started/filter.html">
+            
+                    
+                    Filter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../getting_started/buffer.html">
+            
+                <a href="../getting_started/buffer.html">
+            
+                    
+                    Buffer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../getting_started/routing.html">
+            
+                <a href="../getting_started/routing.html">
+            
+                    
+                    Routing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../getting_started/output.html">
+            
+                <a href="../getting_started/output.html">
+            
+                    
+                    Output
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Configuration
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="schema.html">
+            
+                <a href="schema.html">
+            
+                    
+                    Configuration Schema
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="file.html">
+            
+                <a href="file.html">
+            
+                    
+                    Configuration File
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="variables.html">
+            
+                <a href="variables.html">
+            
+                    
+                    Configuration Variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="commands.html">
+            
+                <a href="commands.html">
+            
+                    
+                    Configuration Commands
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="monitoring.html">
+            
+                <a href="monitoring.html">
+            
+                    
+                    Monitoring
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="unit_sizes.html">
+            
+                <a href="unit_sizes.html">
+            
+                    
+                    Unit Sizes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="tls_ssl.html">
+            
+                <a href="tls_ssl.html">
+            
+                    
+                    TLS / SSL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="backpressure.html">
+            
+                <a href="backpressure.html">
+            
+                    
+                    Backpressure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.9" data-path="memory_usage.html">
+            
+                <a href="memory_usage.html">
+            
+                    
+                    Memory Usage
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../input/">
+            
+                <a href="../input/">
+            
+                    
+                    Input Plugins
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../input/cpu.html">
+            
+                <a href="../input/cpu.html">
+            
+                    
+                    CPU Usage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../input/disk.html">
+            
+                <a href="../input/disk.html">
+            
+                    
+                    Disk Usage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../input/dummy.html">
+            
+                <a href="../input/dummy.html">
+            
+                    
+                    Dummy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../input/exec.html">
+            
+                <a href="../input/exec.html">
+            
+                    
+                    Exec
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../input/forward.html">
+            
+                <a href="../input/forward.html">
+            
+                    
+                    Forward
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../input/head.html">
+            
+                <a href="../input/head.html">
+            
+                    
+                    Head
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../input/health.html">
+            
+                <a href="../input/health.html">
+            
+                    
+                    Health
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../input/kmsg.html">
+            
+                <a href="../input/kmsg.html">
+            
+                    
+                    Kernel Log Buffer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="../input/mem.html">
+            
+                <a href="../input/mem.html">
+            
+                    
+                    Memory Usage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="../input/mqtt.html">
+            
+                <a href="../input/mqtt.html">
+            
+                    
+                    MQTT
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.11" data-path="../input/netif.html">
+            
+                <a href="../input/netif.html">
+            
+                    
+                    Network Traffic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.12" data-path="../input/proc.html">
+            
+                <a href="../input/proc.html">
+            
+                    
+                    Process
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.13" data-path="../input/random.html">
+            
+                <a href="../input/random.html">
+            
+                    
+                    Random
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.14" data-path="../input/serial.html">
+            
+                <a href="../input/serial.html">
+            
+                    
+                    Serial Interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.15" data-path="../input/stdin.html">
+            
+                <a href="../input/stdin.html">
+            
+                    
+                    Standard Input
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.16" data-path="../input/syslog.html">
+            
+                <a href="../input/syslog.html">
+            
+                    
+                    Syslog
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.17" data-path="../input/systemd.html">
+            
+                <a href="../input/systemd.html">
+            
+                    
+                    Systemd
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.18" data-path="../input/tail.html">
+            
+                <a href="../input/tail.html">
+            
+                    
+                    Tail
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.19" data-path="../input/tcp.html">
+            
+                <a href="../input/tcp.html">
+            
+                    
+                    TCP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../parser/">
+            
+                <a href="../parser/">
+            
+                    
+                    Parsers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../parser/json.html">
+            
+                <a href="../parser/json.html">
+            
+                    
+                    JSON Parser
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../parser/regular_expression.html">
+            
+                <a href="../parser/regular_expression.html">
+            
+                    
+                    Regular Expression Parser
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../parser/decoder.html">
+            
+                <a href="../parser/decoder.html">
+            
+                    
+                    Decoders
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../filter/">
+            
+                <a href="../filter/">
+            
+                    
+                    Filter Plugins
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../filter/grep.html">
+            
+                <a href="../filter/grep.html">
+            
+                    
+                    Grep
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../filter/kubernetes.html">
+            
+                <a href="../filter/kubernetes.html">
+            
+                    
+                    Kubernetes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../filter/lua.html">
+            
+                <a href="../filter/lua.html">
+            
+                    
+                    Lua
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../filter/parser.html">
+            
+                <a href="../filter/parser.html">
+            
+                    
+                    Parser
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="../filter/record_modifier.html">
+            
+                <a href="../filter/record_modifier.html">
+            
+                    
+                    Record Modifier
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="../filter/stdout.html">
+            
+                <a href="../filter/stdout.html">
+            
+                    
+                    Standard Output
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7" data-path="../filter/throttle.html">
+            
+                <a href="../filter/throttle.html">
+            
+                    
+                    Throttle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.8" data-path="../filter/nest.html">
+            
+                <a href="../filter/nest.html">
+            
+                    
+                    Nest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.9" data-path="../filter/modify.html">
+            
+                <a href="../filter/modify.html">
+            
+                    
+                    Modify
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../output/">
+            
+                <a href="../output/">
+            
+                    
+                    Output Plugins
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../output/azure.html">
+            
+                <a href="../output/azure.html">
+            
+                    
+                    Azure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../output/counter.html">
+            
+                <a href="../output/counter.html">
+            
+                    
+                    Counter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../output/elasticsearch.html">
+            
+                <a href="../output/elasticsearch.html">
+            
+                    
+                    Elasticsearch
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../output/file.html">
+            
+                <a href="../output/file.html">
+            
+                    
+                    File
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../output/flowcounter.html">
+            
+                <a href="../output/flowcounter.html">
+            
+                    
+                    FlowCounter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="../output/forward.html">
+            
+                <a href="../output/forward.html">
+            
+                    
+                    Forward
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="../output/http.html">
+            
+                <a href="../output/http.html">
+            
+                    
+                    HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="../output/influxdb.html">
+            
+                <a href="../output/influxdb.html">
+            
+                    
+                    InfluxDB
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.9" data-path="../output/kafka.html">
+            
+                <a href="../output/kafka.html">
+            
+                    
+                    Kafka
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.10" data-path="../output/kafka-rest-proxy.html">
+            
+                <a href="../output/kafka-rest-proxy.html">
+            
+                    
+                    Kafka REST Proxy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.11" data-path="../output/nats.html">
+            
+                <a href="../output/nats.html">
+            
+                    
+                    NATS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.12" data-path="../output/null.html">
+            
+                <a href="../output/null.html">
+            
+                    
+                    NULL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.13" data-path="../output/stdout.html">
+            
+                <a href="../output/stdout.html">
+            
+                    
+                    Standard Output
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.14" data-path="../output/splunk.html">
+            
+                <a href="../output/splunk.html">
+            
+                    
+                    Splunk
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.15" data-path="../output/td.html">
+            
+                <a href="../output/td.html">
+            
+                    
+                    Treasure Data
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../development/">
+            
+                <a href="../development/">
+            
+                    
+                    Fluent Bit for Developers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../development/library_api.html">
+            
+                <a href="../development/library_api.html">
+            
+                    
+                    Library API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../development/ingest_records_manually.html">
+            
+                <a href="../development/ingest_records_manually.html">
+            
+                    
+                    Ingest Records Manually
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Memory Usage</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="about-memory-usage">About Memory Usage</h1>
+<p>In certain scenarios would be ideal to estimate how much memory Fluent Bit could be using, this is very useful for containerized environments where memory limits are a must.</p>
+<p>In order to estimate we will assume that the input plugins have set the <strong>Mem_Buf_Limit</strong> option (you can learn more about it in the <a href="backpressure.html">Backpressure</a> section).</p>
+<h2 id="estimating">Estimating</h2>
+<p>Input plugins append data independently, so in order to do an estimation a limit should be imposed through the <strong>Mem_Buf_Limit</strong> option. If the limit was set to <em>10MB</em> we need to estimate that in the worse case, the output plugin likely could use <em>20MB</em>.</p>
+<p>Fluent Bit has an internal binary representation for the data being processed, but when this data reach an output plugin, this one will likely create their own representation in a new memory buffer for processing. The best example are the <a href="../output/influxdb.html">InfluxDB</a> and <a href="../output/elasticsearch.html">Elasticsearch</a> output plugins, both needs to convert the binary repesentation to their respective-custom JSON formats before to talk to their backend servers.</p>
+<p>So, if we impose a limit of <em>10MB</em> for the input plugins and considering the worse case scenario of the output plugin consuming <em>20MB</em> extra, as a minimum we need (<em>30MB</em> x 1.2) = <strong>36MB</strong>.</p>
+<h2 id="glibc-and-memory-fragmentation">Glibc and Memory Fragmentation</h2>
+<p>Is well known that in intensive environments where memory allocations happens in the order of magnitude, the default memory allocator provided by Glibc could lead to a high fragmentation, reporting a high memory usage by the service.</p>
+<p>It&apos;s strongly suggested that in any production environment, Fluent Bit should be built with <a href="http://jemalloc.net/" target="_blank">jemalloc</a> enabled (e.g. <code>-DFLB_JEMALLOC=On</code>).
+Jemalloc is an alternative memory allocator that can reduce fragmentation (among others things) resulting in better performance.</p>
+<p>You can check if Fluent Bit has been built with Jemalloc using the following command:</p>
+<pre><code>$ bin/fluent-bit -h|grep JEMALLOC
+</code></pre><p>The output should looks like:</p>
+<pre><code>Build Flags =  JSMN_PARENT_LINKS JSMN_STRICT FLB_HAVE_TLS FLB_HAVE_SQLDB
+FLB_HAVE_TRACE FLB_HAVE_FLUSH_LIBCO FLB_HAVE_VALGRIND FLB_HAVE_FORK
+FLB_HAVE_PROXY_GO FLB_HAVE_JEMALLOC JEMALLOC_MANGLE FLB_HAVE_REGEX
+FLB_HAVE_C_TLS FLB_HAVE_SETJMP FLB_HAVE_ACCEPT4 FLB_HAVE_INOTIFY
+</code></pre><p>If the FLB_JEMALLOC option is listed in <em>Build Flags</em>, everything will be fine.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="backpressure.html" class="navigation navigation-prev " aria-label="Previous page: Backpressure">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../input/" class="navigation navigation-next " aria-label="Next page: Input Plugins">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Memory Usage","level":"1.5.9","depth":2,"next":{"title":"Input Plugins","level":"1.6","depth":1,"path":"input/README.md","ref":"input/README.md","articles":[{"title":"CPU Usage","level":"1.6.1","depth":2,"path":"input/cpu.md","ref":"input/cpu.md","articles":[]},{"title":"Disk Usage","level":"1.6.2","depth":2,"path":"input/disk.md","ref":"input/disk.md","articles":[]},{"title":"Dummy","level":"1.6.3","depth":2,"path":"input/dummy.md","ref":"input/dummy.md","articles":[]},{"title":"Exec","level":"1.6.4","depth":2,"path":"input/exec.md","ref":"input/exec.md","articles":[]},{"title":"Forward","level":"1.6.5","depth":2,"path":"input/forward.md","ref":"input/forward.md","articles":[]},{"title":"Head","level":"1.6.6","depth":2,"path":"input/head.md","ref":"input/head.md","articles":[]},{"title":"Health","level":"1.6.7","depth":2,"path":"input/health.md","ref":"input/health.md","articles":[]},{"title":"Kernel Log Buffer","level":"1.6.8","depth":2,"path":"input/kmsg.md","ref":"input/kmsg.md","articles":[]},{"title":"Memory Usage","level":"1.6.9","depth":2,"path":"input/mem.md","ref":"input/mem.md","articles":[]},{"title":"MQTT","level":"1.6.10","depth":2,"path":"input/mqtt.md","ref":"input/mqtt.md","articles":[]},{"title":"Network Traffic","level":"1.6.11","depth":2,"path":"input/netif.md","ref":"input/netif.md","articles":[]},{"title":"Process","level":"1.6.12","depth":2,"path":"input/proc.md","ref":"input/proc.md","articles":[]},{"title":"Random","level":"1.6.13","depth":2,"path":"input/random.md","ref":"input/random.md","articles":[]},{"title":"Serial Interface","level":"1.6.14","depth":2,"path":"input/serial.md","ref":"input/serial.md","articles":[]},{"title":"Standard Input","level":"1.6.15","depth":2,"path":"input/stdin.md","ref":"input/stdin.md","articles":[]},{"title":"Syslog","level":"1.6.16","depth":2,"path":"input/syslog.md","ref":"input/syslog.md","articles":[]},{"title":"Systemd","level":"1.6.17","depth":2,"path":"input/systemd.md","ref":"input/systemd.md","articles":[]},{"title":"Tail","level":"1.6.18","depth":2,"path":"input/tail.md","ref":"input/tail.md","articles":[]},{"title":"TCP","level":"1.6.19","depth":2,"path":"input/tcp.md","ref":"input/tcp.md","articles":[]}]},"previous":{"title":"Backpressure","level":"1.5.8","depth":2,"path":"configuration/backpressure.md","ref":"configuration/backpressure.md","articles":[]},"dir":"ltr"},"config":{"plugins":["addcssjs"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.12 Documentation","gitbook":"*"},"file":{"path":"configuration/memory_usage.md","mtime":"2018-05-01T12:12:38.382Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-21T21:36:45.721Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    
+    <script type="text/javascript" src="../js/heapanalytics.js"></script>
+    
+    <script type="text/javascript" src="../js/googleanalytics.js"></script>
+    
+
+    </body>
+</html>
+
