@@ -23,5 +23,5 @@ This is a minor fix release over 0.13 series that includes the following changes
 
 We would like to thanks to the following people who have been involved doing coding, bug fixes, troubleshooting, documentation, reporting issues and general contributions on this release:
 
-- [Carl Henrik Lunde]()
+- [Carl Henrik Lunde](https://github.com/chlunde)
 - [Eduardo Silva](https://github.com/edsiper)
