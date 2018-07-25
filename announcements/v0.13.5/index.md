@@ -17,7 +17,7 @@ This is a minor fix release over 0.13 series that includes the following changes
    - JSON and Regex: do not stop packing on time lookup error
    - Configuration: add new CRIO parser
  - Plugins
-   - [Kafka Rest (Output)](https://fluentbit.io/documentation/0.13/output/kafka_rest.html): fix fractional seconds formatting.
+   - [Kafka Rest (Output)](https://fluentbit.io/documentation/0.13/output/kafka-rest-proxy.html): fix fractional seconds formatting.
    - [Elasticsearch (Output)](https://fluentbit.io/documentation/0.13/output/elasticsearch.html): fix fractional seconds formatting.
 
 ## Contributors
