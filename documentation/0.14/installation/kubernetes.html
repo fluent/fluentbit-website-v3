@@ -1188,7 +1188,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.13" data-path="../output/stdout.html">
+        <li class="chapter " data-level="1.9.13" data-path="../output/stackdriver.html">
+            
+                <a href="../output/stackdriver.html">
+            
+                    
+                    Stackdriver
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.14" data-path="../output/stdout.html">
             
                 <a href="../output/stdout.html">
             
@@ -1201,7 +1214,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.14" data-path="../output/splunk.html">
+        <li class="chapter " data-level="1.9.15" data-path="../output/splunk.html">
             
                 <a href="../output/splunk.html">
             
@@ -1214,7 +1227,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.15" data-path="../output/td.html">
+        <li class="chapter " data-level="1.9.16" data-path="../output/td.html">
             
                 <a href="../output/td.html">
             
@@ -1368,9 +1381,9 @@ $ kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernet
 <p>The default configuration of Fluent Bit makes sure of the following:</p>
 <ul>
 <li>Consume all containers logs from the running Node.</li>
-<li>The <a href="http://fluentbit.io/documentation/0.12/input/tail.html" target="_blank">Tail input plugin</a> will not append more than <strong>5MB</strong>  into the engine until they are flushed to the Elasticsearch backend. This limit aims to provide a workaround for <a href="http://fluentbit.io/documentation/0.12/configuration/backpressure.html" target="_blank">backpressure</a> scenarios.</li>
+<li>The <a href="http://fluentbit.io/documentation/0.14/input/tail.html" target="_blank">Tail input plugin</a> will not append more than <strong>5MB</strong>  into the engine until they are flushed to the Elasticsearch backend. This limit aims to provide a workaround for <a href="http://fluentbit.io/documentation/0.14/configuration/backpressure.html" target="_blank">backpressure</a> scenarios.</li>
 <li>The Kubernetes filter will enrich the logs with Kubernetes metadata, specifically <em>labels</em> and <em>annotations</em>. The filter only goes to the API Server when it cannot find the cached info, otherwise it uses the cache.</li>
-<li>The default backend in the configuration is Elasticsearch set by the <a href="http://fluentbit.io/documentation/0.11/output/elasticsearch.html" target="_blank">Elasticsearch Ouput Plugin</a>. It uses the Logstash format to ingest the logs. If you need a different Index and Type, please refer to the plugin option and do your own adjustments.</li>
+<li>The default backend in the configuration is Elasticsearch set by the <a href="http://fluentbit.io/documentation/0.14/output/elasticsearch.html" target="_blank">Elasticsearch Ouput Plugin</a>. It uses the Logstash format to ingest the logs. If you need a different Index and Type, please refer to the plugin option and do your own adjustments.</li>
 <li>There is an option called <strong>Retry_Limit</strong> set to False, that means if Fluent Bit cannot flush the records to Elasticsearch it will re-try indefinitely until it succeed.</li>
 </ul>
 
@@ -1416,7 +1429,7 @@ $ kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernet
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Kubernetes","level":"1.3.5","depth":2,"next":{"title":"TD Agent Bit","level":"1.3.6","depth":2,"path":"installation/td-agent-bit.md","ref":"installation/td-agent-bit.md","articles":[]},"previous":{"title":"Docker Images","level":"1.3.4","depth":2,"path":"installation/docker.md","ref":"installation/docker.md","articles":[]},"dir":"ltr"},"config":{"plugins":["addcssjs"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.12 Documentation","gitbook":"*"},"file":{"path":"installation/kubernetes.md","mtime":"2018-06-15T23:53:03.129Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-15T23:53:07.274Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Kubernetes","level":"1.3.5","depth":2,"next":{"title":"TD Agent Bit","level":"1.3.6","depth":2,"path":"installation/td-agent-bit.md","ref":"installation/td-agent-bit.md","articles":[]},"previous":{"title":"Docker Images","level":"1.3.4","depth":2,"path":"installation/docker.md","ref":"installation/docker.md","articles":[]},"dir":"ltr"},"config":{"plugins":["addcssjs"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.12 Documentation","gitbook":"*"},"file":{"path":"installation/kubernetes.md","mtime":"2018-08-01T05:41:19.464Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-01T05:41:27.560Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
