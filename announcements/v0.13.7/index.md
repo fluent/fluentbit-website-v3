@@ -1,7 +1,7 @@
 ---
 layout: documentation
 version: v0.13.7
-title: Fluent Bit v0.13.6 - Release Notes
+title: Fluent Bit v0.13.7 - Release Notes
 intro: Release Notes
 ---
 
