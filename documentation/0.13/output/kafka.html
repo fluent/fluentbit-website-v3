@@ -1310,7 +1310,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="apache-kafka">Apache Kafka</h1>
-<p>Kafka output plugin allows to ingest your records into an <a href="https://kafka.apache.org/" target="_blank">Apache Kafka</a> service. This plugin use the official librdkafka C library (built-in dependency)</p>
+<p>Kafka output plugin allows to ingest your records into an <a href="https://kafka.apache.org/" target="_blank">Apache Kafka</a> service. This plugin use the official <a href="https://github.com/edenhill/librdkafka" target="_blank">librdkafka C library</a> (built-in dependency)</p>
 <h2 id="configuration-parameters">Configuration Parameters</h2>
 <table>
 <thead>
@@ -1349,9 +1349,17 @@
 <tr>
 <td>Topic_Key</td>
 <td>If multiple Topics exists, the value of Topic<em>Key in the record will indicate the topic to use. E.g: if Topic_Key is _router</em> and the record is {&quot;key1&quot;: 123, &quot;router&quot;: &quot;route<em>2&quot;}, Fluent Bit will use topic _route_2</em>. Note that the topic <strong>must</strong> be registered in the Topics list.</td>
+<td></td>
+</tr>
+<tr>
+<td>rdkafka.{property}</td>
+<td><code>{property}</code> can be any <a href="https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md" target="_blank">librdkafka properties</a></td>
 </tr>
 </tbody>
 </table>
+<blockquote>
+<p>Setting <code>rdkafka.log.connection.close</code> to <code>false</code> and <code>rdkafka.request.required.acks</code> to 1 are examples of recommended settings of librdfkafka properties.</p>
+</blockquote>
 <h2 id="getting-started">Getting Started</h2>
 <p>In order to insert records into Apache Kafka, you can run the plugin from the command line or through the configuration file:</p>
 <h3 id="command-line">Command Line</h3>
@@ -1410,7 +1418,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Kafka","level":"1.9.9","depth":2,"next":{"title":"Kafka REST Proxy","level":"1.9.10","depth":2,"path":"output/kafka-rest-proxy.md","ref":"output/kafka-rest-proxy.md","articles":[]},"previous":{"title":"InfluxDB","level":"1.9.8","depth":2,"path":"output/influxdb.md","ref":"output/influxdb.md","articles":[]},"dir":"ltr"},"config":{"plugins":["addcssjs"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.12 Documentation","gitbook":"*"},"file":{"path":"output/kafka.md","mtime":"2018-04-30T09:40:33.943Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-10T21:28:54.037Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Kafka","level":"1.9.9","depth":2,"next":{"title":"Kafka REST Proxy","level":"1.9.10","depth":2,"path":"output/kafka-rest-proxy.md","ref":"output/kafka-rest-proxy.md","articles":[]},"previous":{"title":"InfluxDB","level":"1.9.8","depth":2,"path":"output/influxdb.md","ref":"output/influxdb.md","articles":[]},"dir":"ltr"},"config":{"plugins":["addcssjs"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"addcssjs":{"js":["js/heapanalytics.js","js/googleanalytics.js"],"css":[]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fluent Bit v0.12 Documentation","gitbook":"*"},"file":{"path":"output/kafka.md","mtime":"2018-08-18T19:27:09.743Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-18T19:27:23.626Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
