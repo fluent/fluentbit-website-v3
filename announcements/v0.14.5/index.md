@@ -30,5 +30,6 @@ This is a minor fix release over 0.14 series that includes the following changes
 We would like to thanks to the following people who have been involved doing coding, bug fixes, troubleshooting, documentation, reporting issues and general contributions on this release:
 
 - [Fujimoto Seiji](https://github.com/fujimotos)
-- [xanonid]
+- [Don Bowman](https://github.com/donbowman)
+- [xanonid](https://github.com/xanonid)
 - [Eduardo Silva](https://github.com/edsiper)
