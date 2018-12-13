@@ -16,6 +16,6 @@ permalink: /blog/:year/:month/:day/:title/
 # Build settings
 #markdown: kramdown
 markdown: redcarpet
-flb_major       : "0.14"
-flb_version     : 0.14.9
-flb_release_date: Dec 07, 2018
+flb_major       : "1.0"
+flb_version     : 1.0.0
+flb_release_date: Dec 13, 2018
