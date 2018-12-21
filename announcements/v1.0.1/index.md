@@ -14,11 +14,9 @@ intro: Release Notes
 This is a minor release over 1.0 series that includes the following changes:
 
  - Core
-     - Pack: improve performance on buffer allocation strategy.
-     - Golang Proxy: fix return value validation on plugin initialization.
- - Plugins
-     - [Nats (Output)](https://docs.fluentbit.io/manual/output/nats): fix segmentation fault caused by long topic names.
-     - [Parser (Filter)](https://docs.fluentbit.io/manual/filter/parser): fix multiple parsers registration.
+     - Tasks: copy Tag buffer to avoid routing issues and further invalid references.
+     - Filter: fix buffer managemen on chain filters.
+     - Filter: compose a safe Tag and fix write offset when replacing records.
 
 ## Contributors
 
