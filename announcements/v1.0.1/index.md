@@ -15,7 +15,7 @@ This is a minor release over 1.0 series that includes the following changes:
 
  - Core
      - Tasks: copy Tag buffer to avoid routing issues and further invalid references.
-     - Filter: fix buffer managemen on chain filters.
+     - Filter: fix buffer management on chain filters.
      - Filter: compose a safe Tag and fix write offset when replacing records.
 
 ## Contributors
