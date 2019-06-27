@@ -99,7 +99,7 @@ The following version implements proper fixes for our co-routines backend in ARM
 
 Continuing with our Windows suport, we have introduced a new Windows Event Log plugin:
 
-https://docs.fluentbit.io/manual/input/window
+https://docs.fluentbit.io/manual/input/winlog
 
 <br>
 ### Development: new support for external (Dynamic C) plugins!
