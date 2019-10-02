@@ -162,7 +162,9 @@ Performance is usually a complex topic due to diverse scenarios of environments 
 
 ## Contributors
 
-We would like to thanks to the following people who have been involved doing coding, bug fixes, troubleshooting, documentation, reporting issues and general contributions on this release:
+On every release, there are many people involved doing contributions on different areas, this include bug reporting and troubleshooting. Since the list grows every time, it's hard to mention every single person involved. In a best effort possible, we are mentioning people who have signed contributions in our GIT project history through commits.
+
+We would like to thanks to the following people who have been involved doing coding, bug fixes, documentation and general contributions on this release:
 
 - [Eduardo Silva](https://github.com/edsiper)
 - [Fujimoto Seiji](https://github.com/fujimotos)
