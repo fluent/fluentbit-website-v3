@@ -47,7 +47,7 @@ For people upgrading from previous versions you __must read__ the Upgrading Note
    - [Kubernetes (Filter)](https://docs.fluentbit.io/manual/pipeline/filters/kubernetes/)
       - stop caching metadata for failed api server query (#1851)
    - [PGSQL (Output)](https://docs.fluentbit.io/manual/pipeline/outputs/pgsql/)
-      - added column tag and time to postgresql table, this will allow users (#2169)
+      - added column tag and time to postgresql table, this will allow users to better partition the table and distribute a big amount of data (#2169)
 
 ## Contributors
 
