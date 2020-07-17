@@ -20,5 +20,5 @@ redcarpet:
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "strikethrough", "superscript", "with_toc_data"]
 
 flb_major       : "1.5"
-flb_version     : 1.5.0
-flb_release_date: Jul 13, 2020
+flb_version     : 1.5.1
+flb_release_date: Jul 17, 2020
