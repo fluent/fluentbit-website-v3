@@ -1,7 +1,7 @@
 ---
 layout: documentation
-version: v1.5.1
-title: Fluent Bit v1.5.1 - Release Notes
+version: v1.5.2
+title: Fluent Bit v1.5.2 - Release Notes
 intro: Release Notes
 ---
 
@@ -21,15 +21,20 @@ For people upgrading from previous versions you __must read__ the Upgrading Note
 <br>
 ### List of general changes
 
+ - Core
+   - env: add missing variable initialization
+   - lib: tutf8e: change CMAKE_C_FLAGS to append options to fix Yocto recipe build
+   - tests:
+     - extend Stackdriver runtime test
+     - new Datadog runtime test
+
  - Plugins
    - [Forward (Input)](https://docs.fluentbit.io/manual/pipeline/inputs/forward/)
-      - Improve handling of 'options' protocol field to bring compatibility with old Docker 18.x (#2355)
-   - [Tail (Input)](https://docs.fluentbit.io/manual/pipeline/inputs/tail/)
-      - Now the ```path``` property supports multiple patterns separated by comma (#1508)
-   - [HTTP (Output)](https://docs.fluentbit.io/manual/pipeline/outputs/http/)
-      - Do not print payload on success if not set (#2358)
-   - [New Relic (Output)](https://docs.fluentbit.io/manual/pipeline/outputs/nrlogs/)
-      - Wrap payload output in an array to match the new API
+      - Fix options validation field (#2371)
+   - [Stackdriver (Output)](https://docs.fluentbit.io/manual/pipeline/outputs/stackdriver/)
+      - Initialize entry size at the beginning of the loop
+   - [Datadog (Output)](https://docs.fluentbit.io/manual/pipeline/outputs/datadog/)
+      - Fix memory leak on remapping, register formatter and code style cleanups (#2379)
 
 ## Contributors
 
@@ -37,6 +42,6 @@ On every release, there are many people involved doing contributions on differen
 
 Since the list grows every time, it's hard to mention every single person involved. In a best effort possible, we are mentioning people who have signed contributions in our GIT project history through commits. We would like to thanks to the following people who have been involved doing coding, bug fixes, documentation and general contributions on this release:
 
-- [Fujimoto Seiji](https://github.com/fujimotos)
-- [Julian Giuca](https://github.com/juliangiuca)
+- [Shunchao Gao](https://github.com/scgao)
+- [Jonathan Crockett](https://github.com/siqjonathan)
 - [Eduardo Silva](https://github.com/edsiper)
