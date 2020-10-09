@@ -124,6 +124,10 @@ Learn more about this plugin here:
 
 The new version of the Google Stackdriver plugin, supports monitored resource ingestion from the log entry, in addition it comes with correction of project id usage.
 
+If you are upgrading from a previous version please review the Upgrade Notes:
+
+- [https://docs.fluentbit.io/manual/installation/upgrade-notes](https://docs.fluentbit.io/manual/installation/upgrade-notes)
+
 Learn more about this plugin here:
 
 - [https://docs.fluentbit.io/manual/pipeline/outputs/stackdriver](https://docs.fluentbit.io/manual/pipeline/outputs/stackdriver)
