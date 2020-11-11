@@ -15,6 +15,14 @@ https://docs.fluentbit.io/manual/installation/upgrade_notes
 
 <br>
 
+## Give us Feedback!
+
+Dear user, we would love to learn more about your journey using Fluentd / Fluent Bit, if you want to give us some useful feedback please fill the __1 minute__ community survey to help us understand your challenges and overall feedback:
+
+- https://www.cognitoforms.com/Fluentecosystem/FluentEcosystemSurvey
+
+If you are able to give us more than 1 minute of your time, let us know in the form so we can contact you back!
+
 ## Changes
 
 [Fluent Bit](https://fluentbit.io) v1.6.4 is the minor release on 1.6 that comes with the following changes:
