@@ -11,7 +11,7 @@ intro: Release Notes
 
 For people upgrading from previous versions you __must read__ the Upgrading Notes section of our documentation:
 
-https://docs.fluentbit.io/manual/installation/upgrade_notes
+- <a href="https://docs.fluentbit.io/manual/installation/upgrade_notes">https://docs.fluentbit.io/manual/installation/upgrade_notes</a>
 
 <br>
 
@@ -19,7 +19,7 @@ https://docs.fluentbit.io/manual/installation/upgrade_notes
 
 Dear user, we would love to learn more about your journey using Fluentd / Fluent Bit, if you want to give us some useful feedback please fill the __1 minute__ community survey to help us understand your challenges and overall feedback:
 
-- https://www.cognitoforms.com/Fluentecosystem/FluentEcosystemSurvey
+- <a href="https://www.cognitoforms.com/Fluentecosystem/FluentEcosystemSurvey">https://www.cognitoforms.com/Fluentecosystem/FluentEcosystemSurvey</a>
 
 If you are able to give us more than 1 minute of your time, let us know in the form so we can contact you back!
 
