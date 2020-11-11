@@ -23,6 +23,7 @@ Dear user, we would love to learn more about your journey using Fluentd / Fluent
 
 If you are able to give us more than 1 minute of your time, let us know in the form so we can contact you back!
 
+<br>
 ## Changes
 
 [Fluent Bit](https://fluentbit.io) v1.6.4 is the minor release on 1.6 that comes with the following changes:
