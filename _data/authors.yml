@@ -1,0 +1,13 @@
+eduardo:
+    name: Eduardo Silva
+    email: edsiper@gmail.com
+    twitter: https://twitter.com/edsiper
+    bio: Eduardo is an open source engineer, he created and maintains Fluent Bit project.
+    image: https://pbs.twimg.com/profile_images/1001168818113163266/BqKVqKSo_400x400.jpg
+
+anurag:
+    name: Anurag Gupta
+    email: agup006@gmail.com
+    twitter: https://twitter.com/agup006
+    bio: Fluentd PM
+

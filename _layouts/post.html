@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+  <!-- Look the author details up from the site config. -->
   {% include head.html %}
 
   <body class="header-fixed header-fixed-space">
@@ -12,12 +12,11 @@
         <div class="container">
           <h1>{{ page.title }}</h1>
           <p class="post-meta">
-            {{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}
+            {{ page.date | date: "%b %-d, %Y" }} {% if page.meta %} • {{ page.meta }}{% endif %}
           </p>
         </div>
       </div>
       <!-- End Interactive Slider v2 -->
-
       <!--=== Content ===-->
       <div class="container flb-intro">
         <div class="headline-left margin-bottom-40">
@@ -25,9 +24,22 @@
 
         <div class="row margin-bottom-60">
           <div class="col-sm-8 col-sm-offset-2">
+<!-- Look the author details up from the site config. -->
+{% assign author = site.data.authors[page.author] %}
+
+<!-- Output author details if some exist. -->
+{% if author %}
+    <div class="col-sm" align="right">
+        <span>
+	   <small>
+            Written by <a href="{{ author.web }}">{{ author.name }}</a>
+           </small>
+        </span>
+	<br/><br/>
+    </div>
+{% endif %}
 
             {{ content }}
-
           </div>
         </div>
       </div>
