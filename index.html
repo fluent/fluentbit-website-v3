@@ -9,17 +9,19 @@ layout: home
   <div class="row margin-bottom-60">
     <div class="col-sm-6">
       <p>
-        Fluent Bit is an open source and multi-platform <strong>Log Processor and Forwarder</strong>
-        which allows you to collect data/logs from different sources, unify and send them to
-        multiple destinations. It's fully compatible with Docker and <a href="/kubernetes/">Kubernetes</a> environments.
+        Fluent Bit is an open source <strong>Log Processor and Forwarder</strong>
+        which allows you to collect any data like metrics and logs from different sources, enrich them with filters
+        and send them to multiple destinations. It's the preferred choice for containerized environments like
+        <a href="/kubernetes/">Kubernetes</a>.
       </p>
       <p>
-        Fluent Bit is written in <strong>C</strong>, have a pluggable architecture supporting
-        around 30 extensions. It's fast and lightweight and provide the
-        required security for network operations through TLS.
+        Fluent Bit is designed with performance in mind: high throughput with low CPU and Memory usage. It's written
+        in <strong>C</strong> language and has a pluggable architecture supporting more than 70 extensions for inputs,
+        filters and outputs.
       </p>
       <p>
-
+        Fluent Bit is a <a href="https://cncf.io">CNCF (Cloud Native Computing Foundation)</a> subproject under the umbrella
+        of <a href="https://www.fluentd.org">Fluentd</a>. We are part of a wide community, no vendor lock-in.
       </p>
       <div class="text-right">
         <a target="_blank" href="https://docs.fluentbit.io/">
@@ -48,10 +50,10 @@ layout: home
           <span>Lightweight</span>
         </h2>
         <p>
-          It have been designed to be lightweight and provide high performance.
-          All I/O operations are made in asynchronous mode (event-driven), all data internally
-          is serialized in binary mode.
-          </p>
+          It has been designed as a lightweight solution with high performance in mind.
+          From a design perspective, it's fully asynchronous (event-driven) and take the
+          most of the operating systems API for performance and reliability.
+        </p>
       </div>
       <div class="col-sm-4 sm-margin-bottom-40">
         <h2 class="heading-sm">
@@ -59,18 +61,18 @@ layout: home
           <span>Extensible</span>
         </h2>
         <p>
-          All input and output features are implemented through the plugins
-          interface. At build enable just include what you really need. Create your own
-          plugins easily.
+          All inputs, filters and outputs features are implemented through the plugins
+          interface. Extend the features with C, Lua (filters) or Golang (outputs).
         </p>
       </div>
       <div class="col-sm-4">
         <h2 class="heading-sm">
           <i class="icon-custom rounded-x icon-sm icon-bg-red icon-line fa fa-area-chart"></i>
-          <span>Built-in Metrics</span>
+          <span>Metrics</span>
         </h2>
         <p>Meassuring is important. Fluent Bit comes with native plugins to gather metrics
-          from your CPU and Memory usage on Linux systems.
+          from your CPU, Memory, Disk I/O and Network usage on Linux systems. In addition, it
+          can receive metrics from external services like Statsd and Collectd.
         </p>
       </div>
     </div>
@@ -99,11 +101,10 @@ layout: home
     <div class="content-boxes-v3 margin-bottom-10 md-margin-bottom-20">
       <i class="icon-custom icon-sm rounded-x icon-bg-green fa fa-arrows"></i>
       <div class="content-boxes-in-v3">
-        <h3>Routing</h3>
+        <h3>Flexible Routing</h3>
         <p>
-          The data that comes through an Input plugin, is <strong>tagged</strong>. The Routing
-          mechanism allows to specify where these records should be delivered. It also allows
-          to deliver one record to multiple destinations.
+          The data that comes in the pipeline, can be routed to multiple places using custom
+          routing rules. Ship your data to multiple places with zero-copy strategy.
         </p>
       </div>
     </div>
@@ -112,7 +113,7 @@ layout: home
       <div class="content-boxes-in-v3">
         <h3>Configuration</h3>
         <p>
-          The service use a simple and human-readable configuration file, it allow to specify
+          It configuration is very simple and human-readable, it allow to specify
           how it will behave, which features to enable and how Routing is performed. Optionally
           Fluent Bit can run from the command line without it.
         </p>
@@ -143,9 +144,9 @@ layout: home
     <div class="content-boxes-v3 margin-bottom-10 md-margin-bottom-20">
       <i class="icon-custom icon-sm rounded-x icon-bg-sea fa fa-lock"></i>
       <div class="content-boxes-in-v3">
-        <h3>TLSv1.2 / Security</h3>
+        <h3>Security & TLS</h3>
         <p>
-          When delivering data to destinations, output plugins inherit full TLS
+          When delivering data to destinations, output connectors inherit full TLS
           capabilities in an abstracted way. Add your certificates as required.
         </p>
       </div>
