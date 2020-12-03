@@ -1,13 +1,13 @@
 ---
 layout: documentation
-version: v1.6.7
-title: Fluent Bit v1.6.7 - Release Notes
+version: v1.6.8
+title: Fluent Bit v1.6.8 - Release Notes
 intro: Release Notes
 ---
 
-# Release Notes v1.6.7
+# Release Notes v1.6.8
 
-[Fluent Bit](http://fluentbit.io) is a Fast and Lightweight Data Processor and Forwarder for Linux, BSD and OSX. We are proud to announce the availability of __Fluent Bit v1.6.7__.
+[Fluent Bit](http://fluentbit.io) is a Fast and Lightweight Data Processor and Forwarder for Linux, BSD and OSX. We are proud to announce the availability of __Fluent Bit v1.6.8__.
 
 For people upgrading from previous versions you __must read__ the Upgrading Notes section of our documentation:
 
@@ -26,7 +26,7 @@ If you are able to give us more than 1 minute of your time, let us know in the f
 <br>
 ## Changes
 
-[Fluent Bit](https://fluentbit.io) v1.6.7 is the minor release on 1.6 that comes with the following changes:
+[Fluent Bit](https://fluentbit.io) v1.6.8 is the minor release on 1.6 that comes with the following changes:
 
  - Core
    - socket: fix error socket status check (#2826 #2827)
