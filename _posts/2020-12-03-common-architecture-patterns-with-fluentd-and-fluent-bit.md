@@ -18,7 +18,7 @@ In this blog, we will talk about 3 of the most common architectures that users l
 
 ## Forwarder and Aggregator
 
-One of the more common patterns for Fluent Bit and Fluentd is deploying in what is known as the forwarder/aggregator pattern. This pattern includes having a lightweight instance deployed on edge, generally where data is created, such as Kubernetes nodes or virtual machines. These forwarders do minimal processing and then use the forward protocol to send a much heavier instance of Fluentd or Fluent Bit. This heavier instance, known as the aggregator, may perform more filtering and processing before routing to the appropriate backend(s).
+One of the more common patterns for Fluent Bit and Fluentd is deploying in what is known as the forwarder/aggregator pattern. This pattern includes having a lightweight instance deployed on edge, generally where data is created, such as Kubernetes nodes or virtual machines. These forwarders do minimal processing and then use the forward protocol to send data to a much heavier instance of Fluentd or Fluent Bit. This heavier instance, known as the aggregator, may perform more filtering and processing before routing to the appropriate backend(s).
 
 This filtering can include routing messages to different endpoints depending on different message values, adding fields to every message sent, or redacting values for privacy/security concerns.
 
@@ -34,9 +34,9 @@ This filtering can include routing messages to different endpoints depending on 
 
 ## Sidecar / Agent deployment
 
-Similar to the forwarder deployment, the sidecar/agent model uses deploying Fluentd and Fluent Bit on edge. However, instead of sending data to an aggregator, the sidecar/agents send data directly to a backend service. This method works great if you only have a single backend you need to send data to and is used by cloud giants such as Microsoft, Google, and Amazon. [Azure Log Analytics](https://github.com/microsoft/OMS-Agent-for-Linux), [Google Cloud Operations Suite](https://cloud.google.com/logging/docs/agent/configuration) (formerly Stackdriver), and [AWS](https://github.com/aws/aws-for-fluent-bit).
+Similar to the forwarder deployment, the sidecar/agent model uses deploying Fluentd and Fluent Bit on edge. However, instead of sending data to an aggregator, the sidecar/agents send data directly to a backend service. This method works great if you only have a single backend you need to send data to and is used by cloud giants such as Microsoft, Google, and Amazon when they leverage Fluent Bit as part of their offerings: [Azure Log Analytics](https://github.com/microsoft/OMS-Agent-for-Linux), [Google Cloud Operations Suite](https://cloud.google.com/logging/docs/agent/configuration) (formerly Stackdriver), and [AWS](https://github.com/aws/aws-for-fluent-bit).
 
-Within Kubernetes, this architecture can be further broken down into deploying as a DaemonSet (one agent per Kubernetes node) or deployed as part of an application package. The latter of the Kubernetes specific deployment is useful when log processing from container logs might not prove to be as efficient as directly reading from an application (E.g., Java multi-line processing).
+Within Kubernetes, this architecture can be further broken down into deploying as a DaemonSet (one agent per Kubernetes node) or deployed inside the same Kubernetes pod as the application. The latter of the Kubernetes specific deployment is useful when log processing from container logs might not prove to be as efficient as directly reading from an application (E.g., Java multi-line processing).
 
 **Advantages**
 * No aggregator is needed; each agent handles backpressure.
@@ -49,7 +49,7 @@ Within Kubernetes, this architecture can be further broken down into deploying a
 
 ## Network Device / Syslog aggregator
 
-While Fluentd and Fluent Bit are Cloud Native Computing Foundation (CNCF) projects, they also work very well with legacy logging infrastructure such as Network / Syslog / Firewall devices. One of the most popular inputs for Fluentd and Fluent Bit includes syslog. Some users have deployed pure aggregators to capture all the logs and route to security-focused backends. These aggregators can also include logic to redact certain messages or processes in a more usable way for security applications in end destinations. 
+While Fluentd and Fluent Bit are Cloud Native Computing Foundation (CNCF) projects, they also work very well with legacy logging infrastructure such as Network / Syslog / Firewall devices. One of the most popular inputs for Fluentd and Fluent Bit includes syslog. Some users have deployed pure aggregators to capture all the logs and route to security-focused backends. These aggregators can also include logic to redact certain messages or process messages in a more usable way for security applications in end destinations. 
 
 **Advantages**
 * No agents required; Primarily read from Syslog.
@@ -65,4 +65,4 @@ While Fluentd and Fluent Bit are Cloud Native Computing Foundation (CNCF) projec
 
 Fluentd and Fluent Bit are powerful and flexible applications that you can use as part of your data, observability, and security pipelines. Knowing more about common architecture patterns can help you make your decision to deploy Fluentd and Fluent Bit. 
 
-We invite you to discuss these architecture patterns further with us in the [Fluent Slack channel[(https://slack.fluentd.org), GitHub, or even email. Additionally, if you have feedback on Fluentd, Fluent Bit, or the Fluent Ecosystem, we would appreciate it if you could fill out the following [survey](https://www.cognitoforms.com/Fluentecosystem/FluentEcosystemSurvey).
+We invite you to discuss these architecture patterns further with us in the [Fluent Slack channel](https://slack.fluentd.org), GitHub, or even email. Additionally, if you have feedback on Fluentd, Fluent Bit, or the Fluent Ecosystem, we would appreciate it if you could fill out the following [survey](https://www.cognitoforms.com/Fluentecosystem/FluentEcosystemSurvey).
