@@ -23,17 +23,17 @@ This blog walks through these use cases and how to leverage Fluent Bit's new str
 
 We will be using two Google Cloud Virtual Machines, one with Fluent Bit and Nginx installed and the other with Splunk Enterprise installed.
 
-![Environment](/assets/img/blog-fluentbit-env.png){:class="img-responsive"}
+![Environment](/assets/img/blog/2020-12-02-supercharge/blog-fluentbit-env.png){:class="img-responsive"}
 
 ## Intro to Stream Processing
 
 To understand how the stream processor for Fluent Bit works, we need a quick overview of Fluent Bit's basic architecture. Fluent Bit has a plugin structure: Inputs, Parsers, Filters, Storage, and finally Outputs. In our Nginx to Splunk example, the Nginx logs are input with a known format (parser). They have no filtering, are stored on disk, and finally sent off to Splunk.
 
-![architecture](/assets/img/blog-stream-processor.png){:class="img-responsive"}
+![architecture](/assets/img/blog/2020-12-02-supercharge/blog-stream-processor.png){:class="img-responsive"}
 
 With the Stream Processor, we add a new box to the flow where data in storage can be processed and sent back to Fluent Bit for more processing.
 
-![architecture2](/assets/img/blog-stream-processor2.png){:class="img-responsive"}
+![architecture2](/assets/img/blog/2020-12-02-supercharge/blog-stream-processor2.png){:class="img-responsive"}
 
 ## Use Case 1: Reducing Log volume sent to a single location
 
@@ -91,7 +91,7 @@ In many cases, backend systems give me robust aggregation and calculation abilit
 
 This new configuration includes a rolling window of 1 minute and calculation of how many 404 errors occurred in 15 seconds and then outputs a log that looks like the following.
 
-![splunk-screen](/assets/img/blog-splunk-screen1.png){:class="img-responsive"}
+![splunk-screen](/assets/img/blog/2020-12-02-supercharge/blog-splunk-screen1.png){:class="img-responsive"}
 
 While in our use case, the amount of data saved is small, aggregating across 10,000 messages/second could be extremely powerful.
 
@@ -116,7 +116,7 @@ Then we will add the forecasting to streams.conf file.
 
 In our use case, we generate a forecasting value that will look at a window of 100 seconds, advanced by 1 second or 100 samples. Then we will predict the memory used 125 seconds into the future. Our new record, in this case, will include the average memory and the forecast.
 
-![splunk-screen2](/assets/img/blog-splunk-screen2.png){:class="img-responsive"}
+![splunk-screen2](/assets/img/blog/2020-12-02-supercharge/blog-splunk-screen2.png){:class="img-responsive"}
 
 ## Conclusion
 
