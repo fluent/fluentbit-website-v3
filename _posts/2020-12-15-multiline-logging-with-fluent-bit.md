@@ -1,3 +1,11 @@
+---
+layout: post
+title:  "Multiline log parsing with Fluent Bit"
+date:   2020-12-15
+categories: cloudnative logging news
+author: anurag
+---
+
 # Multiline log parsing with Fluent Bit
 
 There are thousands of different log formats that applications use; however, one of the most challenging structures to collect/parse/transform is multiline logs. While multiline logs are hard to manage, many of them include essential information needed to debug an issue. In this blog, we will walk through multiline log collection challenges and how to use Fluent Bit to collect these critical logs.
