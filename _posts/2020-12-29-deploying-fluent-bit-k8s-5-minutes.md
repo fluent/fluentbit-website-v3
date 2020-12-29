@@ -9,7 +9,7 @@ author: anurag
 
 In this guide, we will walk through deploying Fluent Bit into Kubernetes and writing logs into Splunk. For this blog, I will use an existing Kubernetes and Splunk environment to make steps simple. You can also see an architecture diagram below:
 
-![architecture-diagram](/assets/img/blog/2020-12-29-deploy-kubernetes/architecture.png)
+![architecture-diagram](/assets/img/blog/2020-12-29-deploy-kubernetes/architecture.png){:class="img-responsive"}
 
 
 ## Getting Fluent Bit configuration ready
@@ -90,6 +90,7 @@ kubectl --namespace default port-forward $POD_NAME 2020:2020
 ```
 
 Let's check Splunk for incoming logs.
+
 ![splunk-sample](/assets/img/blog/2020-12-29-deploy-kubernetes/splunk-sample.png){:class="img-responsive"}
 
 ## What happening?
