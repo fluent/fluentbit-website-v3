@@ -10,7 +10,7 @@ author: anurag
 There are thousands of different log formats that applications use; however, one of the most challenging structures to collect/parse/transform is multiline logs. While multiline logs are hard to manage, many of them include essential information needed to debug an issue. In this blog, we will walk through multiline log collection challenges and how to use Fluent Bit to collect these critical logs.
 
 ## Example of Java multiline
-One primary example of multiline log messages is Java stack traces. These logs contain vital information regarding exceptions that might not be handled well in code. Let's use a sample stack track sample from the following blog (INSERT BLOG HERE) :
+One primary example of multiline log messages is Java stack traces. These logs contain vital information regarding exceptions that might not be handled well in code. Let's use a sample stack track sample from the following [blog](https://www.twilio.com/blog/how-to-read-and-understand-a-java-stacktrace):
 
 ```
 Dec 14 06:41:08 Exception in thread "main" java.lang.RuntimeException: Something has gone wrong, aborting!
