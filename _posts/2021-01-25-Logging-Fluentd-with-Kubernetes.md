@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Logging : Fluentd with Kubernetes"
-date:   2020-01-25
+date:   2021-01-25
 categories: cloudnative logging news
 author: hisa-tanaka
 ---
@@ -271,7 +271,7 @@ Once Fluentd DaemonSet become “Running“ status without errors, now you can r
 Logging messages are stored in “FLUENT_ELASTICSEARCH_LOGSTASH_PREFIX” index defined in DaemonSet configuration. In this post, I used "fluentd.k8sdemo" as prefix.
 Fluentd DaemonSet collect log information from “etcd” and “kube-controller-manager“ as well as custom application pods.
 
-![Kibana](/assets/img/blog/2021-01-25-logging/blog-kibanas.png){:class="img-responsive"}
+![Kibana](/assets/img/blog/2021-01-25-logging/blog-kibana.png){:class="img-responsive"}
 
 You can see Fluentd DaemonSet enriches log information with Kubernetes metadata. 
 
