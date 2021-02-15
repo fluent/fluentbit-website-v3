@@ -15,13 +15,13 @@ https://docs.fluentbit.io/manual/installation/upgrade_notes
 
 <br>
 
-## FluentCon is coming! May 4th! Save the Date
+### FluentCon is coming! May 4th! Save the Date
 
 The Fluent ecosystem keeps growing and now we are bringing the best of [Fluentd](https://www.fluentd.org) and [Fluent Bit](https://fluentbit.io)! More information click the banner below:
 
 <center>
     <a href="https://events.linuxfoundation.org/fluentcon/" target="_blank">
-      ![](/assets/img/fluentcon-release.png)
+      <img src="https://fluentbit.io/assets/img/fluentcon-release.png">
     </a>
 </center>
 
