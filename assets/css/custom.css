@@ -51,6 +51,17 @@
 	transform: rotate(40deg);
 }
 
+.service-bg-lts {
+	width: 250px;
+	padding: 20px;
+	position: absolute;
+	top: -10px;
+	right: -80px;
+	/*background-color: rgba(12,25,128,0.1);*/
+        background-color: rgba(72, 140, 222, 1);
+	transform: rotate(40deg);
+}
+
 .service-bg {
 	width: 250px;
 	padding: 20px;
