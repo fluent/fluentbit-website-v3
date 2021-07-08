@@ -97,7 +97,7 @@ By using the new custom health enpoint ```/api/v1/health```, you can get a more 
 
 ### Kubernetes Filter
 
-Our Kubernetes filters uses an internal cache to store Pods metadata to avoid generate load in the API Server. On this version we are introducing a new option to enforce a cache TTL so the cached data can expire at certain intervals, use the new option ```kube_meta_cache_ttl``` to take advantage of this (disabled by deafault).
+Our Kubernetes filters uses an internal cache to store Pods metadata to avoid generate load in the API Server. On this version we are introducing a new option to enforce a cache TTL so the cached data can expire at certain intervals, use the new option ```kube_meta_cache_ttl``` to take advantage of this (disabled by default).
 
 ## Contributors
 
