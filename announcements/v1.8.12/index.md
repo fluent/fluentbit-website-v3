@@ -24,7 +24,7 @@ https://docs.fluentbit.io/manual/installation/upgrade_notes
    - network: properly react to being awoken due to a timeout
    - network: preserve addrlinfo list release address
    - network: argument type error correction
-   - network: added `dns.prefer_ipv4` result priorization option
+   - network: added `net.dns.prefer_ipv4` result priorization option
    - build: add a sample config file for Windows
    - upstream: moved event injection and implemented timeout wakeup mechanism
    - upstream: add new option `net.connect_timeout_log_error` (#4473)
